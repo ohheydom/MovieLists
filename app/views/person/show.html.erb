@@ -1,0 +1,14 @@
+<h2><%= @person.count %> movies</h2>
+
+<table>
+	<% @person.each do |movie| %>
+		<tr>
+			<td><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + movie['poster_path']) unless movie['poster_path'].nil? %>
+			<td><%= link_to (movie['title'] + " (#{Date.parse(movie['release_date']).strftime('%Y') unless (movie['release_date'].empty?)})"), movie_path(movie['id']) %></td> 
+			
+			<td><%= movie['character'] %></td> 
+		</tr>
+	<% end %>
+</table>
+
+

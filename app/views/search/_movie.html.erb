@@ -1,0 +1,11 @@
+<% x = list_movies(@querystring) %>
+Number of results: <%= x['total_results'] %>
+
+<table>
+	<% x['results'].each do |movie| %>
+		<tr>
+			<td><%= image_tag Tmdb::TheMovieDb::PICTURE_URL + movie['poster_path'] unless movie['poster_path'].nil? %></td>
+			<td><%= link_to movie['title'], movie_path(movie['id']) %></td>
+		</tr>
+	<% end %>
+</table>
