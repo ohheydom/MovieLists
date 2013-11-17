@@ -1,4 +1,4 @@
 class Movie < ActiveRecord::Base
 has_many :connectors
-has_many :profiles, through: :connectors
+has_many :users, through: :connectors
 end

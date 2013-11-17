@@ -1,15 +1,30 @@
 MovieLists::Application.routes.draw do
 
   
-  get "home/index"
-  resources :profiles
-  #resources :person
-  #resources :movie
+  devise_for :users
+  
+  	devise_scope :user do
+		get "sign_in", :to => "users/sessions#new"
+		get "sign_up", :to => "users/registrations#new"
+	end
+
+
+  get "home/index"  
   get 'search', to: 'search#index'
   get '/person/:id', to: 'person#show', as: 'person'
   get '/movie/:id', to: 'movie#show', as: 'movie'
   
   root 'home#index'
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
