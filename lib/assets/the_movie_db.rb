@@ -21,12 +21,10 @@ class TheMovieDb
    faraday.headers['Content-Type'] = 'application/json'
    faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
    end
-  
-  
 
 
 
-  
+
 	def self.get_movie_by_id (movie_id)
 		x = @conn.get 'movie/' + movie_id
 		JSON.parse(x.body)
@@ -53,7 +51,29 @@ class TheMovieDb
 		JSON.parse(x.body)
 	end
 	
-	
+	def self.get_actor_by_id(person_id)
+		x = @conn.get "person/#{person_id}"
+		JSON.parse(x.body)
+	end	
 end
+
+class MovieStats
+	def self.number_of_movies(user)
+		@number = Connector.all_user_movies(user).count
+    end
+	
+    def self.add_actors_to_hash(user)  #Top 5
+		movie_id_array = []
+		actor_array = []
+		@allrecords = Connector.all_user_movies(user).load # Get all movies that user has seen
+			@allrecords.each { |record| movie_id_array << record["movie_id"] }# Iterate through all the movies that user has seen and record to hash
+				movie_id_array.each do |val|	#Iterate through the array
+					actor_hash = Movie.find(val).actors	#Find movies by id and get their actors into a hash		
+						actor_hash.each { |key, val| actor_array << key}	#Iterate through the hash and add the actors names' to array f
+				end
+		return Hash[Array.duplicate_hashes(actor_array).sort_by { |k,v| -v } [0..4]]
+			end
+	end
+
 
 end

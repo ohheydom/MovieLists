@@ -4,4 +4,5 @@ class MovieController < ApplicationController
   @moviecredits = Tmdb::TheMovieDb.get_movie_credits_by_movie_id(params[:id])
   
   end
+  
 end

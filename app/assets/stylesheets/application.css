@@ -11,3 +11,51 @@
  *= require_self
  *= require_tree .
  */
+
+ .header_login {
+	text-align: right;
+					}
+					
+.header_logged_in {
+	text-align: right;
+					}
+.header_search_bar {
+	text-align: center;
+	valign: center;
+							}
+							
+.header_table {
+	width: 100%;
+					}
+.header_table_movie_picture {
+	text-align: left;
+			}
+			
+.main_search {
+	text-align: center;
+	margin-top: 200px;
+					}
+.main_create_profile {
+	text-align: center;
+	margin-top: 100px;
+}
+					
+.notice {
+	text-align: left;
+		}
+.alert {
+	text-align: left;
+		}
+
+.movie_status_table_header {
+	font-size: large;
+	background-color: #acd4e9;
+		}
+		
+.movie_watched {
+background-color: #ace9b1;
+			}
+
+.movie_unwatched {
+background-color: #ff8585;
+							}

@@ -1,8 +1,8 @@
-<h1>Search Results</h1>
+<title>Search Results</title>
 
-
+<% unless @querystring.blank? %>
 <%= render 'person' if @type == 'person' %>
 <%= render 'movie' if @type == 'movie' %>
-
-
-
+<% else %>
+<% flash[:notice] = "Please enter a valid search word" %>
+<% end %>

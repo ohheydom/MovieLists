@@ -1,0 +1,12 @@
+<table>
+	<tr>
+		<td>Number of movies: </td>
+		<td><%= Tmdb::MovieStats.number_of_movies(@user) %></td>
+	</tr>
+	<tr>
+		<td>Top Three actors/actresses:</td>
+		<% Tmdb::MovieStats.add_actors_to_hash(@user).each do |key, val| %>
+		<td><%= "#{key} (#{val})" %></td>
+		<% end %>
+	</tr>
+</table>

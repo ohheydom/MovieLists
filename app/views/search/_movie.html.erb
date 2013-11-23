@@ -1,6 +1,5 @@
 <% x = list_movies(@querystring) %>
 Number of results: <%= x['total_results'] %>
-
 <table>
 	<% x['results'].each do |movie| %>
 		<tr>
@@ -8,4 +7,6 @@ Number of results: <%= x['total_results'] %>
 			<td><%= link_to movie['title'], movie_path(movie['id']) %></td>
 		</tr>
 	<% end %>
+
 </table>
+

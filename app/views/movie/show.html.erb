@@ -1,18 +1,24 @@
-
-<table>
+<title><%= @movie['title'] %></title>
+<table class="header_table">
 		<tr>
-			<td><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + @movie['poster_path']) unless @movie['poster_path'].nil? %></td>
-			<td><h1><%= @movie['title'] + " (#{Date.parse(@movie['release_date']).strftime('%Y') unless (@movie['release_date'].empty?)})" %></h1>
+			<th class="header_table_movie_picture"><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + @movie['poster_path']) unless @movie['poster_path'].nil? %></th>
+			<th><h2><%= @movie['title'] + " (#{Date.parse(@movie['release_date']).strftime('%Y') unless (@movie['release_date'].empty?)})" %></h2></th>
 		</tr>
+</table>
+<table>
 		<tr>
 			<td><h2>Tagline: <%= @movie['tagline'] %></h2></td>
 		</tr>
+		<tr>
+			<td>Overview: <%= @movie['overview'] %></td>
+		</tr>
 </table>
+<br>
 <h2>Cast</h2>
 <table>
 	<% @moviecredits['cast'].each do |credit| %>
 	<tr>
-		<td><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + credit['profile_path']) unless credit['profile_path'].nil? %>
+		<td><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + credit['profile_path']) unless credit['profile_path'].nil? %></td>
 		<td><%= link_to credit['name'], person_path(credit['id']) %></td>
 		<td><%= credit['character'] %></td>
 	<% end %>

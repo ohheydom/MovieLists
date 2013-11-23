@@ -19,6 +19,18 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'httparty'
 
+
+group :development do
+  gem 'quiet_assets'
+  gem 'bullet'
+end
+gem "rails_best_practices"
+
+
+
+
+
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

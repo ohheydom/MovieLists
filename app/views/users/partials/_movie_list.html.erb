@@ -1,0 +1,3 @@
+<% @user.movies.sort_by {|v|  v['title'] }.each do |movie| %>
+<div><%= link_to ("#{movie['title']} (#{movie['year']})"), movie_path(movie['id']) %></div>
+<% end %>

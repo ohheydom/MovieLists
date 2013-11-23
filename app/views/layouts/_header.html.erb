@@ -1,5 +1,34 @@
+<table class= "header_table">
+	<tr>
+		<td>
+<div class="notice"><%= notice %></div>
+<div class="alert"><%= alert %></div>
+		</td>
+		
 <% if user_signed_in? %>
-<%= current_user %> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> %>
-<% else %>
-<%= link_to "Sign In!", 'sign_in' %>/ <%= link_to "Sign Up!", 'sign_up' %>
+		<td class="header_search_bar">
+<%= form_tag("/search", method: "get") do %>
+	<%= text_field_tag(:query) %>
+	<%= submit_tag("Search") %>
+	<%= radio_button_tag(:type, "movie", checked: true) %>
+	<%= label_tag(:type_movie, "Movie") %>
+	<%= radio_button_tag(:type, "person") %>
+	<%= label_tag(:type_person, "Person") %>
 <% end %>
+</td>
+<td class="header_logged_in"><%= current_user.username %>
+<%= link_to "My Profile", profile_path(current_user) %>
+	<%= link_to "Sign out", destroy_user_session_path, :method => :delete %></td>
+	
+
+
+	<% else %>
+	<div class="header_login"><%= form_for('user', :url => user_session_path) do |f| %>
+		<div><%= f.label :username %><%= f.text_field :username, :autofocus => true %>
+		<%= f.label :password %><%= f.password_field :password %>
+		<%= f.submit "Sign in" %></div>
+		<div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div></div>
+	<% end %>
+<% end %>
+	</tr>
+</table>

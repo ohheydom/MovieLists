@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131117190811) do
+ActiveRecord::Schema.define(version: 20131122211034) do
 
   create_table "connectors", force: true do |t|
     t.integer  "user_id"
@@ -20,9 +20,22 @@ ActiveRecord::Schema.define(version: 20131117190811) do
     t.datetime "updated_at"
   end
 
+  add_index "connectors", ["movie_id"], name: "index_connectors_on_movie_id"
+  add_index "connectors", ["user_id"], name: "index_connectors_on_user_id"
+
   create_table "movies", force: true do |t|
     t.string   "title"
     t.text     "actors"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "year"
+  end
+
+  create_table "profiles", force: true do |t|
+    t.string   "username"
+    t.string   "favorite_movie"
+    t.string   "favorite_genre"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,6 +53,7 @@ ActiveRecord::Schema.define(version: 20131117190811) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

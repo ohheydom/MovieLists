@@ -1,11 +1,13 @@
-<h1>Search</h1>
-
+<title><%= page_title %></title>
+<div class="main_search">
 <%= form_tag("/search", method: "get") do %>
 	<%= text_field_tag(:query) %>
-	<%= radio_button_tag(:type, "movie", checked: true) %>
+	<%= submit_tag("Search") %>
+	<p><%= radio_button_tag(:type, "movie", checked: true) %>
 	<%= label_tag(:type_movie, "Movie") %>
 	<%= radio_button_tag(:type, "person") %>
-	<%= label_tag(:type_person, "Person") %>
-	<%= submit_tag("Search") %>
-	
+	<%= label_tag(:type_person, "Person") %></p>
 <% end %>
+</div>
+
+<div class="main_create_profile"><h3>Create a profile to login and save your movies! <%= link_to "Sign up now!", signup_path %></h3></div>
