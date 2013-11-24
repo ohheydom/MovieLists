@@ -25,8 +25,7 @@ group :development do
   gem 'bullet'
 end
 gem "rails_best_practices"
-
-
+gem 'bootstrap-sass', '~> 3.0.2.0'
 
 
 

@@ -1,15 +1,19 @@
-body {
+$body-bg: #fff4c7;
 
+@import "bootstrap";
+
+body {
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: $font-family-serif;
   font-size: 13px;
   line-height: 18px;
   margin-left: 30px;
   margin-right: 30px;
+  margin-top: 20px;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: $font-family-serif;
   font-size: 13px;
   line-height: 18px;
 }

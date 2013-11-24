@@ -11,8 +11,37 @@
  *= require_self
  *= require_tree .
  */
+ 
 
- .header_login {
+
+@import "bootstrap";
+
+
+
+
+
+
+
+
+
+
+
+.smaller_form {
+width: 80%;
+text-align: right;
+				}
+				
+.profile_header_right {
+text-align: right;
+					}
+					
+.container-fluid {
+padding: 10px;
+background-color: #FFFFFF;
+					}
+
+					
+.header_login {
 	text-align: right;
 					}
 					
@@ -32,9 +61,13 @@
 			}
 			
 .main_search {
+  margin-left: auto ;
+  margin-right: auto ;
+	width: 30%;
 	text-align: center;
 	margin-top: 200px;
 					}
+					
 .main_create_profile {
 	text-align: center;
 	margin-top: 100px;

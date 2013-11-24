@@ -1,3 +1,12 @@
-<% @user.movies.sort_by {|v|  v['title'] }.each do |movie| %>
-<div><%= link_to ("#{movie['title']} (#{movie['year']})"), movie_path(movie['id']) %></div>
-<% end %>
+<table class="table">	
+	<tr>
+		<th>Movie Titles</th>
+	</tr>
+		<% @user.movies.sort_by {|v|  v['title'] }.each do |movie| %>
+	<tr>
+		<td>
+			<%= link_to ("#{movie['title']} (#{movie['year']})"), movie_path(movie['id']) %>
+		</td>
+</tr>
+		<% end %>
+</table>

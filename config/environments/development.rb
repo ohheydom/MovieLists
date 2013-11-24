@@ -39,7 +39,7 @@ config.action_mailer.default_url_options = { :host => 'localhost:3000' }
    #               :receiver => 'your_account@jabber.org',
     #              :show_online_status => true }
   Bullet.rails_logger = true
-  Bullet.airbrake = true
+ # Bullet.airbrake = true
   Bullet.add_footer = true
 end
   

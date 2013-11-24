@@ -62,17 +62,19 @@ class MovieStats
 		@number = Connector.all_user_movies(user).count
     end
 	
-    def self.add_actors_to_hash(user)  #Top 5
-		movie_id_array = []
+
+	
+		
+	    def self.add_actors_to_hash(user)  #Top 5
 		actor_array = []
-		@allrecords = Connector.all_user_movies(user).load # Get all movies that user has seen
-			@allrecords.each { |record| movie_id_array << record["movie_id"] }# Iterate through all the movies that user has seen and record to hash
-				movie_id_array.each do |val|	#Iterate through the array
-					actor_hash = Movie.find(val).actors	#Find movies by id and get their actors into a hash		
-						actor_hash.each { |key, val| actor_array << key}	#Iterate through the hash and add the actors names' to array f
+		@allrecords = user.movies.select(:actors) # Get all movies that user has seen
+			@allrecords.each do |a|
+				a[:actors].each do |act, id|
+					actor_array << act
+					end
 				end
 		return Hash[Array.duplicate_hashes(actor_array).sort_by { |k,v| -v } [0..4]]
-			end
+		end
 	end
 
 

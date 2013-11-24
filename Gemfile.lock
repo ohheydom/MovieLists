@@ -29,6 +29,8 @@ GEM
     atomic (1.1.14)
     awesome_print (1.2.0)
     bcrypt-ruby (3.1.2-x86-mingw32)
+    bootstrap-sass (3.0.2.1)
+      sass (~> 3.2)
     builder (3.1.4)
     bullet (4.7.1)
       activesupport
@@ -147,6 +149,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bootstrap-sass (~> 3.0.2.0)
   bullet
   coffee-rails (~> 4.0.0)
   devise
