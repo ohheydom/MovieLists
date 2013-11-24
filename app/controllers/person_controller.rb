@@ -7,9 +7,11 @@ helper_method :get_actors, :get_actors_name, :ive_seen_it
 	@person = Tmdb::TheMovieDb.get_movie_credits_by_id(params[:id])['cast'].sort_by {|v|  v['release_date'] }.reverse
 	Hash[@person.map! {|h| h }]
 	@person_name = get_actors_name
-	@allmovies = Connector.all_user_movies(current_user.id).load if user_signed_in?
+	if user_signed_in?
+		@allmovies = Connector.all_user_movies(current_user.id).load 
+		@watchedmoviescount = current_user.movies.where("actors LIKE '%#{@person_name}%'").count
+	end
 	
-		
   end
   
   def destroy

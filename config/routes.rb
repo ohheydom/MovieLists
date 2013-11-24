@@ -14,11 +14,11 @@ resources :users, :only => [:show, :index]
   match '/person/:id', :controller=>"person", :action=>"create", to: 'person#create', :via => :post
   match '/person/:id', :controller=>"person", :action=>"destroy", to: 'person#destroy', :via => :delete
   get '/person/:id', to: 'person#show', as: 'person'
- 
- 
- # get '/person/:id', to: 'person#create', as: 'create_person'
- # get '/person/:id', to: 'person#destroy', as: 'destroy_person'
+  
+  match '/movie/:id', :controller=>"movie", :action=>"create", to: 'movie#create', :via => :post
+  match '/movie/:id', :controller=>"movie", :action=>"destroy", to: 'movie#destroy', :via => :delete
   get '/movie/:id', to: 'movie#show', as: 'movie'
+
   
   root 'home#index'
 

@@ -1,48 +1,50 @@
 <div class="row">
-<div class="col-md-4">
-<span class="notice"><%= notice %></span>
-<span class="alert"><%= alert %></span>
-</div>
-
-
+	<div class="col-md-4">
+		<span class="notice"><%= notice %></span>
+		<span class="alert"><%= alert %></span>
+	</div>
 
 <% if user_signed_in? %>
-<div class="col-md-4">
-<div class="smaller_form">
-<div class="form-group">
-<%= form_tag("/search", method: "get") do %>
-	<%= text_field_tag (:query), nil, class: "form-control" %>
-	<%= submit_tag ("Search"), class: "btn btn-default" %>
-	<%= radio_button_tag(:type, "movie", checked: true) %>
-	<%= label_tag(:type_movie, "Movie") %>
-	<%= radio_button_tag(:type, "person") %>
-	<%= label_tag(:type_person, "Person") %>
-<% end %></div>
-	</div></div>
-	
-	
+	<div class="col-md-4">
+		<div class="smaller_form">
+			<div class="form-group">
+			<%= form_tag("/search", method: "get") do %>
+			<%= text_field_tag (:query), nil, class: "form-control" %>
+			<%= submit_tag ("Search"), class: "btn btn-default" %>
+			<%= radio_button_tag(:type, "movie", checked: true) %>
+			<%= label_tag(:type_movie, "Movie") %>
+			<%= radio_button_tag(:type, "person") %>
+			<%= label_tag(:type_person, "Person") %>
+			<% end %>
+			</div>
+		</div>
+	</div>
 	
 	<div class="col-md-3">
-	<div class="profile_header_right">
-<%= current_user.username %>
-<%= link_to "My Profile", profile_path(current_user) %>
-	<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-	</div></div>
+		<div class="profile_header_right">
+			<%= current_user.username %>
+			<%= link_to "My Profile", profile_path(current_user) %>
+			<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+		</div>
+	</div>
 
 	<% else %>
 	<div class="col-md-3"></div>
 	<div class="col-md-5">
-	<div class="smaller_form">
-		<%= form_for('user', :url => user_session_path, :html => {class: "form-inline"}) do |f| %>
-		<div class="form-group">
-		<%= f.label :username, class:"sr-only" %><%= f.text_field :username, :autofocus => true, class: "form-control", placeholder: "Username or E-mail" %>
+		<div class="smaller_form">
+			<%= form_for('user', :url => user_session_path, :html => {class: "form-inline"}) do |f| %>
+				<div class="form-group">
+					<%= f.label :username, class:"sr-only" %><%= f.text_field :username, :autofocus => true, class: "form-control", placeholder: "Username or E-mail" %>
+				</div>
+				<div class="form-group">
+					<%= f.label :password, class:"sr-only" %><%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+				</div>
+				<%= f.submit "Sign in", class:"btn btn-default" %>
+				<div class="checkbox">
+					<%= f.check_box :remember_me, class:"checkbox" %><%= f.label :remember_me %>
+				</div>
+			<% end %>
 		</div>
-		<div class="form-group">
-		<%= f.label :password, class:"sr-only" %><%= f.password_field :password, class: "form-control", placeholder: "Password" %>
-		</div>
-		<%= f.submit "Sign in", class:"btn btn-default" %>
-		<div class="checkbox"><%= f.check_box :remember_me, class:"checkbox" %><%= f.label :remember_me %></div></div>
-	</div></div>
-		<% end %>
-	<% end %>
+	</div>
+<% end %>
 </div>
