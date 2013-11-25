@@ -6,7 +6,7 @@
 	<% add_unique_actor_and_id_to_array(@user).take(10).each do |actor, id| %>
 	<tr>
 		<td>
-		<%= link_to actor, person_path(id) %>
+		<%= link_to actor, actor_path(id) %>
 
 		</td>
 	</tr>

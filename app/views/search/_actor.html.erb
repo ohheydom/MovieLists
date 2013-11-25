@@ -1,0 +1,12 @@
+
+<% x = list_people(@querystring) %>
+Number of results: <%= x['total_results'] %>
+
+<table>
+	<% x['results'].each do |actor| %>
+		<tr>
+			<td><%= image_tag Tmdb::TheMovieDb::PICTURE_URL + actor['profile_path'] unless actor['profile_path'].nil? %></td>
+			<td><%= link_to actor['name'], actor_path(actor['id']) %></td>
+		</tr>
+	<% end %>
+</table>

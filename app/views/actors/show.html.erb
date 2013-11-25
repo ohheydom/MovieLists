@@ -1,0 +1,9 @@
+<title><%= @actor_name + " Movies" %></title>
+<h1><%= @actor_name %>
+<h2 id="watchedmoviecount">
+	<% if user_signed_in? %>
+I've seen <span id="moviecount"><%= @watchedmoviescount %></span> out of
+	<% end %>
+	<%= @actor.count %> movies
+</h2>
+<%= render 'list_of_movies' %>

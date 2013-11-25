@@ -35,8 +35,8 @@ class TheMovieDb
 		JSON.parse(x.body)
 	end
 
-	def self.get_movie_credits_by_id(person_id)
-		x = @conn.get "person/#{person_id}/movie_credits"
+	def self.get_movie_credits_by_id(actor_id)
+		x = @conn.get "person/#{actor_id}/movie_credits"
 		JSON.parse(x.body)
 	end
 
@@ -46,13 +46,13 @@ class TheMovieDb
 		JSON.parse(x.body)
 	end
 	
-	def self.search_by_person(person)
-		x = @conn.get 'search/person', {query: CGI::escape(person) }
+	def self.search_by_actor(actor)
+		x = @conn.get 'search/person', {query: CGI::escape(actor) }
 		JSON.parse(x.body)
 	end
 	
-	def self.get_actor_by_id(person_id)
-		x = @conn.get "person/#{person_id}"
+	def self.get_actor_by_id(actor_id)
+		x = @conn.get "person/#{actor_id}"
 		JSON.parse(x.body)
 	end	
 end

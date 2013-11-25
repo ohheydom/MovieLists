@@ -11,13 +11,13 @@ MovieLists::Application.routes.draw do
 resources :users, :only => [:show, :index]
   get "home/index"  
   get 'search', to: 'search#index'
-  match '/person/:id', :controller=>"person", :action=>"create", to: 'person#create', :via => :post
-  match '/person/:id', :controller=>"person", :action=>"destroy", to: 'person#destroy', :via => :delete
-  get '/person/:id', to: 'person#show', as: 'person'
+  match '/actor/:id', :controller=>"actors", :action=>"create", to: 'actors#create', :via => :post
+  match '/actor/:id', :controller=>"actors", :action=>"destroy", to: 'actors#destroy', :via => :delete
+  get '/actor/:id', to: 'actors#show', as: 'actor'
   
-  match '/movie/:id', :controller=>"movie", :action=>"create", to: 'movie#create', :via => :post
-  match '/movie/:id', :controller=>"movie", :action=>"destroy", to: 'movie#destroy', :via => :delete
-  get '/movie/:id', to: 'movie#show', as: 'movie'
+  match '/movie/:id', :controller=>"movies", :action=>"create", to: 'movies#create', :via => :post
+  match '/movie/:id', :controller=>"movies", :action=>"destroy", to: 'movies#destroy', :via => :delete
+  get '/movie/:id', to: 'movies#show', as: 'movie'
 
   
   root 'home#index'
