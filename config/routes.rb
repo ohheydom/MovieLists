@@ -2,11 +2,34 @@ MovieLists::Application.routes.draw do
 
   
   devise_for :users
-  
-  	devise_scope :user do
+
+  devise_scope :user do
 		get "sign_in", :to => "users/sessions#new"
 		get "sign_up", :to => "users/registrations#new", as: "signup"
+  end
+	
+	
+	
+	
+	
+	authenticated :user do
+  root to: "users#show", as: :authenticated_root
 	end
+
+unauthenticated do
+  root to: "home#index"
+end
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 
 resources :users, :only => [:show, :index]
   get "home/index"  
@@ -19,8 +42,7 @@ resources :users, :only => [:show, :index]
   match '/movie/:id', :controller=>"movies", :action=>"destroy", to: 'movies#destroy', :via => :delete
   get '/movie/:id', to: 'movies#show', as: 'movie'
 
-  
-  root 'home#index'
+
 
   get "profile/:id", to: 'users#show', as: 'profile'
   
