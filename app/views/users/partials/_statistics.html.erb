@@ -4,12 +4,15 @@
 		<td><%= Tmdb::MovieStats.number_of_movies(@user) %></td>
 	</tr>
 	<tr>
-		<td>Top Three actors/actresses:</td>
+		<td>Top Five actors/actresses:</td>
 		<% Tmdb::MovieStats.add_actors_to_hash(@user).each do |key, val| %>
 		<td><%= "#{key} (#{val})" %></td>
 		<% end %>
 	</tr>
-		<tr>
+	<tr>
 		<td> I've watched the most movies made in: </td>
+		<% Tmdb::MovieStats.add_years_to_hash(@user).each do |key, val| %>
+		<td><%= "#{key} (#{val})" %></td>
+		<% end %>
 	</tr>
 </table>

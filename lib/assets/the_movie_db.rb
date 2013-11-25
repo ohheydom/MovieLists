@@ -58,13 +58,12 @@ class TheMovieDb
 end
 
 class MovieStats
-	def self.number_of_movies(user)
+	
+		def self.number_of_movies(user)
 		@number = Connector.all_user_movies(user).count
-    end
+		end
 	
 
-	
-		
 	    def self.add_actors_to_hash(user)  #Top 5
 		actor_array = []
 		@allrecords = user.movies.select(:actors) # Get all movies that user has seen
@@ -75,7 +74,17 @@ class MovieStats
 				end
 		return Hash[Array.duplicate_hashes(actor_array).sort_by { |k,v| -v } [0..4]]
 		end
-	end
+
+		def self.add_years_to_hash(user) #Top 5
+			year_array = []
+			@allrecords = user.movies.select(:year)
+				@allrecords.each do |a|
+					year_array << a[:year]
+				end
+		return Hash[Array.duplicate_hashes(year_array).sort_by { |k,v| -v } [0..4]]
+		end
+				
+end
 
 
 end

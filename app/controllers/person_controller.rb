@@ -9,7 +9,7 @@ helper_method :get_actors, :get_actors_name, :ive_seen_it
 	@person_name = get_actors_name
 	if user_signed_in?
 		@allmovies = Connector.all_user_movies(current_user.id).load 
-		@watchedmoviescount = current_user.movies.where("actors LIKE '%#{@person_name}%'").count
+		@watchedmoviescount = current_user.movies.where("actors LIKE '%#{@person_name.gsub("'","''")}%'").count
 	end
 	
   end
