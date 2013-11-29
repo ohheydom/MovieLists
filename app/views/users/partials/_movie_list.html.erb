@@ -2,7 +2,7 @@
 	<tr>
 		<th>Movie Titles</th>
 	</tr>
-		<% @user.movies.sort_by {|v|  v['title'] }.each do |movie| %>
+		<% @usermovies.sort_by {|v|  v['title'] }.each do |movie| %>
 	<tr>
 		<td>
 			<%= link_to ("#{movie['title']} (#{movie['year']})"), movie_path(movie['id']) %>

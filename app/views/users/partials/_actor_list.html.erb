@@ -3,7 +3,7 @@
 	<tr>
 		<th>Actors/Actresses</th>
 	</tr>
-	<% add_unique_actor_and_id_to_array(@user).take(10).each do |actor, id| %>
+	<% add_unique_actor_and_id_to_array(@usermovies).take(10).each do |actor, id| %>
 	<tr>
 		<td>
 		<%= link_to actor, actor_path(id) %>

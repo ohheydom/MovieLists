@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   
  
   def index
-	@user = current_user
+	#@user = current_user
   end
   
   
@@ -23,14 +23,14 @@ class UsersController < ApplicationController
 	@render = 'users/partials/my_profile'
     else
     @user =  User.find(params[:id])
-	@usermovies = @user.movies.load.to_a
+	@usermovies = @user.movies.to_a
 	@render = 'users/partials/profile'
 	end
    end
    
    def add_unique_actor_and_id_to_array(user)
    x = []
-   	user.movies.each do |movie|
+   	user.each do |movie|
 		movie.actors.each do |actor, id|
 			x << [actor, id]
 		end
