@@ -1,9 +1,10 @@
 <title><%= @movie['title'] %></title>
-
+			<% if user_signed_in? %>
 	<% if ive_seen_it(@movie['id']) %>
 			<% method = "delete"; submit = "Oops, haven't seen it!"; action = "destroy"; trclass="movie_watched" %>
 			<% else %>
 			<% method = "post"; submit = "I've seen it!"; action = "create"; trclass="movie_unwatched" %>
+			<% end %>
 			<% end %>
 <table class="header_table">
 		<tr class="<%= trclass %>">
