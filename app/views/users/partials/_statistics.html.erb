@@ -1,17 +1,17 @@
 <table>
 	<tr>
 		<td>Number of movies: </td>
-		<td><%= Tmdb::MovieStats.number_of_movies(@user) %></td>
+		<td><%= Tmdb::MovieStats.number_of_movies(@usermovies) %></td>
 	</tr>
 	<tr>
 		<td>Top Five actors/actresses:</td>
-		<% Tmdb::MovieStats.add_actors_to_hash(@user).each do |key, val| %>
+		<% Tmdb::MovieStats.add_actors_to_hash(@usermovies).each do |key, val| %>
 		<td><%= "#{key} (#{val})" %></td>
 		<% end %>
 	</tr>
 	<tr>
 		<td> I've watched the most movies made in: </td>
-		<% Tmdb::MovieStats.add_years_to_hash(@user).each do |key, val| %>
+		<% Tmdb::MovieStats.add_years_to_hash(@usermovies).each do |key, val| %>
 		<td><%= "#{key} (#{val})" %></td>
 		<% end %>
 	</tr>

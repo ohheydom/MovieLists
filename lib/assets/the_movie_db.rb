@@ -60,14 +60,15 @@ end
 class MovieStats
 	
 		def self.number_of_movies(user)
-		@number = Connector.all_user_movies(user).count
+		#@number = Connector.all_user_movies(user).count
+		@number = user.count
 		end
 	
 
 	    def self.add_actors_to_hash(user)  #Top 5
 		actor_array = []
-		@allrecords = user.movies.select(:actors) # Get all movies that user has seen
-			@allrecords.each do |a|
+		# Get all movies that user has seen
+			user.each do |a|
 				a[:actors].each do |act, id|
 					actor_array << act
 					end
@@ -79,8 +80,8 @@ class MovieStats
 		def self.compare_movies(my_profile, other_profile)
             myary = []
             otherary = []
-            my_profile.movies.each { |movid| myary << movid[:id] }
-            other_profile.movies.each {|movid| otherary << movid[:id] }
+            my_profile.each { |movid| myary << movid[:id] }
+            other_profile.each {|movid| otherary << movid[:id] }
 
             return ((myary & otherary).count.to_f/otherary.count)*100
         end 
@@ -88,8 +89,7 @@ class MovieStats
 		
 		def self.add_years_to_hash(user) #Top 5
 			year_array = []
-			@allrecords = user.movies.select(:year)
-				@allrecords.each do |a|
+				user.each do |a|
 					year_array << a[:year]
 				end
 		return Hash[Array.duplicate_hashes(year_array).sort_by { |k,v| -v } [0..4]]

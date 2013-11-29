@@ -8,8 +8,9 @@ helper_method :get_actors, :get_actors_name, :ive_seen_it
 	Hash[@actor.map! {|h| h }]
 	@actor_name = get_actors_name
 	if user_signed_in?
-		@allmovies = Connector.all_user_movies(current_user.id).load 
-		@watchedmoviescount = current_user.movies.where("actors LIKE '%#{@actor_name.gsub("'","''")}%'").count
+		@allmovies = current_user.movies.to_a
+		@watchedmoviescount = 	@allmovies.map {|p| p[:actors].include? @actor_name }.count(true)
+		#@watchedmoviescount = current_user.movies.where("actors LIKE '%#{@actor_name.gsub("'","''")}%'").count
 	end
 	
   end
@@ -54,6 +55,8 @@ helper_method :get_actors, :get_actors_name, :ive_seen_it
 		end
 	
 
+
+	
 	
  end
  
@@ -80,7 +83,7 @@ helper_method :get_actors, :get_actors_name, :ive_seen_it
 	
 	def ive_seen_it(movie_id)
 
-	@allmovies.to_a.map(&:serializable_hash).select{|f| f['movie_id'] == movie_id}.any?
+	@allmovies.map(&:serializable_hash).select{|f| f['id'] == movie_id}.any?
 	end
 	
 

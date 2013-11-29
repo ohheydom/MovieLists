@@ -18,10 +18,12 @@ class UsersController < ApplicationController
   
   def get_user_and_render
     if (current_user.username == params[:id]) || (User.where(username: params[:id]).blank?)
-  	@user = current_user 
+  	@user = current_user
+	@usermovies = @user.movies.to_a
 	@render = 'users/partials/my_profile'
     else
     @user =  User.find(params[:id])
+	@usermovies = @user.movies.load.to_a
 	@render = 'users/partials/profile'
 	end
    end
