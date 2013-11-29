@@ -1,18 +1,41 @@
-<table>
+<% if params[:id] == current_user.username %>
+<% user = "I have " %>
+<% else user = params[:id] + " has " %>
+<% end %>
+
+<div class="row">
+	<div class="col-md-10">
+<table class="statistics">
 	<tr>
-		<td>Number of movies: </td>
-		<td><%= Tmdb::MovieStats.number_of_movies(@usermovies) %></td>
+		<td><h4>Number of movies: </h4></td>
+		<td><h4><%= Tmdb::MovieStats.number_of_movies(@usermovies) %></h4></td>
 	</tr>
 	<tr>
-		<td>Top Five actors/actresses:</td>
+		<td><h4>Top Five actors/actresses:</h4></td>
 		<% Tmdb::MovieStats.add_actors_to_hash(@usermovies).each do |key, val| %>
-		<td><%= "#{key} (#{val})" %></td>
+		<td><h4><%= "#{key} (#{val})" %></h4></td>
 		<% end %>
 	</tr>
 	<tr>
-		<td> I've watched the most movies made in: </td>
+		<td><h4><%= user %>watched the most movies made in:</h4> </td>
 		<% Tmdb::MovieStats.add_years_to_hash(@usermovies).each do |key, val| %>
-		<td><%= "#{key} (#{val})" %></td>
+		<td><h4><%= "#{key} (#{val})" %></h4></td>
 		<% end %>
 	</tr>
 </table>
+	</div>
+	<div class="col-md-2">
+	<% unless params[:id] == current_user.username %>
+	<table class="percentage_of_movies">
+		<tr>
+			<td>We've seen</td>
+		<tr>
+			<td><h1><%= number_to_percentage(Tmdb::MovieStats.compare_movies(current_user.movies.to_a, @usermovies), precision: 0) %></h1>
+			</td>
+		</tr>
+		<tr><td> of the same movies</td>
+		</tr>
+		</table>
+		<% end %>
+	</div>
+</div>

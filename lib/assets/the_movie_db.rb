@@ -83,7 +83,7 @@ class MovieStats
             my_profile.each { |movid| myary << movid[:id] }
             other_profile.each {|movid| otherary << movid[:id] }
 
-            return ((myary & otherary).count.to_f/otherary.count)*100
+            return ((myary & otherary).count.to_f/(otherary.count+myary.count))*100
         end 
 		
 		

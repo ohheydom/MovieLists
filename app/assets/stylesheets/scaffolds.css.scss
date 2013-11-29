@@ -1,9 +1,8 @@
-$body-bg: #fffcd5;
+$body-bg: #c8f7ff;
 
 @import "bootstrap";
 
 body {
-  color: #333;
   font-family: $font-family-serif;
   font-size: 13px;
   line-height: 18px;
@@ -17,6 +16,16 @@ p, ol, ul, td {
   font-size: 13px;
   line-height: 18px;
 }
+
+h3, h4 {
+  font-family: $font-family-serif;
+  }
+  
+table.statistics {
+	padding: 20px;
+	border-bottom: 2px solid;
+	width: 100%;
+					}
 
 pre {
   background-color: #eee;
