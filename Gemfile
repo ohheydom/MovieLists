@@ -4,7 +4,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
+group :development do
 gem 'sqlite3'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -27,7 +29,10 @@ end
 gem "rails_best_practices"
 gem 'bootstrap-sass', '~> 3.0.2.0'
 
-
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
