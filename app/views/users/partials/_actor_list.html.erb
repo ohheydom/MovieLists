@@ -13,3 +13,17 @@
 	<% end %>
 </table>
 
+
+<table class="table">	
+	<tr>
+		<th>Other Users!</th>
+	</tr>
+	<tr>
+				<% User.take(10).each do |x|  %>
+		<td>	
+			<%=link_to(x[:username], profile_path(x[:username])) %>
+		</td>
+	</tr>
+			<% end %>
+</table>
+
