@@ -74,7 +74,18 @@ class MovieStats
 				end
 		return Hash[Array.duplicate_hashes(actor_array).sort_by { |k,v| -v } [0..4]]
 		end
+		
+		
+		def self.compare_movies(my_profile, other_profile)
+            myary = []
+            otherary = []
+            my_profile.movies.each { |movid| myary << movid[:id] }
+            other_profile.movies.each {|movid| otherary << movid[:id] }
 
+            return ((myary & otherary).count.to_f/otherary.count)*100
+        end 
+		
+		
 		def self.add_years_to_hash(user) #Top 5
 			year_array = []
 			@allrecords = user.movies.select(:year)
