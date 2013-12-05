@@ -6,10 +6,13 @@ gem 'rails', '4.0.0'
 # Use sqlite3 as the database for Active Record
 group :development do
 gem 'sqlite3'
+  gem 'quiet_assets'
+  gem 'bullet'
 end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
+
 gem 'faraday'
 gem 'json'
 gem 'devise'
@@ -22,12 +25,9 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'httparty'
 
 
-group :development do
-  gem 'quiet_assets'
-  gem 'bullet'
-end
 gem "rails_best_practices"
 gem 'bootstrap-sass', '~> 3.0.2.0'
+
 
 group :production do
   gem 'pg'
