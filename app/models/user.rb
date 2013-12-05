@@ -30,7 +30,6 @@ class User < ActiveRecord::Base
 	else
 	find_by_username(input)
     end
-  
   end
   
  def self.find_first_by_auth_conditions(warden_conditions)

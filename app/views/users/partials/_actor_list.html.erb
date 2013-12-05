@@ -21,7 +21,7 @@
 	<tr>
 				<% User.take(10).each do |x|  %>
 		<td>	
-			<%=link_to(x[:username], profile_path(x[:username])) %>
+			<%= link_to(x[:username], profile_path(x[:username])) unless x[:username] == current_user.username %>
 		</td>
 	</tr>
 			<% end %>
