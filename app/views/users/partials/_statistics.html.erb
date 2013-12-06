@@ -1,4 +1,4 @@
-<% if params[:id] == current_user.username %>
+<% if (params[:id] == current_user.username) || (params[:id].blank?) %>
 <% user = "I have " %>
 <% else user = params[:id] + " has " %>
 <% end %>
@@ -25,7 +25,7 @@
 </table>
 	</div>
 	<div class="col-md-2">
-	<% unless params[:id] == current_user.username %>
+	<% unless params[:id] == current_user.username || params[:id].blank? %>
 	<table class="percentage_of_movies">
 		<tr>
 			<td>We've seen</td>

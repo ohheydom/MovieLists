@@ -1,5 +1,6 @@
+<% unless @actor_name.nil? %>
 <title><%= @actor_name + " Movies" %></title>
-<h1><%= @actor_name %>
+<h1><%= @actor_name %></h1>
 <h2 id="watchedmoviecount">
 	<% if user_signed_in? %>
 I've seen <span id="moviecount"><%= @watchedmoviescount %></span> out of
@@ -7,3 +8,7 @@ I've seen <span id="moviecount"><%= @watchedmoviescount %></span> out of
 	<%= @actor.count %> movies
 </h2>
 <%= render 'list_of_movies' %>
+<% else %>
+<title>Not found</title>
+<h2>Actor not found!</h2>
+<% end %>

@@ -19,22 +19,12 @@ MovieLists::Application.routes.draw do
 unauthenticated do
   root to: "home#index"
 end
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 
 resources :users, :only => [:show, :index]
   get "home/index"  
   get 'search', to: 'search#index'
   match '/actor/:id', :controller=>"actors", :action=>"create", to: 'actors#create', :via => :post
+  match '/actor/:id', :controller=>"actors", :action=>"update", to: 'actors#update', :via => :put
   match '/actor/:id', :controller=>"actors", :action=>"destroy", to: 'actors#destroy', :via => :delete
   get '/actor/:id', to: 'actors#show', as: 'actor'
   
@@ -45,6 +35,14 @@ resources :users, :only => [:show, :index]
 
 
   get "profile/:id", to: 'users#show', as: 'profile'
+  
+  
+    #errors
+  
+  get "/404", to: 'errors#not_found'
+  get "/500", to: 'errors#internal_server_error'
+  get "/422", to: 'errors#unprocessable_entity'
+  
   
 
   # The priority is based upon order of creation: first created -> highest priority.

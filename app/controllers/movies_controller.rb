@@ -1,10 +1,12 @@
 class MoviesController < ApplicationController
 	helper_method :ive_seen_it
   def show
-  @movie = Tmdb::TheMovieDb.get_movie_by_id(params[:id])
-  @moviecredits = Tmdb::TheMovieDb.get_movie_credits_by_movie_id(params[:id])
-  	if user_signed_in?
-		@allmovies = current_user.movies.to_a 
+	@movie = Tmdb::TheMovieDb.get_movie_by_id(params[:id])
+	unless @movie["status_code"] == 6
+		@moviecredits = Tmdb::TheMovieDb.get_movie_credits_by_movie_id(params[:id])
+		if user_signed_in?
+			@allmovies = current_user.movies.to_a 
+		end
 	end
   end
    

@@ -4,7 +4,10 @@ class ActorsController < ApplicationController
 helper_method :get_actors, :get_actors_name, :ive_seen_it
   
   def show
-	@actor = Tmdb::TheMovieDb.get_movie_credits_by_id(params[:id])['cast'].sort_by {|v|  v['release_date'] }.reverse
+	#unless Tmdb::TheMovieDb.get_movie_credits_by_id(params[:id])['cast'].nil?
+	@actor = Tmdb::TheMovieDb.get_movie_credits_by_id(params[:id])['cast']
+	unless @actor.nil? 
+	@actor.sort_by! {|v|  v['release_date'] }.reverse!
 	Hash[@actor.map! {|h| h }]
 	@actor_name = get_actors_name
 	if user_signed_in?
@@ -12,7 +15,7 @@ helper_method :get_actors, :get_actors_name, :ive_seen_it
 		@watchedmoviescount = 	@allmovies.map {|p| p[:actors].include? @actor_name }.count(true)
 		#@watchedmoviescount = current_user.movies.where("actors LIKE '%#{@actor_name.gsub("'","''")}%'").count
 	end
-	
+	end
   end
   
   def destroy
@@ -53,13 +56,25 @@ helper_method :get_actors, :get_actors_name, :ive_seen_it
 				format.js
 
 		end
-	
+  end
+  
+  def update
+	@oldmovie = Movie.find(params[:movie_id])
+	if @oldmovie.present?
+		@oldmovie.update(movie_params)
+		   respond_to do |format|
+			if @oldmovie.update(movie_params)
+				format.html { redirect_to @oldmovie }
+			else
+				format.html { render action: 'edit' }
+				format.json { render json: @contact.errors, status: :unprocessable_entity }
+			end
+		   end
+	end
+  end
 
 
-	
-	
- end
- 
+
 	def movie_params
 		params.permit(:id, :title, :actors, :year).merge(:id => params[:movie_id], :actors => get_actors(params[:movie_id]), :year => params[:year])
     end

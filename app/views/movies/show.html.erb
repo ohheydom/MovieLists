@@ -1,3 +1,4 @@
+<% unless @movie["status_code"] == 6 %>
 <title><%= @movie['title'] %></title>
 			<% if user_signed_in? %>
 	<% if ive_seen_it(@movie['id']) %>
@@ -42,3 +43,6 @@
 		<td><%= credit['character'] %></td>
 	<% end %>
 </table>
+<% else %>
+<h2>Movie not found!</h2>
+<% end %>

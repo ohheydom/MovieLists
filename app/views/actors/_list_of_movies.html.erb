@@ -3,14 +3,18 @@
 		<th></th>
 		<th>Film</th>
 		<th>Character</th>
-		<th>Status</th>
+		<% if user_signed_in? %><th>Status</th>
+		<% if current_user.username == "domleone" %><th>Refresh</th><% end %>
+		<% end %>
 	</tr>
 	<% @actor.each do |movie| %>
-	<% if ive_seen_it(movie['id']) %>
-			<% method = "delete"; submit = "Oops, haven't seen it!"; action = "destroy"; trclass="movie_watched" %>
+		<% if user_signed_in? %>
+			<% if ive_seen_it(movie['id']) %>
+				<% method = "delete"; submit = "Oops, haven't seen it!"; action = "destroy"; trclass="movie_watched" %>
 			<% else %>
-			<% method = "post"; submit = "I've seen it!"; action = "create"; trclass="movie_unwatched" %>
+				<% method = "post"; submit = "I've seen it!"; action = "create"; trclass="movie_unwatched" %>
 			<% end %>
+		<% end %>
 		<tr class="<%= trclass %>" id = "<%= movie['id'] %>_tr">
 			<td><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + movie['poster_path']) unless movie['poster_path'].nil? %></td>
 			<td><%= link_to (movie['title'] + " (#{Date.parse(movie['release_date']).strftime('%Y') unless (movie['release_date'].empty?)})"), movie_path(movie['id']) %></td>
@@ -23,6 +27,19 @@
 			<%= hidden_field_tag :title, movie['title'] %>
 			<%= hidden_field_tag :year, movie['release_date'] %>
 			<%= submit_tag submit, id: (movie['id'].to_s + "_button"), class: "btn btn-default" %>
+			<% end %>
+			</td>
+			<% end %>
+			
+			
+			
+			<% if user_signed_in? && current_user.username == "domleone" %>
+			<td>
+			<%= form_tag({controller: "actors", action: "update" }, { id: (movie['id'].to_s + "_form"), remote: true, method: "put" }) do %>
+			<%= hidden_field_tag :movie_id, movie['id'] %>
+			<%= hidden_field_tag :title, movie['title'] %>
+			<%= hidden_field_tag :year, movie['release_date'] %>
+			<%= submit_tag "Refresh", id: (movie['id'].to_s + "_button"), class: "btn btn-default" %>
 			<% end %>
 			</td>
 			<% end %>
