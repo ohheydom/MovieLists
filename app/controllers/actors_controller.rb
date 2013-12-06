@@ -64,10 +64,11 @@ helper_method :get_actors, :get_actors_name, :ive_seen_it
 		@oldmovie.update(movie_params)
 		   respond_to do |format|
 			if @oldmovie.update(movie_params)
-				format.html { redirect_to @oldmovie }
+				format.html { redirect_to actor_path(params[:id]) }
+				format.js
 			else
-				format.html { render action: 'edit' }
-				format.json { render json: @contact.errors, status: :unprocessable_entity }
+				format.html { redirect_to actor_path(params[:id]) }
+				format.js
 			end
 		   end
 	end
