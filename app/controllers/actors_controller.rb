@@ -1,7 +1,7 @@
 require 'date'
 
 class ActorsController < ApplicationController
-helper_method :get_actors, :get_actors_name, :ive_seen_it
+helper_method :get_actors, :get_actors_name
   
   def show
 	#unless Tmdb::TheMovieDb.get_movie_credits_by_id(params[:id])['cast'].nil?
@@ -19,43 +19,15 @@ helper_method :get_actors, :get_actors_name, :ive_seen_it
   end
   
   def destroy
-	path = actor_path(@actor)
-	super
+	super(actor_path(@actor))
   end
   
   
   def create
-	path = actor_path(@actor)
-	super
+	super(actor_path(@actor))
   end
   
   def update
-	path = actor_path(params[:id])
-	super
-  end
-
-
-
-
-	  
- 	def get_actors(movie_id)
-		ary = Tmdb::TheMovieDb.get_movie_credits_by_movie_id(movie_id)['cast']
-		x = {}
-		ary.each do |f|
-		x[f['name']] = f['id']
-		end
-		return x
-	end
-	
-	def get_actors_name
-		Tmdb::TheMovieDb.get_actor_by_id(params[:id])['name']
-	end
-	
-	def ive_seen_it(movie_id)
-
-	@allmovies.map(&:serializable_hash).select{|f| f['id'] == movie_id}.any?
-	end
-	
-
-	
+	super(actor_path(@actor))
+  end	
 end
