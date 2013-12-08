@@ -29,6 +29,11 @@ class TheMovieDb
 		x = @conn.get 'movie/' + movie_id
 		JSON.parse(x.body)
 	end
+	
+	def self.get_list_by_id (list_id)
+		x = @conn.get 'list/' + list_id
+		JSON.parse(x.body)
+	end
 
 	def self.get_movie_credits_by_movie_id(movie_id)
 		x = @conn.get "movie/#{movie_id}/credits"

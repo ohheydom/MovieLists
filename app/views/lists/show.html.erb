@@ -1,0 +1,8 @@
+<% unless @list["status_code"] == 6 %>
+<title><%= @list["name"] %></title>
+<%= render 'list_of_movies' %>
+<% else %>
+<title>List not found</title>
+<h2>List not found!</h2>
+<% end %>
+

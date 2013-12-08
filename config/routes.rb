@@ -31,8 +31,16 @@ resources :users, :only => [:show, :index]
   match '/movie/:id', :controller=>"movies", :action=>"create", to: 'movies#create', :via => :post
   match '/movie/:id', :controller=>"movies", :action=>"destroy", to: 'movies#destroy', :via => :delete
   get '/movie/:id', to: 'movies#show', as: 'movie'
+  
 
+  #Lists
+  
+  get 'list/:id', to: 'lists#show', as: 'list'
+    match '/list/:id', :controller=>"lists", :action=>"destroy", to: 'lists#destroy', :via => :delete
+  match '/list/:id', :controller=>"lists", :action=>"create", to: 'lists#create', :via => :post
+  match '/list/:id', :controller=>"lists", :action=>"update", to: 'lists#update', :via => :put
 
+  get 'lists', to: 'lists#index', as: 'lists'
 
   get "profile/:id", to: 'users#show', as: 'profile'
   

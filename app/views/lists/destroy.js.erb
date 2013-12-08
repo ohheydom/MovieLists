@@ -2,6 +2,3 @@ $("#<%= params[:movie_id] %>_tr").removeClass("movie_watched").addClass("movie_u
 $("#<%= params[:movie_id] %>_button").attr('value', "I've seen it!");
 $("#<%= params[:movie_id] %>_form").attr({'method':"post", 'action':"create"});
 $("#<%= params[:movie_id] %>_tr").find("[name='_method']").attr('value', "post");
-
-var count = $("#moviecount").html();
-$('#moviecount').text(parseInt(count)-1);
