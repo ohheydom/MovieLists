@@ -11,6 +11,7 @@
 		<% if user_signed_in? %>
 			<% if ive_seen_it(movie['id']) %>
 				<% method = "delete"; submit = "Oops, haven't seen it!"; action = "destroy"; trclass="movie_watched" %>
+				<% @watchedmoviescount += 1 %>
 			<% else %>
 				<% method = "post"; submit = "I've seen it!"; action = "create"; trclass="movie_unwatched" %>
 			<% end %>
@@ -44,5 +45,10 @@
 			<% end %>
 		</tr>
 	<% end %>
-
+	<h2 id="watchedmoviecount">
+	<% if user_signed_in? %>
+I've seen <span id="moviecount"><%= @watchedmoviescount %></span> out of
+	<% end %>
+	<%= @list["items"].count	%> movies
+</h2>
 </table>
