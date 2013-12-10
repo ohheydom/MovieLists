@@ -65,7 +65,6 @@ end
 class MovieStats
 	
 		def self.number_of_movies(user)
-		#@number = Connector.all_user_movies(user).count
 		@number = user.count
 		end
 	
@@ -89,8 +88,7 @@ class MovieStats
             other_profile.each {|movid| otherary << movid[:id] }
 			mov_together = (myary & otherary).count.to_f
             return (mov_together/(otherary.count+myary.count-mov_together))*100
-        end 
-		
+        end
 		
 		def self.add_years_to_hash(user) #Top 5
 			year_array = []

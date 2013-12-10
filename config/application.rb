@@ -24,6 +24,6 @@ module MovieLists
 # Autoload lib/ folder including all subdirectories
 config.autoload_paths += Dir["#{config.root}/lib/**/"]
 Dir[File.join(Rails.root, "lib", "core_ext", "*.rb")].each {|l| require l }
-
+config.exceptions_app = self.routes
   end
 end
