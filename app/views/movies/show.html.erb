@@ -8,19 +8,12 @@
 			<% end %>
 			<% end %>
 <table class="header_table">
-		<tr class="<%= trclass %>">
+  <tr class="<%= trclass %>" id= "<%= @movie['id'] %>_tr" >
 			<th class="header_table_movie_picture"><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + @movie['poster_path']) unless @movie['poster_path'].nil? %></th>
 			<th><h2><%= @movie['title'] + " (#{Date.parse(@movie['release_date']).strftime('%Y') unless (@movie['release_date'].empty?)})" %></h2></th>
 			<% if user_signed_in? %>
 			<th>
-			
-		
-			<%= form_tag({controller: "movies", action: action}, { id: (@movie['id'].to_s + "_form"), method: method }) do %>
-			<%= hidden_field_tag :movie_id, @movie['id'] %>
-			<%= hidden_field_tag :title, @movie['title'] %>
-			<%= hidden_field_tag :year, @movie['release_date'] %>
-			<%= submit_tag submit, id: (@movie['id'].to_s + "_button"), class: "btn btn-default" %>
-			<% end %>
+<%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, action: action, movie_id: @movie['id'], movie_title: @movie['title'], movie_release_date: @movie['release_date'] %>
 			</th>
 			<% end %>
 		</tr>

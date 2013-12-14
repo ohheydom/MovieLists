@@ -22,12 +22,7 @@
 			<% if user_signed_in? %>
 			<td>
 			
-			<%= form_tag({controller: "actors", action: action}, { id: (movie['id'].to_s + "_form"), remote: true, method: method }) do %>
-			<%= hidden_field_tag :movie_id, movie['id'] %>
-			<%= hidden_field_tag :title, movie['title'] %>
-			<%= hidden_field_tag :year, movie['release_date'] %>
-			<%= submit_tag submit, id: (movie['id'].to_s + "_button"), class: "btn btn-default" %>
-			<% end %>
+<%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, action: action, movie_id: movie['id'], movie_title: movie['title'], movie_release_date: movie['release_date'] %>
 			</td>
 			<% end %>
 			

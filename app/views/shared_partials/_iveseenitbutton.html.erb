@@ -1,0 +1,6 @@
+			<%= form_tag({controller: params[:controller], action: action}, { id: (movie_id.to_s + "_form"), remote: true, method: method }) do %>
+			<%= hidden_field_tag :movie_id, movie_id %>
+			<%= hidden_field_tag :title, movie_title %>
+			<%= hidden_field_tag :year, movie_release_date %>
+			<%= submit_tag submit, id: (movie_id.to_s + "_button"), class: "btn btn-default" %>
+			<% end %>
