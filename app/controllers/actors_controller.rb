@@ -12,7 +12,7 @@ helper_method :get_actors, :get_actors_name
 	@actor_name = get_actors_name
 	if user_signed_in?
 		@allmovies = current_user.movies.to_a
-		@watchedmoviescount = 	@usermovies.map {|p| p[:actors].include? @actor_name }.count(true)
+		@watchedmoviescount = 	@allmovies.map {|p| p[:actors].include? @actor_name }.count(true)
 	end
 	end
   end
