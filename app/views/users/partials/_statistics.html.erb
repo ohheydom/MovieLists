@@ -13,7 +13,7 @@
 	<tr>
 		<td><h4>Top Five actors/actresses:</h4></td>
 		<% Tmdb::MovieStats.add_actors_to_hash(@usermovies).each do |key, val| %>
-		<td><h4><%= "#{key} (#{val})" %></h4></td>
+      <td><h4><%= link_to key[0] + " (#{val})", actor_path(key[1]) %></h4></td>
 		<% end %>
 	</tr>
 	<tr>
