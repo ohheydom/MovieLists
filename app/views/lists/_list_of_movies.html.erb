@@ -33,7 +33,7 @@
 			
 			
 			
-			<% if user_signed_in? && current_user.username == "domleone" %>
+			<% if user_signed_in? && current_user.username == "dom" %>
 			<td>
 			<%= form_tag({controller: "lists", action: "update" }, { id: (movie['id'].to_s + "_form"), remote: true, method: "put" }) do %>
 			<%= hidden_field_tag :movie_id, movie['id'] %>

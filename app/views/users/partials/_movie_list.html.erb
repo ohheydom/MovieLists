@@ -3,10 +3,28 @@
 		<th>Movie Titles</th>
 	</tr>
 		<% @usermovies.sort_by {|v|  v['title'] }.each do |movie| %>
-	<tr>
+      <% if params[:id] != current_user.username %>
+        <% if ive_seen_it(movie[:id]) %>
+				  <% method = "delete"; submit = "Oops, haven't seen it!"; action = "destroy"; trclass="movie_watched" %>
+			  <% else %>
+				  <% method = "post"; submit = "I've seen it!"; action = "create"; trclass="movie_unwatched" %>
+        <% end %>
+      <% else trclass="movie_watched" %>
+      <% end %>
+      <tr class= "<%= trclass %>" id = "<%= movie['id'] %>_tr">
 		<td>
 			<%= link_to ("#{movie['title']} (#{movie['year']})"), movie_path(movie['id']) %>
 		</td>
-</tr>
-		<% end %>
+			<% if current_user.username != params[:id]  %>
+			<td>
+			
+			<%= form_tag({controller: "users", action: action}, { id: (movie['id'].to_s + "_form"), remote: true, method: method }) do %>
+			<%= hidden_field_tag :movie_id, movie['id'] %>
+			<%= hidden_field_tag :title, movie['title'] %>
+			<%= hidden_field_tag :year, movie['release_date'] %>
+			<%= submit_tag submit, id: (movie['id'].to_s + "_button"), class: "btn btn-default" %>
+			<% end %>
+			</td>
+			<% end %>
+    <% end %></tr>
 </table>

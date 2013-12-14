@@ -40,6 +40,10 @@ delete '/list/:id', :controller=>"lists", :action=>"destroy", to: 'lists#destroy
 post '/list/:id', :controller=>"lists", :action=>"create", to: 'lists#create'
 put '/list/:id', :controller=>"lists", :action=>"update", to: 'lists#update'
 get 'lists', to: 'lists#index', as: 'lists'
+
+#Users
+delete 'profile/:id', :controller=>"users", :action=>"destroy", to: 'users#destroy'
+post '/profile/:id', :controller=>"users", :action=>"create", to: 'users#create'
 get "profile/:id", to: 'users#show', as: 'profile'
   
   

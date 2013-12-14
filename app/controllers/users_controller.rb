@@ -10,10 +10,17 @@ class UsersController < ApplicationController
   
  
   def index
-	#@user = current_user
+
   end
   
-  
+ def create
+   
+	super(profile_path(@user))
+ end
+
+def destroy
+ super(profile_path(@user)) 
+end 
 
   
   def get_user_and_render
@@ -24,6 +31,7 @@ class UsersController < ApplicationController
     else
     @user =  User.find(params[:id])
 	@usermovies = @user.movies.to_a
+  @allmovies = current_user.movies.to_a
 	@render = 'users/partials/profile'
 	end
    end
