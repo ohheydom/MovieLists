@@ -74,7 +74,7 @@ class MovieStats
 		# Get all movies that user has seen
 			user.each do |a|
 				a[:actors].each do |act, id|
-					actor_array << act
+					actor_array << [act, id]
 					end
 				end
 		return Hash[Array.duplicate_hashes(actor_array).sort_by { |k,v| -v } [0..4]]
