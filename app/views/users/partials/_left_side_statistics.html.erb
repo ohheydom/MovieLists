@@ -1,18 +1,15 @@
-
-<table class="table">	
-	<tr>
-		<th>Actors/Actresses</th>
-	</tr>
-	<% add_unique_actor_and_id_to_array(@usermovies).take(10).each do |actor, id| %>
-	<tr>
-		<td>
-		<%= link_to actor, actor_path(id) %>
-
-		</td>
-	</tr>
-	<% end %>
+<table class="table">
+  <tr>
+    <th>Recently Added Movies</th>
+  </tr>
+  <% add_most_recent_movies_and_ids_to_array(@usermovies).reverse_each do |title, id| %>
+    <tr>
+      <td>
+      <%= link_to title, movie_path(id) %>
+      </td>
+    </tr>
+  <% end %>
 </table>
-
 
 <table class="table">	
 	<tr>

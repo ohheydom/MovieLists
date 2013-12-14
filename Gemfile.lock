@@ -28,6 +28,7 @@ GEM
     arel (4.0.1)
     atomic (1.1.14)
     awesome_print (1.2.0)
+    bcrypt-ruby (3.1.2)
     bcrypt-ruby (3.1.2-x86-mingw32)
     bootstrap-sass (3.0.2.1)
       sass (~> 3.2)
@@ -35,6 +36,12 @@ GEM
     bullet (4.7.1)
       activesupport
       uniform_notifier (>= 1.4.0)
+    capybara (2.2.0)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     code_analyzer (0.4.3)
       sexp_processor
     coffee-rails (4.0.1)
@@ -51,8 +58,16 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
+    factory_girl (4.3.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.3.0)
+      factory_girl (~> 4.3.0)
+      railties (>= 3.0.0)
+    faker (1.2.0)
+      i18n (~> 0.5)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     hike (1.2.3)
@@ -71,11 +86,17 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25)
+    mini_portile (0.5.2)
     minitest (4.7.5)
     multi_json (1.8.2)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
+    nokogiri (1.6.0-x86-mingw32)
+      mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
+    pg (0.17.0)
     pg (0.17.0-x86-mingw32)
     polyglot (0.3.3)
     quiet_assets (1.0.2)
@@ -114,6 +135,17 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     require_all (1.3.2)
+    rspec-core (2.14.7)
+    rspec-expectations (2.14.4)
+      diff-lcs (>= 1.1.3, < 2.0)
+    rspec-mocks (2.14.4)
+    rspec-rails (2.14.0)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 2.14.0)
+      rspec-expectations (~> 2.14.0)
+      rspec-mocks (~> 2.14.0)
     ruby-progressbar (1.2.0)
     sass (3.2.12)
     sass-rails (4.0.1)
@@ -133,6 +165,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    sqlite3 (1.3.8)
     sqlite3 (1.3.8-x86-mingw32)
     thor (0.18.1)
     thread_safe (0.1.3)
@@ -150,15 +183,21 @@ GEM
     uniform_notifier (1.4.0)
     warden (1.2.3)
       rack (>= 1.0)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
   bootstrap-sass (~> 3.0.2.0)
   bullet
+  capybara
   coffee-rails (~> 4.0.0)
   devise
+  factory_girl_rails
+  faker
   faraday
   httparty
   jbuilder (~> 1.2)
@@ -169,6 +208,7 @@ DEPENDENCIES
   rails (= 4.0.0)
   rails_12factor
   rails_best_practices
+  rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3

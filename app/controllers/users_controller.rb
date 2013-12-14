@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	before_filter :authenticate_user!, :get_user_and_render
 	
-	helper_method :add_unique_actor_and_id_to_array
+	helper_method :add_most_recent_movies_and_ids_to_array
 	
   def show
 
@@ -27,15 +27,12 @@ class UsersController < ApplicationController
 	@render = 'users/partials/profile'
 	end
    end
-   
-   def add_unique_actor_and_id_to_array(user)
-   x = []
-   	user.each do |movie|
-		movie.actors.each do |actor, id|
-			x << [actor, id]
-		end
-	end
-	return x
-   end
-	
+
+  def add_most_recent_movies_and_ids_to_array(usermovies)
+    x = []
+      usermovies.last(5).each do |movie|
+        x << [movie['title'], movie['id']]
+      end
+      return x
+  end
 end

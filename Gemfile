@@ -25,7 +25,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'httparty'
 
 
-gem "rails_best_practices"
 gem 'bootstrap-sass', '~> 3.0.2.0'
 
 
@@ -63,3 +62,10 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :development, :test do
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'faker'
+  gem 'factory_girl_rails'
+  gem "rails_best_practices"
+end
