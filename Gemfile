@@ -16,6 +16,7 @@ gem 'will_paginate'
 gem 'faraday'
 gem 'json'
 gem 'devise'
+gem 'kaminari'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

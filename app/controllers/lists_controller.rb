@@ -4,7 +4,7 @@ require 'will_paginate/array'
 
   def show
 	@list = Tmdb::TheMovieDb.get_list_by_id(params[:id])
-	@listp = @list['items'].paginate(page: params[:page], per_page: 50)
+	@listp = Kaminari.paginate_array(@list['items']).page(params[:page]).per(50)
   get_movies_if_user_signed_in
 	
   end
