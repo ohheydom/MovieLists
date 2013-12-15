@@ -97,7 +97,19 @@ class MovieStats
 				end
 		return Hash[Array.duplicate_hashes(year_array).sort_by { |k,v| -v } [0..4]]
 		end
-				
+    
+    def self.compare_list_and_my_movies(my_movies, list)
+      my_movie_ids = []
+      list_movie_ids = []
+      my_movies.each do |movie|
+        my_movie_ids << movie['id']
+      end
+      list['items'].each do |movie|
+        list_movie_ids << movie['id']
+      end
+      (my_movie_ids & list_movie_ids).count
+    end
+
 end
 
 

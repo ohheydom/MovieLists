@@ -1,4 +1,5 @@
 <h1><%= @list["name"] %></h1>
+<%=  %>
 <table>
 	<tr class="movie_status_table_header">
 		<th></th>
@@ -7,11 +8,10 @@
 		<% if current_user.username == "domleone" %><th>Refresh</th><% end %>
 		<% end %>
 	</tr>
-	<% @list["items"].each do |movie| %>
+	<% @listp.each do |movie| %>
 		<% if user_signed_in? %>
 			<% if ive_seen_it(movie['id']) %>
 				<% method = "delete"; submit = "Oops, haven't seen it!"; action = "destroy"; trclass="movie_watched" %>
-				<% @watchedmoviescount += 1 %>
 			<% else %>
 				<% method = "post"; submit = "I've seen it!"; action = "create"; trclass="movie_unwatched" %>
 			<% end %>
@@ -42,8 +42,9 @@
 	<% end %>
 	<h2 id="watchedmoviecount">
 	<% if user_signed_in? %>
-I've seen <span id="moviecount"><%= @watchedmoviescount %></span> out of
+I've seen <span id="moviecount"><%= Tmdb::MovieStats::compare_list_and_my_movies(@allmovies, @list) %></span> out of
 	<% end %>
 	<%= @list["items"].count	%> movies
 </h2>
 </table>
+<%= will_paginate @listp %>
