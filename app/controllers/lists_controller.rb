@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-	
+require 'will_paginate/array'
 	
   def show
 	@list = Tmdb::TheMovieDb.get_list_by_id(params[:id])
