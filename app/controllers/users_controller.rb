@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 	end
  
 	@usermovies = @user.movies.order(title: :asc)
-  @usermoviesp = @usermovies.paginate(:page => params[:page], :per_page => 100).to_a
+  @usermoviesp = @usermovies.paginate(:page => params[:page], :per_page => 50).to_a
    end
 
   def add_most_recent_movies_and_ids_to_array(usermovies)

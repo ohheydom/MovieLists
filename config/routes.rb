@@ -45,9 +45,10 @@ get 'lists', to: 'lists#index', as: 'lists'
 delete 'profile/:id', :controller=>"users", :action=>"destroy", to: 'users#destroy'
 post '/profile/:id', :controller=>"users", :action=>"create", to: 'users#create'
 get "profile/:id", to: 'users#show', as: 'profile'
-get "profile/:id", to: 'users#show', as: 'user' 
-    #errors
-  
+#get "profile/:id", to: 'users#show', as: 'user' 
+    
+
+#errors
 get "/404", to: 'errors#not_found'
 get "/500", to: 'errors#internal_server_error'
 get "/422", to: 'errors#unprocessable_entity'

@@ -23,4 +23,4 @@
 			<% end %>
     <% end %></tr>
 </table>
-<%= will_paginate @usermoviesp %>
+<%= will_paginate @usermoviesp, params: {controller: 'users' } %>
