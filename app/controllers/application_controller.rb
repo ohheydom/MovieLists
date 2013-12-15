@@ -55,8 +55,15 @@ class ApplicationController < ActionController::Base
    	def ive_seen_it(movie_id) #Return true or false if you've seen the movie
 		@allmovies.map(&:serializable_hash).select{|f| f['id'] == movie_id}.any?
 	end
+
+    def get_movies_if_user_signed_in
+		if user_signed_in?
+			@allmovies = current_user.movies.to_a 
+		end
+    end  
 	
-	def get_actors(movie_id) #Get all the actors for a movie by id
+    
+    def get_actors(movie_id) #Get all the actors for a movie by id
 		ary = Tmdb::TheMovieDb.get_movie_credits_by_movie_id(movie_id)['cast']
 		x = {}
 		ary.each do |f|
