@@ -3,23 +3,16 @@
 		<th>Movie Titles</th>
 	</tr>
 		<% @usermoviesp.each do |movie| %>
-      <% if params[:id] != current_user.username %>
-        <% if ive_seen_it(movie[:id]) %>
-				  <% method = "delete"; submit = "Oops, haven't seen it!"; action = "destroy"; trclass="movie_watched" %>
-			  <% else %>
-				  <% method = "post"; submit = "I've seen it!"; action = "create"; trclass="movie_unwatched" %>
-        <% end %>
-      <% else trclass="movie_watched" %>
-      <% end %>
-      <tr class= "<%= trclass %>" id = "<%= movie['id'] %>_tr">
-		<td>
-			<%= link_to ("#{movie['title']} (#{movie['year']})"), movie_path(movie['id']) %>
-		</td>
-			<% if current_user.username != params[:id]  %>
-			<td>
-
-<%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, action: action, movie_id: movie['id'], movie_title: movie['title'], movie_release_date: movie['release_date'] %>
-			</td>
-			<% end %>
-    <% end %></tr>
+        <% (params[:id] != current_user.username) ?  (method, submit, action, trclass = ive_seen_it(movie['id'])) : trclass="noclass" %>
+        <tr class= "<%= trclass %>" id = "<%= movie['id'] %>_tr">
+		    <td>
+			      <%= link_to ("#{movie['title']} (#{movie['year']})"), movie_path(movie['id']) %>
+		    </td>
+			      <% if current_user.username != params[:id]  %>
+			          <td>
+                <%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, action: action, movie: movie %>
+                </td>
+            <% end %>
+    <% end %>
+    </tr>
 </table>

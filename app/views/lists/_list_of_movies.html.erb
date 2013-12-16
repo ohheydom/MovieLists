@@ -1,49 +1,32 @@
 <h1><%= @list["name"] %></h1>
-<%=  %>
 <table>
 	<tr class="movie_status_table_header">
 		<th></th>
 		<th>Film</th>
-		<% if user_signed_in? %><th>Status</th>
+        <th>Status</th>
 		<% if current_user.username == "domleone" %><th>Refresh</th><% end %>
-		<% end %>
 	</tr>
 	<% @listp.each do |movie| %>
-		<% if user_signed_in? %>
-			<% if ive_seen_it(movie['id']) %>
-				<% method = "delete"; submit = "Oops, haven't seen it!"; action = "destroy"; trclass="movie_watched" %>
-			<% else %>
-				<% method = "post"; submit = "I've seen it!"; action = "create"; trclass="movie_unwatched" %>
-			<% end %>
-		<% end %>
-		<tr class="<%= trclass %>" id = "<%= movie['id'] %>_tr">
-			<td><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + movie['poster_path']) unless movie['poster_path'].nil? %></td>
-			<td><%= link_to (movie['title'] + " (#{Date.parse(movie['release_date']).strftime('%Y') unless (movie['release_date'].empty?)})"), movie_path(movie['id']) %></td>
-			<% if user_signed_in? %>
-			<td>
-			
-<%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, action: action, movie_id: movie['id'], movie_title: movie['title'], movie_release_date: movie['release_date'] %>
-			</td>
-			<% end %>
-			
-			
-			
-			<% if user_signed_in? && current_user.username == "dom" %>
-			<td>
-			<%= form_tag({controller: "lists", action: "update" }, { id: (movie['id'].to_s + "_form"), remote: true, method: "put" }) do %>
-			<%= hidden_field_tag :movie_id, movie['id'] %>
-			<%= hidden_field_tag :title, movie['title'] %>
-			<%= hidden_field_tag :year, movie['release_date'] %>
-			<%= submit_tag "Refresh", id: (movie['id'].to_s + "_button"), class: "btn btn-default" %>
-			<% end %>
-			</td>
-			<% end %>
-		</tr>
+        <% method, submit, action, trclass = ive_seen_it(movie['id']) %>
+        <tr class="<%= trclass %>" id = "<%= movie['id'] %>_tr">
+        <td><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + movie['poster_path']) unless movie['poster_path'].nil? %></td>
+        <td><%= link_to (movie['title'] + " (#{Date.parse(movie['release_date']).strftime('%Y') unless (movie['release_date'].empty?)})"), movie_path(movie['id']) %></td>
+        <td>
+            <%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, action: action, movie: movie %>
+        </td>
+			  <% if current_user.username == "dom" %>
+			      <td>
+			          <%= form_tag({controller: "lists", action: "update" }, { id: (movie['id'].to_s + "_form"), remote: true, method: "put" }) do %>
+			          <%= hidden_field_tag :movie_id, movie['id'] %>
+			          <%= hidden_field_tag :title, movie['title'] %>
+			          <%= hidden_field_tag :year, movie['release_date'] %>
+			          <%= submit_tag "Refresh", id: (movie['id'].to_s + "_button"), class: "btn btn-default" %>
+            </td>
+        <% end %>
+		    </tr>
 	<% end %>
 	<h2 id="watchedmoviecount">
-	<% if user_signed_in? %>
 I've seen <span id="moviecount"><%= Tmdb::MovieStats::compare_list_and_my_movies(@allmovies, @list) %></span> out of
-	<% end %>
 	<%= @list["items"].count	%> movies
-</h2>
+  </h2>
 </table>

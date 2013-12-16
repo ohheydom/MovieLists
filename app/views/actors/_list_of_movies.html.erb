@@ -8,26 +8,16 @@
 		<% end %>
 	</tr>
 	<% @actor.each do |movie| %>
-		<% if user_signed_in? %>
-			<% if ive_seen_it(movie['id']) %>
-				<% method = "delete"; submit = "Oops, haven't seen it!"; action = "destroy"; trclass="movie_watched" %>
-			<% else %>
-				<% method = "post"; submit = "I've seen it!"; action = "create"; trclass="movie_unwatched" %>
-			<% end %>
-		<% end %>
+        <% (method, submit, action, trclass = ive_seen_it(movie['id'])) if user_signed_in? %>
 		<tr class="<%= trclass %>" id = "<%= movie['id'] %>_tr">
 			<td><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + movie['poster_path']) unless movie['poster_path'].nil? %></td>
 			<td><%= link_to (movie['title'] + " (#{Date.parse(movie['release_date']).strftime('%Y') unless (movie['release_date'].empty?)})"), movie_path(movie['id']) %></td>
 			<td><%= movie['character'] %></td>
 			<% if user_signed_in? %>
 			<td>
-			
-<%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, action: action, movie_id: movie['id'], movie_title: movie['title'], movie_release_date: movie['release_date'] %>
+        <%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, action: action, movie: movie %>
 			</td>
 			<% end %>
-			
-			
-			
 			<% if user_signed_in? && current_user.username == "domleone" %>
 			<td>
 			<%= form_tag({controller: "actors", action: "update" }, { id: (movie['id'].to_s + "_form"), remote: true, method: "put" }) do %>

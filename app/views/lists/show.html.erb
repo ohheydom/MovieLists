@@ -1,10 +1,9 @@
 <% unless @list["status_code"] == 6 %>
 <title><%= @list["name"] %></title>
 
-<%= render 'list_of_movies' %>
+<%= user_signed_in? ? (render 'list_of_movies') : (render 'list_of_movies_not_signed_in') %>
 <%= paginate @listp %>
 <% else %>
 <title>List not found</title>
 <h2>List not found!</h2>
 <% end %>
-
