@@ -31,11 +31,15 @@ class UsersController < ApplicationController
     @usermoviesp = @usermovies.page(params[:page])
   end
 
-  def add_most_recent_movies_and_ids_to_array(usermovies)
+  def add_most_recent_movies_and_ids_to_array(user)
     x = []
-      usermovies.last(5).each do |movie|
-        x << [movie['title'], movie['id']]
+    idandmovie = []
+      user.connectors.order('created_at').last(5).each do |movie|
+        x << movie['movie_id']
       end
-      return x
+          Movie.find(x).each_with_index do |mov, arrayloc|
+              idandmovie << [mov.title, x[arrayloc]]
+        end
+      return idandmovie
   end
 end
