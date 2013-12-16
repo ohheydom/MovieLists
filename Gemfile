@@ -12,7 +12,6 @@ end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
-gem 'will_paginate'
 gem 'faraday'
 gem 'json'
 gem 'devise'

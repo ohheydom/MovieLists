@@ -1,18 +1,11 @@
-<table class="table">	
-	<tr>
-		<th>Movie Titles</th>
-	</tr>
-		<% @usermoviesp.each do |movie| %>
-        <% ((params.has_key?(:id)) && (params[:id] != current_user.username)) ?  (method, submit, action, trclass = ive_seen_it(movie['id'])) : trclass="noclass" %>
-        <tr class= "<%= trclass %>" id = "<%= movie['id'] %>_tr">
-		    <td>
-			      <%= link_to ("#{movie['title']} (#{movie['year']})"), movie_path(movie['id']) %>
-		    </td>
-			      <% if params.has_key?(:id) && (current_user.username != params[:id])  %>
-			          <td>
-                <%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, action: action, movie: movie %>
-                </td>
-            <% end %>
+<% ((params.has_key?(:id)) && (params[:id] != current_user.username)) ?  (method, submit, action, trclass = ive_seen_it(movie['id'])) : trclass="noclass" %>
+<tr class= "<%= trclass %>" id = "<%= movie['id'] %>_tr">
+    <td>
+        <%= link_to ("#{movie['title']} (#{movie['year']})"), movie_path(movie['id']) %>
+    </td>
+    <% if params.has_key?(:id) && (current_user.username != params[:id])  %>
+        <td>
+            <%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, action: action, movie: movie %>
+        </td>
     <% end %>
-    </tr>
-</table>
+</tr>

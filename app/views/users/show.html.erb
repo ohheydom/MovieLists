@@ -7,7 +7,13 @@
 <%= render 'users/partials/left_side_statistics' %>
 </div>
 <div class="col-md-9">
-<%= render 'users/partials/list_of_movies' %>
+
+<table class="table">	
+	<tr>
+		<th>Movie Titles</th>
+	</tr>
+  <%= render :partial => 'users/partials/list_of_movies', :collection => @usermoviesp, :as => :movie  %>
+</table>
 <%= paginate @usermoviesp %>
 </div>
 </div>

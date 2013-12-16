@@ -1,5 +1,4 @@
 class ListsController < ApplicationController
-require 'will_paginate/array'
 	
 
   def show
