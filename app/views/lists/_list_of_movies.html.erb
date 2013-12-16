@@ -1,12 +1,3 @@
-<h1><%= @list["name"] %></h1>
-<table>
-	<tr class="movie_status_table_header">
-		<th></th>
-		<th>Film</th>
-        <th>Status</th>
-		<% if current_user.username == "domleone" %><th>Refresh</th><% end %>
-	</tr>
-	<% @listp.each do |movie| %>
         <% method, submit, action, trclass = ive_seen_it(movie['id']) %>
         <tr class="<%= trclass %>" id = "<%= movie['id'] %>_tr">
         <td><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + movie['poster_path']) unless movie['poster_path'].nil? %></td>
@@ -25,9 +16,3 @@
             </td>
         <% end %>
 		    </tr>
-	<% end %>
-	<h2 id="watchedmoviecount">
-I've seen <span id="moviecount"><%= Tmdb::MovieStats::compare_list_and_my_movies(@allmovies, @list) %></span> out of
-	<%= @list["items"].count	%> movies
-  </h2>
-</table>

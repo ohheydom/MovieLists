@@ -86,7 +86,7 @@ class ApplicationController < ActionController::Base
 	def get_actors_name #Get actors name by id
 		Tmdb::TheMovieDb.get_actor_by_id(params[:id])['name']
 	end
-	
+
 	# STRONG PARAMS
   	def movie_params
 		params.permit(:id, :title, :actors, :year).merge(:id => params[:movie_id], :actors => get_actors(params[:movie_id]), :year => params[:year])
