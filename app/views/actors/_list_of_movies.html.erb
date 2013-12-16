@@ -1,23 +1,11 @@
-<table>
-	<tr class="movie_status_table_header">
-		<th></th>
-		<th>Film</th>
-		<th>Character</th>
-		<% if user_signed_in? %><th>Status</th>
-		<% if current_user.username == "domleone" %><th>Refresh</th><% end %>
-		<% end %>
-	</tr>
-	<% @actor.each do |movie| %>
-        <% (method, submit, action, trclass = ive_seen_it(movie['id'])) if user_signed_in? %>
+        <% (method, submit, action, trclass = ive_seen_it(movie['id']))  %>
 		<tr class="<%= trclass %>" id = "<%= movie['id'] %>_tr">
 			<td><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + movie['poster_path']) unless movie['poster_path'].nil? %></td>
 			<td><%= link_to (movie['title'] + " (#{Date.parse(movie['release_date']).strftime('%Y') unless (movie['release_date'].empty?)})"), movie_path(movie['id']) %></td>
 			<td><%= movie['character'] %></td>
-			<% if user_signed_in? %>
 			<td>
         <%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, action: action, movie: movie %>
 			</td>
-			<% end %>
 			<% if user_signed_in? && current_user.username == "domleone" %>
 			<td>
 			<%= form_tag({controller: "actors", action: "update" }, { id: (movie['id'].to_s + "_form"), remote: true, method: "put" }) do %>
@@ -26,9 +14,7 @@
 			<%= hidden_field_tag :year, movie['release_date'] %>
 			<%= submit_tag "Refresh", id: (movie['id'].to_s + "_button"), class: "btn btn-default" %>
 			<% end %>
-			</td>
-			<% end %>
+  </td>
+  <% end %>
 		</tr>
-	<% end %>
 
-</table>

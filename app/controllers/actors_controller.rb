@@ -8,7 +8,7 @@ helper_method :get_actors, :get_actors_name
 	@actor = Tmdb::TheMovieDb.get_movie_credits_by_id(params[:id])['cast']
 	  unless @actor.nil? 
 	    @actor.sort_by! {|v|  v['release_date'] }.reverse!
-	    Hash[@actor.map! {|h| h }]
+	   # Hash[@actor.map! {|h| h }]
 	    @actor_name = get_actors_name
 	    if user_signed_in?
 		    @allmovies = current_user.movies.to_a

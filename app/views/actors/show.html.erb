@@ -7,7 +7,18 @@ I've seen <span id="moviecount"><%= @watchedmoviescount %></span> out of
 	<% end %>
 	<%= @actor.count %> movies
 </h2>
-<%= render 'list_of_movies' %>
+
+<table>
+	<tr class="movie_status_table_header">
+		<th></th>
+		<th>Film</th>
+		<th>Character</th>
+		><th></th>
+		<th></th>
+	</tr>
+  <%= user_signed_in? ? (render :partial => 'list_of_movies', :collection => @actor, :as => :movie) : (render :partial => 'list_of_movies_not_signed_in', :collection => @actor, :as => :movie) %>
+</table>
+
 <% else %>
 <title>Not found</title>
 <h2>Actor not found!</h2>
