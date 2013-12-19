@@ -5,9 +5,14 @@ if (currentPageparams) currentPage = currentPageparams;
 var intervalID = -1000;
 
 function checkScroll() {
+  if ($('#tempload').length){
+      return}
+  else{
+  
   if (nearBottomOfPage()) {
     currentPage++;
     if (currentPage > lastPage){
+        $('.endless_movie').append("<div id='endofpages'>There are no more movies here.</div>")
 			      clearInterval(intervalID);
             return
     }
@@ -19,7 +24,7 @@ function checkScroll() {
   prom.done(appendMovies);
   prom.always(removeLoadingtext);
   prom.fail(function(){ console.log("Something went wrong")});}
-
+  }
 }
 
 function appendMovies(data, textStatus, jqXHR){
@@ -46,9 +51,8 @@ function pageHeight() {
   return Math.max(document.body.scrollHeight, document.body.offsetHeight);
 }
 
-$('document').ready(function(){
+$(document).ready(function(){
     lastPage = $('nav.pagination span.last a').attr('href').split("=").pop();
-    //  $(window).scroll(checkScroll);
 	  intervalID = setInterval(checkScroll, 800);
     $('.pagination').hide();
 })
