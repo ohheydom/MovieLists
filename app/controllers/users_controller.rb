@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 	    @render = 'users/partials/profile'
     end
     @usermovies = @user.movies.order(title: :asc)
-    @usermoviesp = @usermovies.page(params[:page])
+    @usermoviesp = @usermovies.page(params[:page]).per(50)
   end
 
   def add_most_recent_movies_and_ids_to_array(user)
@@ -37,8 +37,8 @@ class UsersController < ApplicationController
       user.connectors.order('created_at').last(5).each do |movie|
         x << movie['movie_id']
       end
-          Movie.find(x).each_with_index do |mov, arrayloc|
-              idandmovie << [mov.title, x[arrayloc]]
+          Movie.find(x).index_by(&:id).slice(*x).each do |movid, movinfo|
+              idandmovie << [movinfo['title'], movid]
         end
       return idandmovie
   end

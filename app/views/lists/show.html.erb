@@ -11,7 +11,9 @@
                 <th>Film</th>
                 <th></th>
             </tr>
+                <tbody class = "endless_movie">
                 <%= user_signed_in? ? (render :partial => 'list_of_movies', :collection => @listp, :as => :movie ) : (render :partial =>'list_of_movies_not_signed_in', :collection => @listp, :as => :movie ) %>
+                </tbody>
         </table>
     <%= paginate @listp %>
 <% else %>
