@@ -84,10 +84,11 @@ class MovieStats
 		def self.compare_movies(my_profile, other_profile)
             myary = []
             otherary = []
-            my_profile.each { |movid| myary << movid[:id] }
-            other_profile.each {|movid| otherary << movid[:id] }
-			mov_together = (myary & otherary).count.to_f
-            return (mov_together/(otherary.count+myary.count-mov_together))*100
+            my_profile.map { |movid| myary << movid['id'] }
+            other_profile.map {|movid| otherary << movid['id'] }
+			mov_together = (myary & otherary)           
+      return mov_together, ((mov_together.count.to_f/(otherary.count+myary.count-mov_together.count.to_f))*100)
+
         end
 		
 		def self.add_years_to_hash(user) #Top 5

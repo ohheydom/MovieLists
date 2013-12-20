@@ -1,4 +1,4 @@
-<% ((params.has_key?(:id)) && (params[:id] != current_user.username)) ?  (method, submit, action, trclass = ive_seen_it(movie['id'])) : trclass="noclass" %>
+<% ((params.has_key?(:id)) && (params[:id] != current_user.username)) ?  (method, submit, action, trclass = ive_seen_it(movie['id'], @ourmovies)) : trclass="noclass" %>
 <tr class= "<%= trclass %>" id = "<%= movie['id'] %>_tr">
     <td>
         <%= link_to ("#{movie['title']} (#{movie['year']})"), movie_path(movie['id']) %>

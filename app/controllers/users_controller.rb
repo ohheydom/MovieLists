@@ -18,16 +18,19 @@ class UsersController < ApplicationController
  end 
 
   
+
   def get_user_and_render
     if (current_user.username == params[:id]) || (User.where(username: params[:id]).blank?)
   	  @user = current_user
-	    @render = 'users/partials/my_profile'
+	    @render = 'users/partials/my_profile' 
+      @usermovies = @user.movies.order(title: :asc).to_a
     else
       @user =  User.find(params[:id])
       @allmovies = current_user.movies.to_a
 	    @render = 'users/partials/profile'
+      @usermovies = @user.movies.order(title: :asc).to_a
+      @ourmovies =  Tmdb::MovieStats.compare_movies(@allmovies,@usermovies)[0]
     end
-    @usermovies = @user.movies.order(title: :asc).to_a
     @usermoviesp = Kaminari.paginate_array(@usermovies).page(params[:page]).per(50)
   end
 

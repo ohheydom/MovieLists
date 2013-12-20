@@ -10,6 +10,8 @@ class ListsController < ApplicationController
   else
     @listpart = 'list_of_movies_not_signed_in'
   end  
+
+      @ourmovies =  Tmdb::MovieStats.compare_movies(@allmovies,@list['items'])[0]
   end
   
   def index
