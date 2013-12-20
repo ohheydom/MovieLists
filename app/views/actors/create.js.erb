@@ -1,6 +1,6 @@
 $("#<%= params[:movie_id] %>_tr").removeClass("movie_unwatched").addClass("movie_watched");
 $("#<%= params[:movie_id] %>_button").attr('value', "Oops, I haven't seen it!");
-$("#<%= params[:movie_id] %>_form").attr({'method':"delete", 'action':"destroy"});
+$("#<%= params[:movie_id] %>_form").attr({'method':"delete", 'action':"<%= escape_javascript(actor_path(params[:id])) %>"});
 
 var count = $("#moviecount").html();
 $('#moviecount').text(parseInt(count)+1);

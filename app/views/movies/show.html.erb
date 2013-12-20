@@ -7,7 +7,7 @@
 			<th><h2><%= @movie['title'] + " (#{Date.parse(@movie['release_date']).strftime('%Y') unless (@movie['release_date'].empty?)})" %></h2></th>
 			<% if user_signed_in? %>
 			<th>
-<%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, action: action, movie: @movie %>
+        <%= render 'shared_partials/iveseenitbutton_search', submit: submit, method: method, path: movie_path(@movie['id']), movie: @movie %>
 			</th>
 			<% end %>
 		</tr>

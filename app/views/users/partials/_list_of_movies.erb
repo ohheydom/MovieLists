@@ -5,7 +5,7 @@
     </td>
     <% if params.has_key?(:id) && (current_user.username != params[:id])  %>
         <td>
-            <%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, action: action, movie: movie %>
+            <%= render 'shared_partials/iveseenitbutton_search', submit: submit, method: method, path: profile_path(@user), movie: movie %>
         </td>
     <% end %>
 </tr>

@@ -16,13 +16,11 @@ class SearchController < ApplicationController
   end
   
   def create
-
-	super(search_index_path(params[:query]))
+	super(movie_path(params[:id]))
   end
 
   def destroy
-
-	super(search_index_path(params[:query]))
+	super(movie_path(params[:id]))
   end
 
 end

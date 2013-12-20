@@ -3,7 +3,7 @@
         <td><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + movie['poster_path']) unless movie['poster_path'].nil? %></td>
         <td><%= link_to (movie['title'] + " (#{Date.parse(movie['release_date']).strftime('%Y') unless (movie['release_date'].empty?)})"), movie_path(movie['id']) %></td>
         <td>
-            <%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, action: action, movie: movie %>
+            <%= render 'shared_partials/iveseenitbutton_search', submit: submit, method: method, path: list_path(params[:id]), movie: movie %>
         </td>
 			  <% if current_user.username == "domleone" %>
 			      <td>
