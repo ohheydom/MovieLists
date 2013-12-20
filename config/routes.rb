@@ -30,7 +30,7 @@ get '/actor/:id', to: 'actors#show', as: 'actor'
 post '/movie/:id', :controller=>"movies", :action=>"create", to: 'movies#create'
 delete '/movie/:id', :controller=>"movies", :action=>"destroy", to: 'movies#destroy'
 get '/movie/:id', to: 'movies#show', as: 'movie'
-
+put '/movie/:id', :controller=>"movies", :action=>"update", to: 'movies#update'
 #Search
 
 #post '/search/:id', :controller=>"search", :action=>"create", to: 'search#create'

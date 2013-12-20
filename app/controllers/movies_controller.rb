@@ -20,4 +20,8 @@ class MoviesController < ApplicationController
 	super(movie_path(params[:id]))
   end
 
+  def update
+    super(movie_path(params[:id]))
+  end
+
 end

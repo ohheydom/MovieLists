@@ -7,7 +7,7 @@
 			</td>
 			<% if user_signed_in? && current_user.username == "domleone" %>
 			<td>
-			<%= form_tag({controller: "actors", action: "update" }, { id: (movie['id'].to_s + "_form"), remote: true, method: "put" }) do %>
+			<%= form_tag(movie_path(movie['id']), id: (movie['id'].to_s + "_form"), remote: true, method: "put" ) do %>
 			<%= hidden_field_tag :movie_id, movie['id'] %>
 			<%= hidden_field_tag :title, movie['title'] %>
 			<%= hidden_field_tag :year, movie['release_date'] %>
