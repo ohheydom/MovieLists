@@ -4,15 +4,15 @@ class ActorsController < ApplicationController
 helper_method :get_actors, :get_actors_name
   
   def show
-	#unless Tmdb::TheMovieDb.get_movie_credits_by_id(params[:id])['cast'].nil?
-	@actor = Tmdb::TheMovieDb.get_movie_credits_by_id(params[:id])['cast']
-	  unless @actor.nil? 
+    @actorarr = Tmdb::TheMovieDb.get_movie_credits_by_id(params[:id])
+    @actor = @actorarr['cast']
+    unless @actor.nil? 
 	    @actor.sort_by! {|v|  v['release_date'] }.reverse!
-	   # Hash[@actor.map! {|h| h }]
 	    @actor_name = get_actors_name
 	    if user_signed_in?
         get_movies_if_user_signed_in
-		    @watchedmoviescount = @allmovies.map {|p| p[:actors].include? @actor_name }.count(true)
+        @ourmovies =  Tmdb::MovieStats.compare_movies(@allmovies,@actorarr['cast'])[0]
+        @watchedmoviescount = @ourmovies.count
 	    end
 	  end
   end

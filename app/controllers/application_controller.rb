@@ -78,23 +78,6 @@ class ApplicationController < ActionController::Base
 return method, submit, action, trclass
     end
 
-   	def ive_seen_it2(movie_id) #Return true or false if you've seen the movie
-
-
-      if @allmovies.map(&:serializable_hash).select{|f| f['id'] == movie_id}.any?
-				   method = "delete"
-           submit = "Oops, haven't seen it!"
-           action = "destroy"
-           trclass="movie_watched" 
-        else
-				  method = "post"
-          submit = "I've seen it!"
-          action = "create"
-          trclass="movie_unwatched"
-        end 
-       return method, submit, action, trclass
-    end
-
     def get_movies_if_user_signed_in
 			@allmovies = current_user.movies.to_a 
     end  

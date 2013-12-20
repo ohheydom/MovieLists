@@ -17,10 +17,8 @@ unauthenticated do
 end
 
 #resources :users, :only => [:show, :index]
-
-
+resources :search
 get "home/index"  
-get 'search', to: 'search#index'
 
 #Actors
 post '/actor/:id', :controller=>"actors", :action=>"create", to: 'actors#create'
@@ -32,7 +30,12 @@ get '/actor/:id', to: 'actors#show', as: 'actor'
 post '/movie/:id', :controller=>"movies", :action=>"create", to: 'movies#create'
 delete '/movie/:id', :controller=>"movies", :action=>"destroy", to: 'movies#destroy'
 get '/movie/:id', to: 'movies#show', as: 'movie'
-  
+
+#Search
+
+#post '/search/:id', :controller=>"search", :action=>"create", to: 'search#create'
+#delete '/search/:id', :action=> "destroy", :controller=>"search", to: 'search#destroy'
+#get '/search', to: 'search#index', as: 'search'
 
 #Lists
 get 'list/:id', to: 'lists#show', as: 'list'

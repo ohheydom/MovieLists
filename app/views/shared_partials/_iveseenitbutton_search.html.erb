@@ -1,0 +1,6 @@
+<%= form_tag( movie_path(movie['id']), id: ((movie['id']).to_s + "_form"), remote: true, method: method ) do %>
+			<%= hidden_field_tag :movie_id, movie['id'] %>
+			<%= hidden_field_tag :title, movie['title'] %>
+      <%= hidden_field_tag :year, movie['release_date']%>
+			<%= submit_tag submit, id: ((movie['id']).to_s + "_button"), class: "btn btn-default" %>
+			<% end %>

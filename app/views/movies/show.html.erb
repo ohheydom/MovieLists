@@ -1,6 +1,6 @@
 <% unless @movie["status_code"] == 6 %>
 <title><%= @movie['title'] %></title>
-    <% (user_signed_in?) ? (method, submit, action, trclass = ive_seen_it(@movie['id'])) : trclass = "noclass" %>
+    <% (user_signed_in?) ? (method, submit, action, trclass = ive_seen_it_single(@movie['id'])) : trclass = "noclass" %>
 <table class="header_table">
   <tr class="<%= trclass %>" id= "<%= @movie['id'] %>_tr" >
 			<th class="header_table_movie_picture"><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + @movie['poster_path']) unless @movie['poster_path'].nil? %></th>

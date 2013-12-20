@@ -1,12 +1,12 @@
-<% x = list_movies(@querystring) %>
-Number of results: <%= x['total_results'] %>
+Number of results: <%= @search_movies_list['total_results'] %>
 <table>
-	<% x['results'].each do |movie| %>
+    <tr class="movie_status_table_header">
+        <th></th>
+        <th>Film</th>
+    </tr>
 		<tr>
-			<td><%= image_tag Tmdb::TheMovieDb::PICTURE_URL + movie['poster_path'] unless movie['poster_path'].nil? %></td>
-			<td><%= link_to movie['title'], movie_path(movie['id']) %></td>
+  <%= user_signed_in? ? (render :partial => 'list_of_movies', :collection => @search_movies_list['results'], :as => :movie) : (render :partial => 'list_of_movies_not_signed_in', :collection => @search_movies_list['results'], :as => :movie) %>
 		</tr>
-	<% end %>
 
 </table>
 
