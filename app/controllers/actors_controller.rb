@@ -11,7 +11,7 @@ helper_method :get_actors, :get_actors_name
 	   # Hash[@actor.map! {|h| h }]
 	    @actor_name = get_actors_name
 	    if user_signed_in?
-		    @allmovies = current_user.movies.to_a
+        get_movies_if_user_signed_in
 		    @watchedmoviescount = @allmovies.map {|p| p[:actors].include? @actor_name }.count(true)
 	    end
 	  end

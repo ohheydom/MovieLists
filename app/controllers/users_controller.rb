@@ -28,8 +28,7 @@ class UsersController < ApplicationController
 	    @render = 'users/partials/profile'
     end
     @usermovies = @user.movies.order(title: :asc).to_a
-#   @usermoviesp = @usermovies.page(params[:page]).per(50)
-@usermoviesp = Kaminari.paginate_array(@usermovies).page(params[:page]).per(50)
+    @usermoviesp = Kaminari.paginate_array(@usermovies).page(params[:page]).per(50)
   end
 
   def add_most_recent_movies_and_ids_to_array(user)

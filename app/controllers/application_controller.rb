@@ -2,15 +2,25 @@ class ApplicationController < ActionController::Base
 	require 'the_movie_db'
 	helper_method :ive_seen_it
 	before_filter :configure_permitted_parameters, if: :devise_controller?
+  after_filter :store_location
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
 	protect_from_forgery with: :exception
 	
   
-  def after_sign_in_path_for(user)
-  profile_path(current_user)
+  def after_sign_in_path_for(resource)
+    session[:previous_url] || root_path
   end
 
+  def store_location
+    if (request.fullpath != "/users/sign_in" &&
+        request.fullpath != "/users/sign_up" &&
+        request.fullpath != "/users/password" &&
+        !request.xhr?)
+      session[:previous_url] = request.fullpath
+    end
+  end
+  
   
   #Shared between actors_controller, lists_controller, and movies_controller
   
@@ -68,9 +78,7 @@ class ApplicationController < ActionController::Base
     end
 
     def get_movies_if_user_signed_in
-		if user_signed_in?
 			@allmovies = current_user.movies.to_a 
-		end
     end  
 	
     

@@ -4,8 +4,11 @@ class MoviesController < ApplicationController
 	@movie = Tmdb::TheMovieDb.get_movie_by_id(params[:id])
 	unless @movie["status_code"] == 6
 		@moviecredits = Tmdb::TheMovieDb.get_movie_credits_by_movie_id(params[:id])
-	  get_movies_if_user_signed_in
-  end
+	  if user_signed_in?
+    get_movies_if_user_signed_in
+    end
+
+    end
   end
    
   def destroy

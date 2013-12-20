@@ -16,6 +16,6 @@
   <%= render :partial => 'users/partials/list_of_movies', :collection => @usermoviesp, :as => :movie  %>
   </tbody>
 </table>
-<%= paginate @usermoviesp %>
+<%= paginate @usermoviesp, remote: true%>
 </div>
 </div>
