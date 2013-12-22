@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
- 
+  before_filter :define_paths 
 	def index
 		@querystring = params[:query]
 		@type = params[:type]
@@ -8,10 +8,13 @@ class SearchController < ApplicationController
     else
         @render = 'movie'
 		    @search_movies_list = Tmdb::TheMovieDb.search_by_movie_title(@querystring)
-    if user_signed_in?
+      if user_signed_in?
         get_movies_if_user_signed_in
         @ourmovies =  Tmdb::MovieStats.compare_movies(@allmovies,@search_movies_list['results'])[0]
-    end
+        @listpart = '/shared_partials/list_of_movies'
+      else
+        @listpart = '/shared_partials/list_of_movies_not_signed_in'
+      end
     end
   end
   
@@ -24,7 +27,7 @@ class SearchController < ApplicationController
   end
 
    def define_paths
-      @path = movie_path(params[:id])
+      @path = search_index_path 
       @jpathc = 'create'
       @jpathd = 'destroy'
    end

@@ -5,7 +5,7 @@ Number of results: <%= @search_movies_list['total_results'] %>
         <th>Film</th>
     </tr>
 		<tr>
-  <%= user_signed_in? ? (render :partial => 'list_of_movies', :collection => @search_movies_list['results'], :as => :movie) : (render :partial => 'list_of_movies_not_signed_in', :collection => @search_movies_list['results'], :as => :movie) %>
+  <%= render :partial => @listpart, :collection => @search_movies_list['results'], :as => :movie %>
 		</tr>
 
 </table>

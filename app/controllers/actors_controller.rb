@@ -13,7 +13,9 @@ before_filter :define_paths
         get_movies_if_user_signed_in
         @ourmovies =  Tmdb::MovieStats.compare_movies(@allmovies,@actorarr['cast'])[0]
         @watchedmoviescount = @ourmovies.count
-
+        @listpart = "list_of_movies"
+      else
+         @listpart = "list_of_movies_not_signed_in"
 	    end
     end
   end
