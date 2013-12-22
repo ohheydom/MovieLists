@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_filter :authenticate_user!, :get_user_and_render
+	before_filter :authenticate_user!, :get_user_and_render, :define_paths
 	helper_method :add_most_recent_movies_and_ids_to_array
 	
   def show
@@ -10,11 +10,11 @@ class UsersController < ApplicationController
  end
   
  def create  
-   super(profile_path(@user))
+   super(@path)
  end
 
  def destroy
-   super(profile_path(@user)) 
+   super(@path) 
  end 
 
   
@@ -34,6 +34,11 @@ class UsersController < ApplicationController
     @usermoviesp = Kaminari.paginate_array(@usermovies).page(params[:page]).per(50)
   end
 
+  def define_paths
+    @path = profile_path(@user)
+    @jpathc = 'create'
+    @jpathd = 'destroy'
+  end
   def add_most_recent_movies_and_ids_to_array(user)
     x = []
     idandmovie = []

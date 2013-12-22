@@ -16,11 +16,16 @@ class SearchController < ApplicationController
   end
   
   def create
-	super(movie_path(params[:id]))
+	super(@path)
   end
 
   def destroy
-	super(movie_path(params[:id]))
+	super(@path)
   end
 
+   def define_paths
+      @path = movie_path(params[:id])
+      @jpathc = 'create'
+      @jpathd = 'destroy'
+   end
 end

@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-	
+  before_filter :define_paths	
 
   def show
 	@list = Tmdb::TheMovieDb.get_list_by_id(params[:id])
@@ -11,7 +11,6 @@ class ListsController < ApplicationController
   else
     @listpart = 'list_of_movies_not_signed_in'
   end  
-
   end
   
   def index
@@ -19,16 +18,21 @@ class ListsController < ApplicationController
   end
   
   def destroy
-	super(list_path(params[:id]))
+	super(@path)
   end
   
   
   def create
-	super(list_path(params[:id]))
+	super(@path)
   end
   
     def update
-	super(list_path(params[:id]))
+	super(@path)
   end
-  
+    def define_paths
+      @path = list_path(params[:id])
+      @jpathc = "create_and_count"
+      @jpathd = "destroy_and_count"
+
+    end
 end

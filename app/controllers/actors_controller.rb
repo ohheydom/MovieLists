@@ -2,7 +2,7 @@ require 'date'
 
 class ActorsController < ApplicationController
 helper_method :get_actors, :get_actors_name
-  
+before_filter :define_paths  
   def show
     @actorarr = Tmdb::TheMovieDb.get_movie_credits_by_id(params[:id])
     @actor = @actorarr['cast']
@@ -13,20 +13,28 @@ helper_method :get_actors, :get_actors_name
         get_movies_if_user_signed_in
         @ourmovies =  Tmdb::MovieStats.compare_movies(@allmovies,@actorarr['cast'])[0]
         @watchedmoviescount = @ourmovies.count
+
 	    end
-	  end
+    end
   end
   
   def destroy
-	super(actor_path(@actor))
+	super(@path)
   end
   
   
   def create
-	super(actor_path(@actor))
+	super(@path)
   end
   
   def update
-	super(actor_path(@actor))
+	super(@path)
   end	
+
+  def define_paths 
+        @path = actor_path(params[:id])
+        @jpathc = "create_and_count"
+        @jpathd = "destroy_and_count"
+
+  end
 end

@@ -5,7 +5,7 @@
 	<% if user_signed_in? %>
 I've seen <span id="moviecount"><%= @watchedmoviescount %></span> out of
 	<% end %>
-	<%= @actor.count %> movies
+  <%= @actor.count %> movies
 </h2>
 
 <table>
@@ -13,7 +13,7 @@ I've seen <span id="moviecount"><%= @watchedmoviescount %></span> out of
 		<th></th>
 		<th>Film</th>
 		<th>Character</th>
-		><th></th>
+		<th></th>
 		<th></th>
 	</tr>
   <%= user_signed_in? ? (render :partial => 'list_of_movies', :collection => @actor, :as => :movie) : (render :partial => 'list_of_movies_not_signed_in', :collection => @actor, :as => :movie) %>

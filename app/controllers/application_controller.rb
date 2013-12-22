@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
 		respond_to do |format|
 				format.html { redirect_to path }
 				#format.json { render json: @movie }
-				format.js 
+				format.js { render action: "../shared_javascripts/" + @jpathc } 
 
 		end
   end
@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
 	@connector.destroy
 		respond_to do |format|
 			format.html { redirect_to path }
-			format.js  
+			format.js  { render action: "../shared_javascripts/" + @jpathd }
 		end
   end
   
