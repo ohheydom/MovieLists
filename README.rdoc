@@ -1,28 +1,28 @@
-== README
+#Movie Lists
+Movie Lists allows you to create a list of movies you have seen. It'll keep track of which actors you've seen the most movies in, keep track of how many movies you've seen as part of lists (Top 250, AFI Top 100). You can even compare your list with friends! This is just a sample application which I used to learn about working with apis. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Deploying
 
-Things you may want to cover:
+Clone the repository to your local machine
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Setup an application.yml file with the following contents, of course replacing 'YOUR API KEY GOES HERE' with your api key. You can get an api key from  http://www.themoviedb.org/documentation/api :
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+```
+defaults: &defaults
+  THE_MOVIE_DB_API_KEY: YOUR API KEY GOES HERE 
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+```
+
+Run your standard 
+
+```
+rake db:migrate
+```
+
+And you should be good to go.

@@ -6,8 +6,9 @@ module Tmdb
 class TheMovieDb
 
 #Constants
-	API_KEY = '47f84ce170c3f96cdfb8a690d1d29615'
-	BASE_URI = 'http://api.themoviedb.org/3'
+#	API_KEY = '47f84ce170c3f96cdfb8a690d1d29615'
+	API_KEY = ENV["THE_MOVIE_DB_API_KEY"]
+  BASE_URI = 'http://api.themoviedb.org/3'
 	PICTURE_URL = 'http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92'
 	
 	
