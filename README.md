@@ -11,6 +11,7 @@ Setup an application.yml file with the following contents, of course replacing '
 ```
 defaults: &defaults
   THE_MOVIE_DB_API_KEY: YOUR API KEY GOES HERE 
+  ADMIN_USERNAME: YOUR USERNAME GOES HERE 
 
 development:
   <<: *defaults
@@ -18,8 +19,9 @@ development:
 test:
   <<: *defaults
 ```
+You can also replace YOUR USERNAME GOES HERE with an admin username you'd like to use. The admin is able to update information in the database. For instance, if you notice an actor is missing from a movie, you can update it by going to http://www.themoviedb.org. Then, in order for the added information to update on your webapp, you would click the refresh button.
 
-Run your standard 
+Now run your standard 
 
 ```
 rake db:migrate

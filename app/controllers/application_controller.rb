@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 	require 'the_movie_db'
-	helper_method :ive_seen_it
+	helper_method :ive_seen_it, :get_admin_username
 	before_filter :configure_permitted_parameters, if: :devise_controller?
   after_filter :store_location
   # Prevent CSRF attacks by raising an exception.
@@ -94,6 +94,10 @@ return method, submit, trclass
 		Tmdb::TheMovieDb.get_actor_by_id(params[:id])['name']
 	end
 
+  def get_admin_username
+    ENV["ADMIN_USERNAME"]
+  end
+
 	# STRONG PARAMS
   	def movie_params
 		params.permit(:id, :title, :actors, :year).merge(:id => params[:movie_id], :actors => get_actors(params[:movie_id]), :year => params[:year])
@@ -101,8 +105,7 @@ return method, submit, trclass
 	
 	def connector_params
          params.permit(:user_id, :movie_id).merge(:user_id => current_user.id)
-    end
-	
+    end	
 protected
 
   def configure_permitted_parameters

@@ -6,7 +6,7 @@
 			<td>
         <%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, path: @path, movie: movie %>
 			</td>
-			<% if current_user.username == "domleone" %>
+			<% if current_user.username == get_admin_username %>
 			<td>
 			<%= form_tag({controller: "actors", action: "update" }, { id: (movie['id'].to_s + "_form"), remote: true, method: "put" }) do %>
 			<%= hidden_field_tag :movie_id, movie['id'] %>
