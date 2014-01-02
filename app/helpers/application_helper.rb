@@ -7,4 +7,5 @@ module ApplicationHelper
         x = "I've seen " + content_tag(:span, Tmdb::MovieStats::compare_list_and_my_movies(movie, list), id: "moviecount") + " out of " + list["items"].count.to_s + " movies"
     end
   end
+
 end

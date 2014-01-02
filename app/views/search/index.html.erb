@@ -1,7 +1,6 @@
 <title>Search Results</title>
-
 <% unless @querystring.blank? %>
-<%= render @render %>
+  <%= render @render %>
 <% else %>
-<% flash[:notice] = "Please enter a valid search word" %>
+  <% flash[:notice] = "Please enter a valid search word" %>
 <% end %>

@@ -1,22 +1,22 @@
 <% unless @list["status_code"] == 6 %>
-    <title><%= @list["name"] %></title>
-    <h2 id="watchedmoviecount">
-      <%= check_movie_counter(@allmovies, @list).html_safe %>
-    </h2>
+  <title><%= @list["name"] %></title>
+  <h2 id="watchedmoviecount">
+  <%= check_movie_counter(@allmovies, @list).html_safe %>
+  </h2>
 
-    <h1><%= @list['name'] %></h1>
-        <table class="movie_list">
-            <tr class="movie_status_table_header">
-                <th></th>
-                <th>Film</th>
-                <th></th>
-            </tr>
-                <tbody class = "endless_movie">
-                <%= render :partial => @listpart, :collection => @listp, :as => :movie %>
-                </tbody>
-        </table>
-    <%= paginate @listp, remote: true %>
+  <h1><%= @list['name'] %></h1>
+  <table class="movie_list">
+    <tr class="movie_status_table_header">
+      <th></th>
+      <th>Film</th>
+      <th></th>
+    </tr>
+    <tbody class = "endless_movie">
+      <%= render :partial => @listpart, :collection => @listp, :as => :movie %>
+    </tbody>
+  </table>
+  <%= paginate @listp, remote: true %>
 <% else %>
-    <title>List not found</title>
-    <h2>List not found!</h2>
+  <title>List not found</title>
+  <h2>List not found!</h2>
 <% end %>

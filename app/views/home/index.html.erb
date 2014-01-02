@@ -1,21 +1,20 @@
 <title><%= page_title %></title>
 <div class="row">
-<div class="col-md-12">
-<div class="main_search">
-	<div class="form-group">
-		<%= form_tag("/search", method: "get") do %>
-			<%= text_field_tag (:query), nil, class: "form-control" %>
-			<%= submit_tag ("Search"), class: "btn btn-default" %>
-			<p><%= radio_button_tag(:type, "movie", checked: true) %>
-			<%= label_tag(:type_movie, "Movie") %>
-			<%= radio_button_tag(:type, "actor") %>
-			<%= label_tag(:type_actor, "Actor") %></p>
-		<% end %>
-	</div>
-</div>
-
-<div class="main_create_profile">
-	<h3>Create a profile to login and keep track of the movies you've seen! <%= link_to "Sign up now!", signup_path %></h3>
-</div>
-</div>
+  <div class="col-md-12">
+    <div class="main_search">
+	    <div class="form-group">
+		    <%= form_tag("/search", method: "get") do %>
+			    <%= text_field_tag (:query), nil, class: "form-control" %>
+			    <%= submit_tag ("Search"), class: "btn btn-default" %>
+			    <p><%= radio_button_tag(:type, "movie", checked: true) %>
+			    <%= label_tag(:type_movie, "Movie") %>
+			    <%= radio_button_tag(:type, "actor") %>
+			    <%= label_tag(:type_actor, "Actor") %></p>
+		    <% end %>
+	    </div>
+    </div>
+    <div class="main_create_profile">
+	    <h3>Create a profile to login and keep track of the movies you've seen! <%= link_to "Sign up now!", signup_path %></h3>
+    </div>
+  </div>
 </div>

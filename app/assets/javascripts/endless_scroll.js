@@ -6,44 +6,35 @@ var intervalID = -1000;
 
 function checkScroll() {
   if ($('#tempload').length){
-      return}
-  else{
-  
-  if (nearBottomOfPage()) {
-    currentPage++;
-    if (currentPage > lastPage){
+    return}
+  else {
+    if (nearBottomOfPage()) {
+      currentPage++;
+      if (currentPage > lastPage){
         $('.endless_movie').append("<div id='endofpages'>There are no more movies here.</div>")
-		      clearInterval(intervalID);
-            return
-    }
+		    clearInterval(intervalID);
+        return
+      } 
     console.log("Request Page " + currentPage);
-  //  var prom = jQuery.ajax('?page=' + currentPage,{
-    //            beforeSend: showLoadingtext 
-      //          });
- 
- // prom.done(appendMovies);
- // prom.always(removeLoadingtext);
- // prom.fail(function(){ console.log("Something went wrong")});}
-
-showLoadingtext();    
-$('nav.pagination a[rel=next]:first').click();
-
-
-
+      showLoadingtext();    
+      $('nav.pagination a[rel=next]:first').click();
+    }
+  }
 }
-}}
+
 function appendMovies(data, textStatus, jqXHR){
 		     //   $('.endless_movie').append(jQuery(data).find('.endless_movie').html());
 	          }
 
 
 function showLoadingtext() {
-            $('.endless_movie').append("<div id='tempload'><em>Loading...</em></div>");
+  $('.endless_movie').append("<div id='tempload'><em>Loading...</em></div>");
 }
 
 function removeLoadingtext() {
-    $('#tempload').remove();
+  $('#tempload').remove();
 }
+
 function nearBottomOfPage() {
   return scrollDistanceFromBottom() < 50;
 }
@@ -57,8 +48,7 @@ function pageHeight() {
 }
 
 $(document).ready(function(){
-   lastPage = $('nav.pagination span.last a').attr('href').split("=").pop();
+  lastPage = $('nav.pagination span.last a').attr('href').split("=").pop();
   intervalID = setInterval(checkScroll, 800);
-    $('.pagination').hide();
+  $('.pagination').hide();
 })
-

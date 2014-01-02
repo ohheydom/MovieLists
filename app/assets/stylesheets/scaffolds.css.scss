@@ -9,13 +9,13 @@ body {
   margin-left: 30px;
   margin-right: 30px;
   margin-top: 20px;
-}
+  }
 
 p, ol, ul, td {
   font-family: $font-family-serif;
   font-size: 13px;
   line-height: 18px;
-}
+        }
 
 h3, h4 {
   font-family: $font-family-serif;
@@ -25,40 +25,40 @@ table.statistics {
 	padding: 20px;
 	border-bottom: 2px solid;
 	width: 100%;
-					}
+				}
 
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
-}
+  }
 
 a {
   color: #000;
   &:visited {
     color: #666;
-  }
+      }
   &:hover {
     color: #fff;
     background-color: #000;
+      }
   }
-}
 
 div {
   &.field, &.actions {
     margin-bottom: 10px;
+          }
   }
-}
 
 #notice {
   color: green;
-}
+    }
 
 .field_with_errors {
   padding: 2px;
   background-color: red;
   display: table;
-}
+        }
 
 #error_explanation {
   width: 450px;
@@ -76,9 +76,9 @@ div {
     margin-bottom: 0px;
     background-color: #c00;
     color: #fff;
-  }
+    }
   ul li {
     font-size: 12px;
     list-style: square;
-  }
-}
+    }
+        }

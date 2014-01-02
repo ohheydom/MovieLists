@@ -1,12 +1,10 @@
 Number of results: <%= @search_movies_list['total_results'] %>
 <table>
-    <tr class="movie_status_table_header">
-        <th></th>
-        <th>Film</th>
-    </tr>
-		<tr>
-  <%= render :partial => @listpart, :collection => @search_movies_list['results'], :as => :movie %>
-		</tr>
-
+  <tr class="movie_status_table_header">
+    <th></th>
+    <th>Film</th>
+  </tr>
+	<tr>
+    <%= render :partial => @listpart, :collection => @search_movies_list['results'], :as => :movie %>
+	</tr>
 </table>
-

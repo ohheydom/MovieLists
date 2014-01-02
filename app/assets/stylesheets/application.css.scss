@@ -17,38 +17,39 @@
 @import "bootstrap";
 
 .smaller_form {
-width: 80%;
-text-align: right;
-				}
+  width: 80%;
+  text-align: right;
+        }
 				
 .profile_header_right {
-text-align: right;
-					}
+  text-align: right;
+          }
 					
 .container-fluid {
-padding: 10px;
-background-color: #FFFFFF;
-					}
-
-					
+  padding: 10px;
+  background-color: #FFFFFF;
+          }
+		
 .header_login {
-	text-align: right;
-					}
+  text-align: right;
+        }
 					
 .header_logged_in {
-	text-align: right;
-					}
+  text-align: right;
+        }
+
 .header_search_bar {
-	text-align: center;
+  text-align: center;
 	valign: center;
-							}
+        }
 							
 .header_table {
-	width: 100%;
-					}
+  width: 100%;
+        }
+
 .header_table_movie_picture {
 	text-align: left;
-			}
+            }
 			
 .main_search {
   margin-left: auto ;
@@ -59,44 +60,45 @@ background-color: #FFFFFF;
 					}
 					
 .main_create_profile {
-	text-align: center;
+  text-align: center;
 	margin-top: 100px;
-}
+          }
 					
 .notice {
 	text-align: left;
 		}
+
 .alert {
-	text-align: left;
+  text-align: left;
 		}
 
 .movie_status_table_header {
 	font-size: large;
 	background-color: #acd4e9;
-		}
+            }
 		
 .movie_watched {
-background-color: #ace9b1;
+  background-color: #ace9b1;
 			}
+
 .movie_list {
-    width: 60%;
-            }
+  width: 60%;
+    }
+
 .movie_unwatched {
-background-color: #ffe2e2;
-							}
+  background-color: #ffe2e2;
+        }
+
 .percentage_of_movies  {
-border: 3px solid;
-float: none; 
-margin-left: auto; 
-margin-right: auto;
-height: 150px;
-width: 150px;
+  border: 3px solid;
+  float: none; 
+  margin-left: auto; 
+  margin-right: auto;
+  height: 150px;
+  width: 150px;
 	td {
-	font-size: large;
-	vertical-align: middle;
-	text-align: center;
-
-
-	}
-
-								}
+	  font-size: large;
+	  vertical-align: middle;
+	  text-align: center;
+	  }
+        }

@@ -1,8 +1,8 @@
 class Movie < ActiveRecord::Base
-serialize :actors
+  serialize :actors
 
-has_many :connectors
-has_many :users, through: :connectors
+  has_many :connectors
+  has_many :users, through: :connectors
 
-validates :id, uniqueness: true
+  validates :id, uniqueness: true
 end

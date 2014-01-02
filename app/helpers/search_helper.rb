@@ -2,12 +2,10 @@ module SearchHelper
 
 	def list_movies(movie)
 		Tmdb::TheMovieDb.search_by_movie_title(movie)
-    end
+  end
   
-    def list_people(actor)
-
-		Tmdb::TheMovieDb.search_by_actor(actor)
+  def list_people(actor)
+    Tmdb::TheMovieDb.search_by_actor(actor)
 	end
-  
   
 end

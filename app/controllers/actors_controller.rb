@@ -3,6 +3,7 @@ require 'date'
 class ActorsController < ApplicationController
 helper_method :get_actors, :get_actors_name
 before_filter :define_paths  
+
   def show
     @actorarr = Tmdb::TheMovieDb.get_movie_credits_by_id(params[:id])
     @actor = @actorarr['cast']
@@ -34,9 +35,9 @@ before_filter :define_paths
   end	
 
   def define_paths 
-        @path = actor_path(params[:id])
-        @jpathc = "create_and_count"
-        @jpathd = "destroy_and_count"
-
+    @path = actor_path(params[:id])
+    @jpathc = "create_and_count"
+    @jpathd = "destroy_and_count"
   end
+
 end

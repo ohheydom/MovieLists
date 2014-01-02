@@ -1,7 +1,7 @@
 class Connector < ActiveRecord::Base
-belongs_to :movie
-belongs_to :user
+  belongs_to :movie
+  belongs_to :user
 
-validates_uniqueness_of :user_id, scope: :movie_id
+  validates_uniqueness_of :user_id, scope: :movie_id
 
 end
