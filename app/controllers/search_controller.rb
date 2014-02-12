@@ -18,17 +18,8 @@ class SearchController < ApplicationController
       end
     end
   end
-  
-  def create
-	  super(@path)
-  end
-
-  def destroy
-	  super(@path)
-  end
 
   def define_paths
-    @path = search_index_path 
     @jpathc = 'create'
     @jpathd = 'destroy'
    end

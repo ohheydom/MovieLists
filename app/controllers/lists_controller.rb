@@ -17,19 +17,6 @@ class ListsController < ApplicationController
   
   end
   
-  def destroy
-	  super(@path)
-  end
-  
-  
-  def create
-	  super(@path)
-  end
-  
-  def update
-	  super(@path)
-  end
-    
   def define_paths
     @path = movies_path 
     @jpathc = "create_and_count"

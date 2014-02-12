@@ -5,18 +5,6 @@ class UsersController < ApplicationController
   def show
   end
   
- 
-  def index
-  end
-  
-  def create  
-    super(@path)
-  end
-
-  def destroy
-    super(@path) 
-  end 
-
   def get_user_and_render
     if (current_user.username == params[:id]) || (User.where(username: params[:id]).blank?)
   	  @user = current_user
@@ -34,7 +22,6 @@ class UsersController < ApplicationController
   end
 
   def define_paths
-    @path = profile_path(@user)
     @jpathc = 'create'
     @jpathd = 'destroy'
   end

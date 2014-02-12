@@ -16,24 +16,15 @@ unauthenticated do
 	root to: "home#index"
 end
 
-resources :search
 get "home/index"  
+get 'actors/:id', to: 'actors#show', as: :actor
 
-#Actors
-resources :actors 
-#Movies
 resources :movies
+resources :lists, only: [:show, :index]
 
-#Lists
-get 'list/:id', to: 'lists#show', as: 'list'
-delete '/list/:id', :controller=>"lists", :action=>"destroy", to: 'lists#destroy'
-post '/list/:id', :controller=>"lists", :action=>"create", to: 'lists#create'
-put '/list/:id', :controller=>"lists", :action=>"update", to: 'lists#update'
-get 'lists', to: 'lists#index', as: 'lists'
+get '/search', to: 'search#index', as: :search
 
 #Users
-delete 'profile/:id', :controller=>"users", :action=>"destroy", to: 'users#destroy'
-post '/profile/:id', :controller=>"users", :action=>"create", to: 'users#create'
 get "profile/:id", to: 'users#show', as: 'profile'
     
 #errors

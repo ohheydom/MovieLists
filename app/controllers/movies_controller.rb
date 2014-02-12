@@ -27,6 +27,5 @@ class MoviesController < ApplicationController
   def define_paths
     @jpathc = "create_and_count"
     @jpathd = "destroy_and_count"
-    @path = movies_path
   end
 end
