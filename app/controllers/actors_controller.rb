@@ -34,7 +34,7 @@ class ActorsController < ApplicationController
   end	
 
   def define_paths 
-    @path = actor_path(params[:id])
+    @path = movies_path
     @jpathc = "create_and_count"
     @jpathd = "destroy_and_count"
   end

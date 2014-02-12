@@ -5,12 +5,14 @@ module MoviesHelper
       method = "delete"
       submit = "Oops, haven't seen it!"
       trclass="movie_watched" 
+      path   = movie_path(movie_id)
     else
 		  method = "post"
       submit = "I've seen it!"
       trclass="movie_unwatched"
+      path   = movies_path
     end 
-    return method, submit, trclass
+    return method, submit, trclass, path
   end
 
 end

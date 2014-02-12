@@ -1,13 +1,13 @@
 <% unless @movie["status_code"] == 6 %>
   <title><%= @movie['title'] %></title>
-  <% (user_signed_in?) ? (method, submit, trclass = ive_seen_it_single(@movie['id'])) : trclass = "noclass" %>
+  <% (user_signed_in?) ? (method, submit, trclass, path = ive_seen_it_single(@movie['id'])) : trclass = "noclass" %>
   <table class="header_table">
     <tr class="<%= trclass %>" id= "<%= @movie['id'] %>_tr" >
 			<th class="header_table_movie_picture"><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + @movie['poster_path']) unless @movie['poster_path'].nil? %></th>
 			<th><h2><%= @movie['title'] + " (#{Date.parse(@movie['release_date']).strftime('%Y') unless (@movie['release_date'].empty?)})" %></h2></th>
 			<% if user_signed_in? %>
 			  <th>
-          <%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, path: @path, movie: @movie %>
+          <%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, path: path, movie: @movie %>
 			  </th>
 			<% end %>
 		</tr>

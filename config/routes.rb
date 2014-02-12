@@ -20,16 +20,9 @@ resources :search
 get "home/index"  
 
 #Actors
-post '/actor/:id', :controller=>"actors", :action=>"create", to: 'actors#create'
-put '/actor/:id', :controller=>"actors", :action=>"update", to: 'actors#update'
-delete '/actor/:id', :controller=>"actors", :action=>"destroy", to: 'actors#destroy'
-get '/actor/:id', to: 'actors#show', as: 'actor'
-  
+resources :actors 
 #Movies
-post '/movie/:id', :controller=>"movies", :action=>"create", to: 'movies#create'
-delete '/movie/:id', :controller=>"movies", :action=>"destroy", to: 'movies#destroy'
-get '/movie/:id', to: 'movies#show', as: 'movie'
-put '/movie/:id', :controller=>"movies", :action=>"update", to: 'movies#update'
+resources :movies
 
 #Lists
 get 'list/:id', to: 'lists#show', as: 'list'

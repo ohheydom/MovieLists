@@ -31,7 +31,7 @@ class ListsController < ApplicationController
   end
     
   def define_paths
-    @path = list_path(params[:id])
+    @path = movies_path 
     @jpathc = "create_and_count"
     @jpathd = "destroy_and_count"
   end

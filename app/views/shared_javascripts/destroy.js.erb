@@ -1,4 +1,4 @@
 $("#<%= params[:movie_id] %>_tr").removeClass("movie_watched").addClass("movie_unwatched");
 $("#<%= params[:movie_id] %>_button").attr('value', "I've seen it!");
-$("#<%= params[:movie_id] %>_form").attr({'method':"post", 'action':"<%= escape_javascript(@path) %>"});
+$("#<%= params[:movie_id] %>_form").attr({'method':"post", 'action':"<%= escape_javascript(movies_path) %>"});
 $("#<%= params[:movie_id] %>_tr").find("[name='_method']").attr('value', "post");
