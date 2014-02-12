@@ -8,4 +8,8 @@ module ApplicationHelper
     end
   end
 
+  def parse_date(date)
+    date.nil? || date.empty? ? '1900' : Date.parse(date).strftime('%Y')
+  end
+
 end

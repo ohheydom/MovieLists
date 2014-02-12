@@ -1,7 +1,7 @@
 <% method, submit, trclass = ive_seen_it(movie['id'], @ourmovies) %>
 <tr class="<%= trclass %>" id = "<%= movie['id'] %>_tr">
   <td><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + movie['poster_path']) unless movie['poster_path'].nil? %></td>
-  <td><%= link_to (movie['title'] + " (#{Date.parse(movie['release_date']).strftime('%Y') unless (movie['release_date'].empty?)})"), movie_path(movie['id']) %></td>
+  <td><%= link_to (movie['title'] + " (#{parse_date(movie['release_date'])})"), movie_path(movie['id']) %></td>
   <td><%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, path: movie_path(movie['id']), movie: movie %></td>
   <% if current_user.username == get_admin_username %>
     <td>
