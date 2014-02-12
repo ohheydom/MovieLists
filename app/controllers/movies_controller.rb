@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
 	  unless @movie["status_code"] == 6
 		  @moviecredits = Tmdb::TheMovieDb.get_movie_credits_by_movie_id(params[:id]) 
       if user_signed_in?
-      get_movies_if_user_signed_in
+        get_movies_if_user_signed_in
       end
     end
   end
@@ -25,8 +25,8 @@ class MoviesController < ApplicationController
   end
 
   def define_paths
-    @jpathc = "create"
-    @jpathd = "destroy"
+    @jpathc = "create_and_count"
+    @jpathd = "destroy_and_count"
     @path = movie_path(params[:id])
   end
 end
