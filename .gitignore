@@ -17,3 +17,4 @@
 
 # Ignore sensitive information
 /config/application.yml
+/spec/vcr

@@ -38,13 +38,19 @@ module Tmdb
     end
 
     def self.search_by_movie_title(movie_title)
-      x = @conn.get 'search/movie', {query: CGI::escape(movie_title) }
-      JSON.parse(x.body)
+      begin
+        x = @conn.get 'search/movie', {query: CGI::escape(movie_title) }
+        JSON.parse(x.body)
+      rescue
+      end
     end
     
     def self.search_by_actor(actor)
-      x = @conn.get 'search/person', {query: CGI::escape(actor) }
-      JSON.parse(x.body)
+      begin
+        x = @conn.get 'search/person', {query: CGI::escape(actor) }
+        JSON.parse(x.body)
+      rescue
+      end
     end
     
     def self.get_actor_by_id(actor_id)

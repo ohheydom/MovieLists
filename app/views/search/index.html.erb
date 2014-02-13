@@ -2,5 +2,5 @@
 <% unless @querystring.blank? %>
   <%= render @render %>
 <% else %>
-  <% flash[:notice] = "Please enter a valid search word" %>
+  <% flash.now[:notice] = "Please enter a valid search word" %>
 <% end %>
