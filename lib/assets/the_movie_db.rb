@@ -10,11 +10,11 @@ module Tmdb
     PICTURE_URL = 'http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92'
     
     @conn = Faraday.new(:url => BASE_URI  ) do |faraday|
-    faraday.request  :url_encoded             # form-encode POST params
-    faraday.params = {api_key: API_KEY}
-    faraday.response :logger   # log requests to STDOUT
-    faraday.headers['Content-Type'] = 'application/json'
-    faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+      faraday.request  :url_encoded             # form-encode POST params
+      faraday.params = {api_key: API_KEY}
+      faraday.response :logger   # log requests to STDOUT
+      faraday.headers['Content-Type'] = 'application/json'
+      faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
     end
 
     def self.get_movie_by_id (movie_id)
@@ -68,9 +68,7 @@ module Tmdb
     def self.add_actors_to_hash(user)  #Top 5
       actor_array = []
       user.each do |a|
-        a[:actors].each do |act, id|
-          actor_array << [act, id]
-        end
+        a[:actors].each { |act, id| actor_array << [act, id] }
       end
       return Hash[Array.duplicate_hashes(actor_array).sort_by { |k,v| -v } [0..4]]
     end
@@ -86,25 +84,18 @@ module Tmdb
     
     def self.add_years_to_hash(user) #Top 5
       year_array = []
-      user.each do |a|
-        year_array << a[:year]
-      end
+      user.each { |a| year_array << a[:year] }
       return Hash[Array.duplicate_hashes(year_array).sort_by { |k,v| -v } [0..4]]
     end
     
     def self.compare_list_and_my_movies(my_movies, list)
       my_movie_ids = []
       list_movie_ids = []
-      my_movies.each do |movie|
-        my_movie_ids << movie['id']
-      end
+      my_movies.each { |movie| my_movie_ids << movie['id'] }
       
-      list['items'].each do |movie|
-        list_movie_ids << movie['id']
-      end
+      list['items'].each { |movie| list_movie_ids << movie['id'] }
       (my_movie_ids & list_movie_ids).count
     end
 
   end
-
 end

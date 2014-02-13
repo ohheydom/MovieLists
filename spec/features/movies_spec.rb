@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe "Movie Page" do
   subject { page }
+
   let(:user) { FactoryGirl.create(:user) }
   let!(:user_movie) { FactoryGirl.create(:connector, user: user, movie_id: 12) }
   before do

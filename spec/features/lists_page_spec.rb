@@ -4,7 +4,6 @@ describe "List Pages" do
   subject { page }
 
   describe "Index" do
-
   end
 
   describe "Show" do

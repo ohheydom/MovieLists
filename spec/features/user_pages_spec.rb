@@ -19,6 +19,5 @@ describe "User Pages" do
       it { should have_content("watched the most movies made in") }
       it { should have_content(Movie.find(connector.movie_id).title) }
     end
-
   end
 end

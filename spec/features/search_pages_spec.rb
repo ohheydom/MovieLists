@@ -72,5 +72,4 @@ describe "Search Pages" do
     it { should have_content("Tom Cruise") }
     it { should have_link("Tom Cruise", href: actor_path(500)) }
   end
-
 end
