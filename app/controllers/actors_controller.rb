@@ -2,6 +2,7 @@ require 'date'
 
 class ActorsController < ApplicationController
   before_filter :define_paths  
+  before_action :delete_cache, only: :show
 
   def show
     @actorarr = Tmdb::TheMovieDb.get_movie_credits_by_id(params[:id])

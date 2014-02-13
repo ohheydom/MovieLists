@@ -17,6 +17,7 @@ gem 'faraday'
 gem 'json'
 gem 'devise'
 gem 'kaminari'
+gem 'vcr'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -65,8 +66,9 @@ end
 # gem 'debugger', group: [:development, :test]
 group :development, :test do
   gem 'capybara'
-  gem 'capybara-webkit'
+ # gem 'capybara-webkit'
   gem 'selenium-webdriver'
+  gem 'capybara-webkit'
   gem 'rspec-rails'
   gem 'faker'
   gem 'factory_girl_rails'

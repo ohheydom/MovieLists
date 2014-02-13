@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   before_filter :define_paths 
+  before_action :delete_cache, only: :index
 
 	def index
 		@querystring = params[:query]

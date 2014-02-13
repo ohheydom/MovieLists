@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 	helper_method :ive_seen_it, :get_admin_username
 	before_filter :configure_permitted_parameters, if: :devise_controller?
   after_filter :store_location
+  after_action :delete_cache, only: [:create, :destroy]
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
 	protect_from_forgery with: :exception
@@ -25,7 +26,9 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  #Shared between actors_controller, lists_controller, and movies_controller
+  def delete_cache
+    Rails.cache.clear
+  end
   
   def create
 	  @movie = Movie.new(movie_params)
@@ -83,9 +86,9 @@ class ApplicationController < ActionController::Base
   end  
 
   def get_actors(movie_id) #Get all the actors for a movie by id
-		ary = Tmdb::TheMovieDb.get_movie_credits_by_movie_id(movie_id)['cast']
+		ary = Rails.cache.fetch(movie_id) || Tmdb::TheMovieDb.get_movie_credits_by_movie_id(movie_id)
 		x = {}
-		ary.each do |f|
+		ary['cast'].each do |f|
 		  x[f['name']] = f['id']
 		end
 		return x
