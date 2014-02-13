@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 	before_filter :authenticate_user!, :get_user_and_render, :define_paths
 	helper_method :add_most_recent_movies_and_ids_to_array
-  before_action :delete_cache, only: :show
 	
   def show
   end

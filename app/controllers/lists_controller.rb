@@ -1,6 +1,5 @@
 class ListsController < ApplicationController
   before_filter :define_paths	
-  before_action :delete_cache, only: :show
 
   def show
     Rails.cache.delete(:moviecredits)

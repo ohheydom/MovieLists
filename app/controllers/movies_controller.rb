@@ -4,8 +4,7 @@ class MoviesController < ApplicationController
   def show
 	  @movie = Tmdb::TheMovieDb.get_movie_by_id(params[:id])
 	  unless @movie["status_code"] == 6
-		  @moviecredits = Tmdb::TheMovieDb.get_movie_credits_by_movie_id(params[:id]) 
-      Rails.cache.write(params[:id], @moviecredits)
+      @moviecredits = Rails.cache.fetch([:movie_cache, params[:id]]) { Tmdb::TheMovieDb.get_movie_credits_by_movie_id(params[:id])  }
       if user_signed_in?
         get_movies_if_user_signed_in
       end
@@ -22,7 +21,7 @@ class MoviesController < ApplicationController
   end
 
   def update
-    super(@path)
+    super
   end
 
   def define_paths
