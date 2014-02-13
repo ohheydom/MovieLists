@@ -27,22 +27,22 @@ class ApplicationController < ActionController::Base
   
   #Shared between actors_controller, lists_controller, and movies_controller
   
-  def create (path)
+  def create
 	  @movie = Movie.new(movie_params)
 	  @movie.save
 	  @connector = Connector.new(connector_params)
 	  @connector.save	
 	  respond_to do |format|
-	    format.html { redirect_to path }
+	    format.html { redirect_to movie_path(@movie.id) }
 		  format.js { render action: "../shared_javascripts/" + @jpathc } 
 	  end 
   end
   
-  def destroy (path)
+  def destroy 
 	  @connector = Connector.find_by_user_id_and_movie_id(current_user.id, params[:movie_id])
 	  @connector.destroy
 	  respond_to do |format|
-		  format.html { redirect_to path }
+		  format.html { redirect_to movie_path(params[:movie_id]) }
 		  format.js  { render action: "../shared_javascripts/" + @jpathd }
 	  end
   end
@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
   def ive_seen_it(movie_id, ourmovies) #Return true or false if you've seen the movie
     if ourmovies.include?(movie_id)
 		  method = "delete"
-      submit = "Oops, haven't seen it!"
+      submit = "Oops, I haven't seen it!"
       trclass="movie_watched" 
       path = movie_path(movie_id)
     else

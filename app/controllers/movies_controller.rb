@@ -12,12 +12,12 @@ class MoviesController < ApplicationController
   end
    
   def destroy
-	  super(@path)
+	  super
   end
   
   
   def create
-	  super(@path)
+	  super
   end
 
   def update
