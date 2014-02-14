@@ -27,7 +27,6 @@ MovieLists::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   config.cache_store = :redis_store, { :expires_in => 20.minutes }
-
   
   config.after_initialize do
     Bullet.enable = true

@@ -69,7 +69,7 @@ end
 # gem 'debugger', group: [:development, :test]
 group :development, :test do
   gem 'capybara'
- # gem 'capybara-webkit'
+  gem 'database_cleaner'
   gem 'selenium-webdriver'
   gem 'capybara-webkit'
   gem 'rspec-rails'

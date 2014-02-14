@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 		 
 
   has_one :profile
-  has_many :connectors
+  has_many :connectors, dependent: :destroy
   has_many :movies, through: :connectors	
   
   validates :username, presence: true, uniqueness: true, format: {without: /\A\d/ }, length: 
