@@ -6,7 +6,7 @@ describe "Search Pages" do
   describe "Index" do
 
     context "Movie Search" do
-      context "Logged In" do
+      context "Logged In", :js => true do
         let(:user) { FactoryGirl.create(:user) }
         let!(:user_movie) { FactoryGirl.create(:connector, user: user, movie_id: 4248) } #Scary Movie 2
 
@@ -21,24 +21,24 @@ describe "Search Pages" do
         it { should have_content("Scary Movie") }
         it { should have_css(".movie_unwatched") }
         
-        describe "clicking I've seen it button for Scary Movie" do
+        describe "Clicking and Unclicking checkbox for move I haven't seen, Scary Movie" do
           it "changes the user.movies count by 1 and reclicking changes by -1" do
             VCR.use_cassette 'movies_spec/scary_movie' do
-              expect{ click_button("4247_button") }.to change(user.movies, :count).by(1)
+              expect{ check("4247_button") }.to change(user.movies, :count).by(1)
             end
             VCR.use_cassette 'movies_spec/scary_movie' do
-              expect{ click_button("4247_button") }.to change(user.movies, :count).by(-1)
+              expect{ uncheck("4247_button") }.to change(user.movies, :count).by(-1)
             end
           end
         end
 
-        describe "clicking I've seen it button for Scary Movie 2" do
+        describe "Unclicking and clicking checkbox for movie I've seen, Scary Movie 2" do
           it "changes the user.movies count by -1 and reclicking changes by 1" do
             VCR.use_cassette 'movies_spec/scary_movie_2' do
-              expect{ click_button("4248_button") }.to change(user.movies, :count).by(-1)
+              expect{ uncheck("4248_button") }.to change(user.movies, :count).by(-1)
             end
             VCR.use_cassette 'movies_spec/scary_movie_2' do
-              expect{ click_button("4248_button") }.to change(user.movies, :count).by(1)
+              expect{ check("4248_button") }.to change(user.movies, :count).by(1)
             end
           end
         end

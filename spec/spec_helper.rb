@@ -12,14 +12,13 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
-Capybara.javascript_driver = :webkit
+#Capybara.javascript_driver = :webkit
 
 ActiveRecord::ConnectionAdapters::ConnectionPool.class_eval do
   def current_connection_id
     Thread.main.object_id
   end
 end
-
 
 RSpec.configure do |config|
   # ## Mock Framework

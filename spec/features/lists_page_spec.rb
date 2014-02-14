@@ -9,7 +9,7 @@ describe "List Pages" do
   describe "Show" do
     let(:top_250) { '522effe419c2955e9922fcf3' }
       
-    context "Logged In" do
+    context "Logged In", :js => true do
       let(:user) { FactoryGirl.create(:user) }
       let!(:user_movie) { FactoryGirl.create(:connector, user: user, movie_id: 238) }
 
@@ -23,24 +23,24 @@ describe "List Pages" do
       it { should have_title('IMDb Top 250') }
       it { should have_css(".movie_unwatched") }
 
-      describe "clicking I've seen it button for The Godfather" do
+      describe "Clicking and Unclicking checkbox for movie I haven't seen, The Godfather" do
         it "changes the user.movies count by -1 and reclicking changes by 1" do
           VCR.use_cassette 'movies_spec/the_godfather' do
-            expect{ click_button("238_button") }.to change(user.movies, :count).by(-1)
+            expect{ uncheck("238_button") }.to change(user.movies, :count).by(-1)
           end
           VCR.use_cassette 'movies_spec/the_godfather' do
-            expect{ click_button("238_button") }.to change(user.movies, :count).by(1)
+            expect{ check("238_button") }.to change(user.movies, :count).by(1)
           end
         end
       end
 
-      describe "clicking I've seen it button for Pulp Fiction" do
+      describe "Unclicking and clicking checkbox for movie I've seen, Pulp Fiction" do
         it "changes the user.movies count by 1 and reclicking changes by -1" do
           VCR.use_cassette 'movies_spec/pulp_fiction' do
-            expect{ click_button("680_button") }.to change(user.movies, :count).by(1)
+            expect{ check("680_button") }.to change(user.movies, :count).by(1)
           end
           VCR.use_cassette 'movies_spec/pulp_fiction' do
-            expect{ click_button("680_button") }.to change(user.movies, :count).by(-1)
+            expect{ uncheck("680_button") }.to change(user.movies, :count).by(-1)
           end
         end
       end
