@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 	require 'the_movie_db'
-	helper_method :ive_seen_it, :get_admin_username
+	helper_method :get_admin_username
 	before_filter :configure_permitted_parameters, if: :devise_controller?
   after_filter :store_location
 #  after_action :delete_cache, only: [:create, :destroy]
@@ -46,21 +46,6 @@ class ApplicationController < ActionController::Base
 	  end
   end
   
-  def ive_seen_it(movie_id, ourmovies) #Return true or false if you've seen the movie
-    if ourmovies.include?(movie_id)
-		  method = "delete"
-      submit = "Oops, I haven't seen it!"
-      trclass="movie_watched" 
-      path = movie_path(movie_id)
-    else
-		  method = "post"
-      submit = "I've seen it!"
-      trclass="movie_unwatched"
-      path   = movies_path
-    end 
-    return method, submit, trclass, path
-  end
-
   def get_movies_if_user_signed_in
 		@allmovies = current_user.movies.to_a 
   end  

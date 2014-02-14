@@ -1,5 +1,4 @@
 $("#<%= params[:movie_id] %>_tr").removeClass("movie_unwatched").addClass("movie_watched");
-$("#<%= params[:movie_id] %>_button").attr('value', "Oops, I haven't seen it!");
 $("#<%= params[:movie_id] %>_form").attr({'method':"delete", 'action':"<%= escape_javascript(movie_path(params[:movie_id])) %>"});
 
 var count = $("#moviecount").html();
