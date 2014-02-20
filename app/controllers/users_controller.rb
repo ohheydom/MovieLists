@@ -9,12 +9,14 @@ class UsersController < ApplicationController
     if (current_user.username == params[:id]) || (User.where(username: params[:id]).blank?)
   	  @user = current_user
 	    @render = 'users/partials/my_profile' 
-      @usermovies = @user.movies.order(title: :asc).to_a
+      @usermoviestotal = @user.movies.order(title: :asc)
+      @usermovies = @usermoviestotal.by_year_or_all(params[:by_year]).order(title: :asc)
     else
       @user =  User.find(params[:id])
       @allmovies = current_user.movies.to_a
 	    @render = 'users/partials/profile'
-      @usermovies = @user.movies.order(title: :asc).to_a
+      @usermoviestotal = @user.movies.order(title: :asc)
+      @usermovies = @usermoviestotal.by_year_or_all(params[:by_year]).order(title: :asc)
       @ourmovies =  Tmdb::MovieStats.compare_movies(@allmovies,@usermovies)[0]
     end
     
