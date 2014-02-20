@@ -67,33 +67,24 @@ module Tmdb
 
     def self.add_actors_to_hash(user)  #Top 5
       actor_array = []
-      user.each do |a|
-        a[:actors].each { |act, id| actor_array << [act, id] }
-      end
+      user.each { |a| a[:actors].each { |act, id| actor_array << [act, id] } }
       return Hash[Array.duplicate_hashes(actor_array).sort_by { |k,v| -v } [0..4]]
     end
       
     def self.compare_movies(my_profile, other_profile)
-      myary = []
-      otherary = []
-      my_profile.map { |movid| myary << movid['id'] }
-      other_profile.map {|movid| otherary << movid['id'] }
+      myary = my_profile.map { |movid| movid['id'] }
+      otherary = other_profile.map {|movid| movid['id'] }
       mov_together = (myary & otherary)           
       return mov_together, ((mov_together.count.to_f/(otherary.count+myary.count-mov_together.count.to_f))*100)
     end
     
     def self.add_years_to_hash(user) #Top 5
-      year_array = []
-      user.each { |a| year_array << a[:year] }
-      return Hash[Array.duplicate_hashes(year_array).sort_by { |k,v| -v } [0..4]]
+      Hash[Array.duplicate_hashes(user.map(&:year)).sort_by { |k,v| -v } [0..4]]
     end
     
     def self.compare_list_and_my_movies(my_movies, list)
-      my_movie_ids = []
-      list_movie_ids = []
-      my_movies.each { |movie| my_movie_ids << movie['id'] }
-      
-      list['items'].each { |movie| list_movie_ids << movie['id'] }
+      my_movie_ids =  my_movies.each { |movie| movie['id'] }
+      list_movie_ids = list['items'].each { |movie| movie['id'] }
       (my_movie_ids & list_movie_ids).count
     end
 

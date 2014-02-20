@@ -9,4 +9,5 @@ class Movie < ActiveRecord::Base
   def self.by_year_or_all(year=nil)
     year ? where(year: year) : all
   end
+
 end

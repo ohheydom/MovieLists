@@ -1,7 +1,7 @@
 var currentPage = 1;
 var currentPageparams = window.location.search.substr("6");
 var lastPage = 0
-if (currentPageparams) currentPage = currentPageparams; 
+if (currentPageparams && $.isNumeric(currentPageparams)) currentPage = currentPageparams; 
 var intervalID = -1000;
 
 function checkScroll() {
@@ -21,11 +21,6 @@ function checkScroll() {
     }
   }
 }
-
-function appendMovies(data, textStatus, jqXHR){
-		     //   $('.endless_movie').append(jQuery(data).find('.endless_movie').html());
-	          }
-
 
 function showLoadingtext() {
   $('.endless_movie').append("<div id='tempload'><em>Loading...</em></div>");
@@ -48,9 +43,9 @@ function pageHeight() {
 }
 
 $(document).ready(function(){
+  $('.pagination').hide();
   if ($('nav.pagination span.last a').length) {
     lastPage = $('nav.pagination span.last a').attr('href').split("=").pop();
     intervalID = setInterval(checkScroll, 800);
-    $('.pagination').hide();
   }
 })
