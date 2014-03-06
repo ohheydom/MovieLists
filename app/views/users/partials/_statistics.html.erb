@@ -19,7 +19,7 @@
       <tr>
         <td><h4><%= user %>watched the most movies made in:</h4> </td>
         <% Tmdb::MovieStats.add_years_to_hash(@usermoviestotal).each do |key, val| %>
-        <td><h4><%= link_to "#{key} (#{val})", params.merge(by_year: key) %></h4></td>
+          <td><h4><%= link_to "#{key} (#{val})", {by_year: key} %></h4></td>
         <% end %>
         <td><h4><%= link_to 'All', profile_path(@user) %></h4></td>
       </tr>

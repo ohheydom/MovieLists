@@ -18,3 +18,8 @@
 # Ignore sensitive information
 /config/application.yml
 /spec/vcr
+doc/
+*.swp
+*~
+.project
+.secret
