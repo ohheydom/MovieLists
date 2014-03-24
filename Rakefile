@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-MovieLists::Application.load_tasks
+MyMovieTracker::Application.load_tasks

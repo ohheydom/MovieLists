@@ -1,5 +1,5 @@
 require 'diagnostic'
-MovieLists::Application.configure do
+MyMovieTracker::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # The test environment is used exclusively to run your application's
@@ -12,7 +12,7 @@ MovieLists::Application.configure do
   # just for the purpose of running a single test. If you are using a tool that
   # preloads Rails for running tests, you may have to set it to true.
   config.eager_load = false
-  config.middleware.use(MovieLists::DiagnosticMiddleware)
+  config.middleware.use(MyMovieTracker::DiagnosticMiddleware)
   # Configure static asset server for tests with Cache-Control for performance.
   config.serve_static_assets  = true
   config.static_cache_control = "public, max-age=3600"

@@ -1,4 +1,4 @@
-module MovieLists
+module MyMovieTracker
   class DiagnosticMiddleware
     FILENAME = 'diagnostic.txt'
 

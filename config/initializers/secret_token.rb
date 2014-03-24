@@ -20,4 +20,4 @@ def secure_token
   end
 end
 
-MovieLists::Application.config.secret_key_base = secure_token
+MyMovieTracker::Application.config.secret_key_base = secure_token
