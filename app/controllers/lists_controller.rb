@@ -13,13 +13,12 @@ class ListsController < ApplicationController
       @listpart = '/shared_partials/list_of_movies_not_signed_in'
     end  
   end
-  
-  def index
-  
+
+  def index  
   end
-  
+
   def define_paths
-    @path = movies_path 
+    @path = movies_path
     @jpathc = "create_and_count"
     @jpathd = "destroy_and_count"
   end

@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
       end
     end
   end
-   
+ 
   def create
 	  @movie = Movie.new(movie_params)
 	  @movie.save
@@ -21,7 +21,7 @@ class MoviesController < ApplicationController
 		  format.js { render action: "../shared_javascripts/" + @jpathc } 
 	  end 
   end
-  
+
   def destroy 
 	  @connector = Connector.find_by_user_id_and_movie_id(current_user.id, params[:movie_id])
 	  @connector.destroy

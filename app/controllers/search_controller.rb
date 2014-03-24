@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
-  before_filter :define_paths 
+  before_filter :define_paths
 
 	def index
 		@querystring = params[:query]
@@ -23,5 +23,4 @@ class SearchController < ApplicationController
     @jpathc = 'create'
     @jpathd = 'destroy'
    end
-
 end

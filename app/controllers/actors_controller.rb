@@ -5,7 +5,7 @@ class ActorsController < ApplicationController
 
   def show
     @actor = Tmdb::TheMovieDb.get_movie_credits_by_id(params[:id])['cast']
-    if @actor 
+    if @actor
 	    @actor.sort_by! {|v| v['release_date'].nil? ? '1900-01-01' : v['release_date'] }.reverse!
 	    @actor_name =  get_actors_name(params[:id])
 	    if user_signed_in?

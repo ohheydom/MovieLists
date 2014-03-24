@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Movie Page", :js => true do
+describe 'Movie Page', :js => true do
   subject { page }
 
   let(:user) { FactoryGirl.create(:user) }
@@ -8,15 +8,15 @@ describe "Movie Page", :js => true do
   before do
     VCR.use_cassette 'movies_spec/watched_film_finding_nemo' do
       sign_in user
-      visit movie_path(user_movie.movie_id) 
+      visit movie_path(user_movie.movie_id)
     end
   end
 
   it { should have_title(Movie.find(user_movie.movie_id).title) }
 
   describe "Unclicking and clicking a checkbox for a movie I've seen, Finding Nemo" do
-    before do 
-    VCR.use_cassette 'movies_spec/watched_film_finding_nemo' do
+    before do
+      VCR.use_cassette 'movies_spec/watched_film_finding_nemo' do
         visit movie_path(user_movie.movie_id)
       end
     end
@@ -25,10 +25,10 @@ describe "Movie Page", :js => true do
 
     it "changes the user's movies by -1 and reclicking by 1" do
       VCR.use_cassette 'movies_spec/watched_film_finding_nemo' do
-        expect{ uncheck('12_button')}.to change(user.movies, :count).by(-1)
+        expect { uncheck('12_button') }.to change(user.movies, :count).by(-1)
       end
       VCR.use_cassette 'movies_spec/watched_film_finding_nemo' do
-        expect{ check('12_button') }.to change(user.movies, :count).by(1)
+        expect { check('12_button') }.to change(user.movies, :count).by(1)
       end
     end
   end
@@ -39,16 +39,15 @@ describe "Movie Page", :js => true do
         visit movie_path(13)
       end
     end
-    
-    it { should have_css('tr.movie_unwatched') }
 
+    it { should have_css('tr.movie_unwatched') }
 
     it "changes the user's movies by 1 and reclicking by -1" do
       VCR.use_cassette 'movies_spec/unwatched_film_forrest_gump' do
-        expect{ check('13_button') }.to change(user.movies, :count).by(1)
+        expect { check('13_button') }.to change(user.movies, :count).by(1)
       end
       VCR.use_cassette 'movies_spec/unwatched_film_forrest_gump' do
-        expect{ uncheck('13_button') }.to change(user.movies, :count).by(-1)
+        expect { uncheck('13_button') }.to change(user.movies, :count).by(-1)
       end
     end
   end

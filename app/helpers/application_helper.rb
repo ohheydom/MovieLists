@@ -15,16 +15,15 @@ module ApplicationHelper
   def ive_seen_it(movie_id, ourmovies) #Return true or false if you've seen the movie
     if ourmovies.include?(movie_id)
 		  method = "delete"
-      submit = true 
-      trclass="movie_watched" 
+      submit = true
+      trclass="movie_watched"
       path = movie_path(movie_id)
     else
 		  method = "post"
       submit = false
       trclass="movie_unwatched"
       path   = movies_path
-    end 
+    end
     return method, submit, trclass, path
   end
-
 end
