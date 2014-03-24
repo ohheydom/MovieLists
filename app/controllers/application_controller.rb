@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
 
   def get_actors(movie_id) # Get all the actors for a movie by id
     ary = Rails.cache.fetch([:movie_cache, movie_id]) { Tmdb::TheMovieDb.get_movie_credits_by_movie_id(movie_id) }
-    ary['cast'].each_with_object({}) { |f| obj[f['name']] = f['id'] }
+    ary['cast'].each_with_object({}) { |f, obj| obj[f['name']] = f['id'] }
 	end
 
 	def get_actors_name(actor_id) # Get actors name by id
