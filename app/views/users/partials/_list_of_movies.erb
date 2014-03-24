@@ -1,11 +1,11 @@
 <% ((params.has_key?(:id)) && (params[:id] != current_user.username)) ?  (method, submit, trclass, path = ive_seen_it(movie['id'], @ourmovies)) : trclass="noclass" %>
 <tr class= "<%= trclass %>" id = "<%= movie['id'] %>_tr">
+  <td>
+    <%= link_to ("#{movie['title']} (#{movie['year']})"), movie_path(movie['id']) %>
+  </td>
+  <% if params.has_key?(:id) && (current_user.username != params[:id])  %>
     <td>
-        <%= link_to ("#{movie['title']} (#{movie['year']})"), movie_path(movie['id']) %>
+      <%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, path: path, movie: movie %>
     </td>
-    <% if params.has_key?(:id) && (current_user.username != params[:id])  %>
-        <td>
-            <%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, path: path, movie: movie %>
-        </td>
-    <% end %>
+  <% end %>
 </tr>

@@ -1,10 +1,10 @@
 class ListsController < ApplicationController
-  before_filter :define_paths	
+  before_filter :define_paths
 
   def show
     Rails.cache.delete(:moviecredits)
-	  @list = Tmdb::TheMovieDb.get_list_by_id(params[:id])
-	  @listp = Kaminari.paginate_array(@list['items']).page(params[:page]).per(50)
+    @list = Tmdb::TheMovieDb.get_list_by_id(params[:id])
+    @listp = Kaminari.paginate_array(@list['items']).page(params[:page]).per(50)
     if user_signed_in?
       @listpart = '/shared_partials/list_of_movies'
       get_movies_if_user_signed_in

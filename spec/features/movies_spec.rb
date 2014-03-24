@@ -25,10 +25,10 @@ describe 'Movie Page', :js => true do
 
     it "changes the user's movies by -1 and reclicking by 1" do
       VCR.use_cassette 'movies_spec/watched_film_finding_nemo' do
-        expect { uncheck('12_button') }.to change(user.movies, :count).by(-1)
+        expect { wait; uncheck('12_button'); wait }.to change(user.movies, :count).by(-1)
       end
       VCR.use_cassette 'movies_spec/watched_film_finding_nemo' do
-        expect { check('12_button') }.to change(user.movies, :count).by(1)
+        expect { wait; check('12_button'); wait }.to change(user.movies, :count).by(1)
       end
     end
   end
@@ -44,10 +44,10 @@ describe 'Movie Page', :js => true do
 
     it "changes the user's movies by 1 and reclicking by -1" do
       VCR.use_cassette 'movies_spec/unwatched_film_forrest_gump' do
-        expect { check('13_button') }.to change(user.movies, :count).by(1)
+        expect { wait; check('13_button'); wait }.to change(user.movies, :count).by(1)
       end
       VCR.use_cassette 'movies_spec/unwatched_film_forrest_gump' do
-        expect { uncheck('13_button') }.to change(user.movies, :count).by(-1)
+        expect { wait; uncheck('13_button'); wait }.to change(user.movies, :count).by(-1)
       end
     end
   end

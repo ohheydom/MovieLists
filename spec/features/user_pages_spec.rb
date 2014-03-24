@@ -41,10 +41,10 @@ describe 'User Pages' do
     describe "Unclicking and Clicking checkbox for movie I've seen, Finding Nemo" do
       it 'changes the user.movies count by 1 and reclicking changes by -1' do
         VCR.use_cassette 'movies_spec/finding_nemo' do
-          expect { uncheck('12_button') }.to change(user.movies, :count).by(-1)
+          expect { wait; uncheck('12_button'); wait }.to change(user.movies, :count).by(-1)
         end
         VCR.use_cassette 'movies_spec/finding_nemo' do
-          expect { check('12_button') }.to change(user.movies, :count).by(1)
+          expect { wait; check('12_button'); wait }.to change(user.movies, :count).by(1)
         end
       end
     end
@@ -52,10 +52,10 @@ describe 'User Pages' do
     describe "Clicking and Unclicking checkbox for movie I haven't seen, The Godfather" do
       it 'changes the user.movies count by -1 and reclicking changes by 1' do
         VCR.use_cassette 'movies_spec/the_godfather' do
-          expect { check('238_button') }.to change(user.movies, :count).by(1)
+          expect { wait; check('238_button'); wait }.to change(user.movies, :count).by(1)
         end
         VCR.use_cassette 'movies_spec/the_godfather' do
-          expect { uncheck('238_button') }.to change(user.movies, :count).by(-1)
+          expect { wait; uncheck('238_button'); wait }.to change(user.movies, :count).by(-1)
         end
       end
     end

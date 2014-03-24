@@ -6,9 +6,8 @@ class Movie < ActiveRecord::Base
 
   validates :id, uniqueness: true
 
-  def self.by_year_or_all(year=nil)
+  def self.by_year_or_all(year = nil)
     valid_years = (1900..2040).to_a
     year && valid_years.include?(year.to_i) ? where(year: year) : all
   end
-
 end

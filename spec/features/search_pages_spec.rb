@@ -24,10 +24,10 @@ describe 'Search Pages' do
         describe "Clicking and Unclicking checkbox for move I haven't seen, Scary Movie" do
           it 'changes the user.movies count by 1 and reclicking changes by -1' do
             VCR.use_cassette 'movies_spec/scary_movie' do
-              expect { check('4247_button') }.to change(user.movies, :count).by(1)
+              expect { wait; check('4247_button'); wait }.to change(user.movies, :count).by(1)
             end
             VCR.use_cassette 'movies_spec/scary_movie' do
-              expect { uncheck('4247_button') }.to change(user.movies, :count).by(-1)
+              expect { wait; uncheck('4247_button'); wait }.to change(user.movies, :count).by(-1)
             end
           end
         end
@@ -35,10 +35,10 @@ describe 'Search Pages' do
         describe "Unclicking and clicking checkbox for movie I've seen, Scary Movie 2" do
           it 'changes the user.movies count by -1 and reclicking changes by 1' do
             VCR.use_cassette 'movies_spec/scary_movie_2' do
-              expect { uncheck('4248_button') }.to change(user.movies, :count).by(-1)
+              expect { wait; uncheck('4248_button'); wait }.to change(user.movies, :count).by(-1)
             end
             VCR.use_cassette 'movies_spec/scary_movie_2' do
-              expect { check('4248_button') }.to change(user.movies, :count).by(1)
+              expect { wait; check('4248_button'); wait }.to change(user.movies, :count).by(1)
             end
           end
         end

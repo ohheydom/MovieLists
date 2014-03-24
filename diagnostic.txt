@@ -1,0 +1,488 @@
+ActionView::Template::Error
+Couldn't find Movie with id=10023
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:38:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb___2081250844646627784_70138297037780'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb__1147961888497473695_70138296769380'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ActionView::Template::Error
+Couldn't find Movie with id=10023
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:38:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb___2081250844646627784_70138297037780'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb__1147961888497473695_70138296769380'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ActionView::Template::Error
+Couldn't find Movie with id=10023
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:38:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb___2081250844646627784_70138297037780'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb__1147961888497473695_70138296769380'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ActionView::Template::Error
+Couldn't find Movie with id=10023
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:38:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb__2029989073329922616_70233960682940'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb___3972575346437751843_70233960413300'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ActionView::Template::Error
+Couldn't find Movie with id=10023
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:38:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb__2029989073329922616_70233960682940'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb___3972575346437751843_70233960413300'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ActionView::Template::Error
+Couldn't find Movie with id=10023
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:38:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb__2029989073329922616_70233960682940'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb___3972575346437751843_70233960413300'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ActionView::Template::Error
+Couldn't find Movie with id=10023
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:38:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb__3393620331956297863_70108400012260'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb__1450589679880421759_70108399743580'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ActionView::Template::Error
+Couldn't find Movie with id=10023
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:38:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb__3393620331956297863_70108400012260'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb__1450589679880421759_70108399743580'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ActionView::Template::Error
+Couldn't find Movie with id=10023
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:38:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb__3393620331956297863_70108400012260'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb__1450589679880421759_70108399743580'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+VCR::Errors::UnhandledHTTPRequestError
+
+
+================================================================================
+An HTTP request has been made that VCR does not know how to handle:
+  GET http://api.themoviedb.org/3/person/31/movie_credits?api_key=47f84ce170c3f96cdfb8a690d1d29615
+
+There is currently no cassette in use. There are a few ways
+you can configure VCR to handle this request:
+
+  * If you're surprised VCR is raising this error
+    and want insight about how VCR attempted to handle the request,
+    you can use the debug_logger configuration option to log more details [1].
+  * If you want VCR to record this request and play it back during future test
+    runs, you should wrap your test (or this portion of your test) in a
+    `VCR.use_cassette` block [2].
+  * If you only want VCR to handle requests made while a cassette is in use,
+    configure `allow_http_connections_when_no_cassette = true`. VCR will
+    ignore this request since it is made when there is no cassette [3].
+  * If you want VCR to ignore this request (and others like it), you can
+    set an `ignore_request` callback [4].
+
+[1] https://www.relishapp.com/vcr/vcr/v/2-8-0/docs/configuration/debug-logging
+[2] https://www.relishapp.com/vcr/vcr/v/2-8-0/docs/getting-started
+[3] https://www.relishapp.com/vcr/vcr/v/2-8-0/docs/configuration/allow-http-connections-when-no-cassette
+[4] https://www.relishapp.com/vcr/vcr/v/2-8-0/docs/configuration/ignore-request
+================================================================================
+
+
+/home/dom/Rails/MovieLists/lib/assets/the_movie_db.rb:35:in `get_movie_credits_by_id'
+ /home/dom/Rails/MovieLists/app/controllers/actors_controller.rb:7:in `show'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ /home/dom/Rails/MovieLists/spec/features/actors_spec.rb:8:in `block (2 levels) in <top (required)>'
+ActionView::Template::Error
+wrong number of arguments (0 for 1)
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `each_with_object'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb___507102549987040335_58477360'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb__3096890717409796293_57969940'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ActionView::Template::Error
+wrong number of arguments (0 for 1)
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `each_with_object'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb___507102549987040335_58477360'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb__3096890717409796293_57969940'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ActionView::Template::Error
+wrong number of arguments (0 for 1)
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `each_with_object'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb___507102549987040335_58477360'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb__3096890717409796293_57969940'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ActionView::Template::Error
+wrong number of arguments (0 for 1)
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `each_with_object'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb___507102549987040335_58477360'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb__3096890717409796293_57969940'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ActionView::Template::Error
+no implicit conversion of String into Integer
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `[]'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `block in add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `each'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `each_with_object'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb___4378445176703900449_62319280'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb___664538253895779058_61812640'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ActionView::Template::Error
+no implicit conversion of String into Integer
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `[]'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `block in add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `each'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `each_with_object'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb___4378445176703900449_62319280'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb___664538253895779058_61812640'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ActionView::Template::Error
+no implicit conversion of String into Integer
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `[]'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `block in add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `each'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `each_with_object'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb___4378445176703900449_62319280'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb___664538253895779058_61812640'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ActionView::Template::Error
+no implicit conversion of String into Integer
+/home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `[]'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `block in add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `each'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `each_with_object'
+ /home/dom/Rails/MovieLists/app/controllers/users_controller.rb:37:in `add_most_recent_movies_and_ids_to_array'
+ /home/dom/Rails/MovieLists/app/views/users/partials/_left_side_statistics.html.erb:5:in `_app_views_users_partials__left_side_statistics_html_erb___4378445176703900449_62319280'
+ /home/dom/Rails/MovieLists/app/views/users/show.html.erb:7:in `_app_views_users_show_html_erb___664538253895779058_61812640'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+VCR::Errors::UnhandledHTTPRequestError
+
+
+================================================================================
+An HTTP request has been made that VCR does not know how to handle:
+  GET http://api.themoviedb.org/3/movie/10023/credits?api_key=47f84ce170c3f96cdfb8a690d1d29615
+
+There is currently no cassette in use. There are a few ways
+you can configure VCR to handle this request:
+
+  * If you're surprised VCR is raising this error
+    and want insight about how VCR attempted to handle the request,
+    you can use the debug_logger configuration option to log more details [1].
+  * If you want VCR to record this request and play it back during future test
+    runs, you should wrap your test (or this portion of your test) in a
+    `VCR.use_cassette` block [2].
+  * If you only want VCR to handle requests made while a cassette is in use,
+    configure `allow_http_connections_when_no_cassette = true`. VCR will
+    ignore this request since it is made when there is no cassette [3].
+  * If you want VCR to ignore this request (and others like it), you can
+    set an `ignore_request` callback [4].
+
+[1] https://www.relishapp.com/vcr/vcr/v/2-8-0/docs/configuration/debug-logging
+[2] https://www.relishapp.com/vcr/vcr/v/2-8-0/docs/getting-started
+[3] https://www.relishapp.com/vcr/vcr/v/2-8-0/docs/configuration/allow-http-connections-when-no-cassette
+[4] https://www.relishapp.com/vcr/vcr/v/2-8-0/docs/configuration/ignore-request
+================================================================================
+
+
+/home/dom/Rails/MovieLists/lib/assets/the_movie_db.rb:30:in `get_movie_credits_by_movie_id'
+ /home/dom/Rails/MovieLists/app/controllers/application_controller.rb:50:in `block in get_actors'
+ /home/dom/Rails/MovieLists/app/controllers/application_controller.rb:50:in `get_actors'
+ /home/dom/Rails/MovieLists/app/controllers/application_controller.rb:64:in `movie_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:15:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+VCR::Errors::UnhandledHTTPRequestError
+
+
+================================================================================
+An HTTP request has been made that VCR does not know how to handle:
+  GET http://api.themoviedb.org/3/movie/10466/credits?api_key=47f84ce170c3f96cdfb8a690d1d29615
+
+There is currently no cassette in use. There are a few ways
+you can configure VCR to handle this request:
+
+  * If you're surprised VCR is raising this error
+    and want insight about how VCR attempted to handle the request,
+    you can use the debug_logger configuration option to log more details [1].
+  * If you want VCR to record this request and play it back during future test
+    runs, you should wrap your test (or this portion of your test) in a
+    `VCR.use_cassette` block [2].
+  * If you only want VCR to handle requests made while a cassette is in use,
+    configure `allow_http_connections_when_no_cassette = true`. VCR will
+    ignore this request since it is made when there is no cassette [3].
+  * If you want VCR to ignore this request (and others like it), you can
+    set an `ignore_request` callback [4].
+
+[1] https://www.relishapp.com/vcr/vcr/v/2-8-0/docs/configuration/debug-logging
+[2] https://www.relishapp.com/vcr/vcr/v/2-8-0/docs/getting-started
+[3] https://www.relishapp.com/vcr/vcr/v/2-8-0/docs/configuration/allow-http-connections-when-no-cassette
+[4] https://www.relishapp.com/vcr/vcr/v/2-8-0/docs/configuration/ignore-request
+================================================================================
+
+
+/home/dom/Rails/MovieLists/lib/assets/the_movie_db.rb:30:in `get_movie_credits_by_movie_id'
+ /home/dom/Rails/MovieLists/app/controllers/application_controller.rb:50:in `block in get_actors'
+ /home/dom/Rails/MovieLists/app/controllers/application_controller.rb:50:in `get_actors'
+ /home/dom/Rails/MovieLists/app/controllers/application_controller.rb:64:in `movie_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:15:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NoMethodError
+undefined method `id' for nil:NilClass
+/home/dom/Rails/MovieLists/app/controllers/application_controller.rb:68:in `connector_params'
+ /home/dom/Rails/MovieLists/app/controllers/movies_controller.rb:17:in `create'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ /home/dom/Rails/MovieLists/spec/support/utilities.rb:6:in `sign_in'
+ /home/dom/Rails/MovieLists/spec/features/user_pages_spec.rb:13:in `block (2 levels) in <top (required)>'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ /home/dom/Rails/MovieLists/spec/support/utilities.rb:6:in `sign_in'
+ /home/dom/Rails/MovieLists/spec/features/user_pages_spec.rb:13:in `block (2 levels) in <top (required)>'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ /home/dom/Rails/MovieLists/spec/support/utilities.rb:6:in `sign_in'
+ /home/dom/Rails/MovieLists/spec/features/user_pages_spec.rb:13:in `block (2 levels) in <top (required)>'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ /home/dom/Rails/MovieLists/spec/support/utilities.rb:6:in `sign_in'
+ /home/dom/Rails/MovieLists/spec/features/user_pages_spec.rb:13:in `block (2 levels) in <top (required)>'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ /home/dom/Rails/MovieLists/spec/support/utilities.rb:6:in `sign_in'
+ /home/dom/Rails/MovieLists/spec/features/user_pages_spec.rb:13:in `block (2 levels) in <top (required)>'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ /home/dom/Rails/MovieLists/spec/support/utilities.rb:6:in `sign_in'
+ /home/dom/Rails/MovieLists/spec/features/user_pages_spec.rb:13:in `block (2 levels) in <top (required)>'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'
+ /home/dom/Rails/MovieLists/spec/support/utilities.rb:6:in `sign_in'
+ /home/dom/Rails/MovieLists/spec/features/user_pages_spec.rb:13:in `block (2 levels) in <top (required)>'
+NameError
+undefined local variable or method `login' for #<Class:0x00000004866e70>
+/home/dom/Rails/MovieLists/app/models/user.rb:26:in `find_first_by_auth_conditions'
+ /home/dom/Rails/MovieLists/lib/assets/diagnostic.rb:10:in `call'

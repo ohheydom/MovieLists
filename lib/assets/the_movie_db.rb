@@ -10,7 +10,7 @@ module Tmdb
 
     @conn = Faraday.new(:url => BASE_URI) do |faraday|
       faraday.request  :url_encoded
-      faraday.params = {api_key: API_KEY}
+      faraday.params = { api_key: API_KEY }
       faraday.response :logger
       faraday.headers['Content-Type'] = 'application/json'
       faraday.adapter  Faraday.default_adapter
@@ -20,7 +20,7 @@ module Tmdb
       x = @conn.get 'movie/' + movie_id
       JSON.parse(x.body)
     end
- 
+
     def self.get_list_by_id(list_id)
       x = @conn.get 'list/' + list_id
       JSON.parse(x.body)
@@ -59,7 +59,6 @@ module Tmdb
   end
 
   class MovieStats
-
     def self.number_of_movies(user)
       @number = user.count
     end
@@ -74,7 +73,7 @@ module Tmdb
       myary = my_profile.map { |movid| movid['id'] }
       otherary = other_profile.map { |movid| movid['id'] }
       mov_together = (myary & otherary)
-      return mov_together, ((mov_together.count.to_f / (otherary.count + myary.count-mov_together.count.to_f)) * 100)
+      return mov_together, ((mov_together.count.to_f / (otherary.count + myary.count - mov_together.count.to_f)) * 100)
     end
 
     def self.add_years_to_hash(user) #Top 5
