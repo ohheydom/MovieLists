@@ -1,6 +1,8 @@
 #Movie Lists
 Movie Lists is an app created in Ruby on Rails. Movie Lists allows you to create a list of movies you have seen. It'll keep track of which actors you've seen the most movies in and how many movies you've seen as part of lists (Top 250, AFI Top 100). You can even compare your list with friends! This is just a sample application I created to learn about working with apis. 
 
+This was the first real application I created. It's not the cleanest but I've kept it on github just as a reminder of my growth as a programmer. Every once in a while I'll come back to it to try cleaning it up a bit.
+
 ##Deploying
 
 Clone the repository to your local machine
