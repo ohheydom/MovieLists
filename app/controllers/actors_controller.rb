@@ -9,7 +9,7 @@ class ActorsController < ApplicationController
       @actor.sort_by! {|v| v['release_date'].nil? ? '1900-01-01' : v['release_date'] }.reverse!
       @actor_name =  get_actors_name(params[:id])
       if user_signed_in?
-        get_movies_if_user_signed_in
+        user_movies
         @ourmovies =  Tmdb::MovieStats.compare_movies(@allmovies,@actor)[0]
         @watchedmoviescount = @ourmovies.count
         @listpart = "list_of_movies"

@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
     unless @movie["status_code"] == 6
       @moviecredits = Rails.cache.fetch([:movie_cache, params[:id]]) { Tmdb::TheMovieDb.get_movie_credits_by_movie_id(params[:id])  }
       if user_signed_in?
-        get_movies_if_user_signed_in
+        user_movies
       end
     end
   end
@@ -38,5 +38,15 @@ class MoviesController < ApplicationController
   def define_paths
     @jpathc = "create_and_count"
     @jpathd = "destroy_and_count"
+  end
+  
+  private
+
+  def connector_params
+    params.permit(:user_id, :movie_id).merge(:user_id => current_user.id)
+  end
+
+  def movie_params
+    params.permit(:id, :title, :actors, :year).merge(:id => params[:movie_id], :actors => get_actors(params[:movie_id]), :year => params[:year])
   end
 end

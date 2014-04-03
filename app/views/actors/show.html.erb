@@ -1,11 +1,11 @@
-<% unless @actor_name.nil? %>
+<% if @actor_name %>
   <title><%= @actor_name + " Movies" %></title>
   <h1><%= @actor_name %></h1>
   <h2 id="watchedmoviecount">
-	<% if user_signed_in? %>
-    I've seen <span id="moviecount"><%= @watchedmoviescount %></span> out of
-	<% end %>
-  <%= @actor.count %> movies
+    <% if user_signed_in? %>
+      I've seen <span id="moviecount"><%= @watchedmoviescount %></span> out of
+    <% end %>
+    <%= @actor.count %> movies
   </h2>
 
   <table>
@@ -18,7 +18,6 @@
 	  </tr>
     <%= render :partial => @listpart, :collection => @actor, :as => :movie %>
   </table>
-
 <% else %>
   <title>Not found</title>
   <h2>Actor not found!</h2>

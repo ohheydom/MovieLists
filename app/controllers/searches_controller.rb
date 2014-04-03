@@ -10,7 +10,7 @@ class SearchesController < ApplicationController
       @render = 'movie'
       @search_movies_list = Tmdb::TheMovieDb.search_by_movie_title(@querystring)
       if user_signed_in?
-        get_movies_if_user_signed_in
+        user_movies
         @ourmovies =  Tmdb::MovieStats.compare_movies(@allmovies,@search_movies_list['results'])[0]
         @listpart = '/shared_partials/list_of_movies'
       else

@@ -1,5 +1,4 @@
 class ErrorsController < ActionController::Base
-
   def not_found
     respond_to do |format|
       format.html { render template: 'errors/not_found', layout: 'layouts/application', status: 404 }
@@ -20,5 +19,4 @@ class ErrorsController < ActionController::Base
       format.all  { render nothing: true, status: 500 }
     end
   end
-
 end

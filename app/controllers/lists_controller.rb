@@ -7,7 +7,7 @@ class ListsController < ApplicationController
     @listp = Kaminari.paginate_array(@list['items']).page(params[:page]).per(50)
     if user_signed_in?
       @listpart = '/shared_partials/list_of_movies'
-      get_movies_if_user_signed_in
+      user_movies
       @ourmovies =  Tmdb::MovieStats.compare_movies(@allmovies,@list['items'])[0]
     else
       @listpart = '/shared_partials/list_of_movies_not_signed_in'

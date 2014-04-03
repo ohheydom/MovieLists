@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
 	  end
   end
 
-  def get_movies_if_user_signed_in
+  def user_movies
 		@allmovies = current_user.movies.to_a
   end
 
@@ -59,16 +59,8 @@ class ApplicationController < ActionController::Base
     ENV["ADMIN_USERNAME"]
   end
 
-	# STRONG PARAMS
-  def movie_params
-    params.permit(:id, :title, :actors, :year).merge(:id => params[:movie_id], :actors => get_actors(params[:movie_id]), :year => params[:year])
-  end
-
-  def connector_params
-    params.permit(:user_id, :movie_id).merge(:user_id => current_user.id)
-  end
-
   protected
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation) }
 	  devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :email, :password, :remember_me) }
