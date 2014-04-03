@@ -8,7 +8,7 @@
 	  <div class="col-md-4">
 		  <div class="smaller_form">
 			  <div class="form-group">
-			    <%= form_tag("/search", method: "get") do %>
+			    <%= form_tag(:search, url: search_path, method: "get") do %>
 			      <%= text_field_tag (:query), nil, class: "form-control" %>
 			      <%= submit_tag ("Search"), class: "btn btn-default" %>
 			      <%= radio_button_tag(:type, "movie", checked: true) %>

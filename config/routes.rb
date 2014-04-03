@@ -15,12 +15,11 @@ MyMovieTracker::Application.routes.draw do
   end
 
   get 'home/index'
-  get 'actors/:id', to: 'actors#show', as: :actor
 
-  resources :movies
+  resources :actors, only: [:show]
+  resources :movies, only: [:show, :create, :destroy, :update]
   resources :lists, only: [:show, :index]
-
-  get '/search', to: 'search#index', as: :search
+  resource :search, only: [:show]
 
   # Users
   get 'profile/:id', to: 'users#show', as: 'profile'

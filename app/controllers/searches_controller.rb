@@ -1,7 +1,7 @@
-class SearchController < ApplicationController
+class SearchesController < ApplicationController
   before_filter :define_paths
 
-  def index
+  def show
     @querystring = params[:query]
     @type = params[:type]
     if @type == 'actor'
