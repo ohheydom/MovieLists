@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   require 'the_movie_db'
+  include ApplicationHelper
   helper_method :get_admin_username
   before_filter :configure_permitted_parameters, if: :devise_controller?
   after_filter :store_location
@@ -40,10 +41,6 @@ class ApplicationController < ActionController::Base
 			  end
 		  end
 	  end
-  end
-
-  def user_movies
-		@allmovies = current_user.movies.to_a
   end
 
   def get_actors(movie_id) # Get all the actors for a movie by id

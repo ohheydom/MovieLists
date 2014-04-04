@@ -5,9 +5,6 @@ class MoviesController < ApplicationController
     @movie = Tmdb::TheMovieDb.get_movie_by_id(params[:id])
     unless @movie["status_code"] == 6
       @moviecredits = Rails.cache.fetch([:movie_cache, params[:id]]) { Tmdb::TheMovieDb.get_movie_credits_by_movie_id(params[:id])  }
-      if user_signed_in?
-        user_movies
-      end
     end
   end
 
@@ -23,8 +20,7 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @connector = Connector.find_by_user_id_and_movie_id(current_user.id, params[:movie_id])
-    @connector.destroy
+    current_user.movies.delete params[:movie_id]
     respond_to do |format|
       format.html { redirect_to movie_path(params[:movie_id]) }
       format.js  { render action: "../shared_javascripts/" + @jpathd }

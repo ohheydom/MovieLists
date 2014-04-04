@@ -81,8 +81,8 @@ module Tmdb
     end
 
     def self.compare_list_and_my_movies(my_movies, list)
-      my_movie_ids =  my_movies.each { |movie| movie['id'] }
-      list_movie_ids = list['items'].each { |movie| movie['id'] }
+      my_movie_ids =  my_movies.map { |movie| movie['id'] }
+      list_movie_ids = list['items'].map { |movie| movie['id'] }
       (my_movie_ids & list_movie_ids).count
     end
   end

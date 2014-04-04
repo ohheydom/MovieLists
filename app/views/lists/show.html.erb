@@ -1,7 +1,7 @@
 <% unless @list["status_code"] == 6 %>
   <title><%= @list["name"] %></title>
   <h2 id="watchedmoviecount">
-  <%= check_movie_counter(@allmovies, @list).html_safe %>
+  <%= check_movie_counter(user_movies, @list).html_safe %>
   </h2>
 
   <h1><%= @list['name'] %></h1>
