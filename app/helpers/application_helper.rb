@@ -1,4 +1,9 @@
 module ApplicationHelper
+  def full_title(page_title)
+    base_title = 'My Movie Tracker'
+    page_title.empty? ? base_title : "#{base_title} | #{page_title}".html_safe
+  end
+
   def parse_date(date)
     date.nil? || date.empty? ? '1900' : Date.parse(date).strftime('%Y')
   end

@@ -11,10 +11,9 @@ MyMovieTracker::Application.routes.draw do
   end
 
   unauthenticated do
-    root to: 'home#index'
+    root to: 'homes#show', via: :get
   end
 
-  get 'home/index'
 
   resources :actors, only: [:show]
   resources :movies, only: [:show, :create, :destroy, :update]

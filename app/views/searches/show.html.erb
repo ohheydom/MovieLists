@@ -1,4 +1,5 @@
-<title>Search Results</title>
+<%= provide :title, 'Search Results' %>
+<table>
 <% unless @querystring.blank? %>
   <%= render @render %>
 <% else %>

@@ -1,17 +1,17 @@
-<% unless @list["status_code"] == 6 %>
-  <title><%= @list["name"] %></title>
-  <h2 id="watchedmoviecount">
+<% unless @list['status_code'] == 6 %>
+  <%= provide :title, @list['name'] %>
+  <h2 id='watchedmoviecount'>
   <%= check_movie_counter(user_movies, @list).html_safe %>
   </h2>
 
   <h1><%= @list['name'] %></h1>
-  <table class="movie_list">
-    <tr class="movie_status_table_header">
+  <table class='movie_list'>
+    <tr class='movie_status_table_header'>
       <th></th>
       <th>Film</th>
       <th></th>
     </tr>
-    <tbody class = "endless_movie">
+    <tbody class = 'endless_movie'>
       <%= render :partial => @listpart, :collection => @listp, :as => :movie %>
     </tbody>
   </table>

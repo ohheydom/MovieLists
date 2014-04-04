@@ -1,4 +1,4 @@
-WAIT_TIME = 2
+WAIT_TIME = 1
 def sign_in(user)
   visit root_path
   fill_in 'user_username', with: user.username

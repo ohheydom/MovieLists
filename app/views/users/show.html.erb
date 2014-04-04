@@ -1,4 +1,4 @@
-<title><%= @user.username + "'s profile" %></title>
+<%= provide :title, @user.username %>
 <%= render 'users/partials/statistics' %>
 <br><br>
 <div class="row">

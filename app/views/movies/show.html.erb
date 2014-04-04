@@ -1,5 +1,5 @@
 <% unless @movie["status_code"] == 6 %>
-  <title><%= @movie['title'] %></title>
+  <%= provide :title, @movie['title'] %>
   <% (user_signed_in?) ? (method, submit, trclass, path = ive_seen_it_single(@movie['id'])) : trclass = "noclass" %>
   <table class="header_table">
     <tr class="<%= trclass %>" id= "<%= @movie['id'] %>_tr" >

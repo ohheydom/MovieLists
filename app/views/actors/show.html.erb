@@ -1,5 +1,5 @@
 <% if @actor_name %>
-  <title><%= @actor_name + " Movies" %></title>
+  <%= provide :title, @actor_name + ' movies' %>
   <h1><%= @actor_name %></h1>
   <h2 id="watchedmoviecount">
     <% if user_signed_in? %>
@@ -19,6 +19,5 @@
     <%= render :partial => @listpart, :collection => @actor, :as => :movie %>
   </table>
 <% else %>
-  <title>Not found</title>
   <h2>Actor not found!</h2>
 <% end %>
