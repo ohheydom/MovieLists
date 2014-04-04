@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   after_filter :store_location
   protect_from_forgery with: :exception
-	
+
   def after_sign_up_path_for(resource)
     profile_path(resource)
   end
@@ -15,9 +15,9 @@ class ApplicationController < ActionController::Base
   end
 
   def store_location
-    if (request.fullpath != "/users/sign_in" &&
-      request.fullpath != "/users/sign_up" &&
-      request.fullpath != "/users/password" &&
+    if (request.fullpath != '/users/sign_in' &&
+      request.fullpath != '/users/sign_up' &&
+      request.fullpath != '/users/password' &&
       !request.xhr?)
       session[:previous_url] = request.fullpath
     end
@@ -27,20 +27,20 @@ class ApplicationController < ActionController::Base
     Rails.cache.clear
   end
 
-  def update (path)
-	  @oldmovie = Movie.find(params[:movie_id])
-	  if @oldmovie.present?
-		  @oldmovie.update(movie_params)
-		  respond_to do |format|
-			  if @oldmovie.update(movie_params)
-				  format.html { redirect_to path }
-				  format.js
-			  else
-				  format.html { redirect_to path }
-				  format.js
-			  end
-		  end
-	  end
+  def update(path)
+    @oldmovie = Movie.find(params[:movie_id])
+    if @oldmovie.present?
+      @oldmovie.update(movie_params)
+      respond_to do |format|
+        if @oldmovie.update(movie_params)
+          format.html { redirect_to path }
+          format.js
+        else
+          format.html { redirect_to path }
+          format.js
+        end
+      end
+    end
   end
 
   def get_actors(movie_id) # Get all the actors for a movie by id
@@ -48,18 +48,18 @@ class ApplicationController < ActionController::Base
     ary['cast'].each_with_object({}) { |f, obj| obj[f['name']] = f['id'] }
 	end
 
-	def get_actors_name(actor_id) # Get actors name by id
+  def get_actors_name(actor_id) # Get actors name by id
     Rails.cache.fetch([:actor_name, actor_id]) { Tmdb::TheMovieDb.get_actor_by_id(actor_id)['name'] }
-	end
+  end
 
   def get_admin_username
-    ENV["ADMIN_USERNAME"]
+    ENV['ADMIN_USERNAME']
   end
 
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation) }
-	  devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :email, :password, :remember_me) }
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :email, :password, :remember_me) }
   end
 end

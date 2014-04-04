@@ -8,7 +8,7 @@ module Tmdb
     BASE_URI = 'http://api.themoviedb.org/3'
     PICTURE_URL = 'http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92'
 
-    @conn = Faraday.new(:url => BASE_URI) do |faraday|
+    @conn = Faraday.new(url: BASE_URI) do |faraday|
       faraday.request  :url_encoded
       faraday.params = { api_key: API_KEY }
       faraday.response :logger
@@ -55,7 +55,7 @@ module Tmdb
     def self.get_actor_by_id(actor_id)
       x = @conn.get "person/#{actor_id}"
       JSON.parse(x.body)
-    end	
+    end
   end
 
   class MovieStats

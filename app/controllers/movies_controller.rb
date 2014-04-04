@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Tmdb::TheMovieDb.get_movie_by_id(params[:id])
-    unless @movie["status_code"] == 6
+    unless @movie['status_code'] == 6
       @moviecredits = Rails.cache.fetch([:movie_cache, params[:id]]) { Tmdb::TheMovieDb.get_movie_credits_by_movie_id(params[:id])  }
     end
   end
@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
     @connector.save
     respond_to do |format|
       format.html { redirect_to movie_path(@movie.id) }
-      format.js { render action: "../shared_javascripts/" + @jpathc } 
+      format.js { render action: '../shared_javascripts/' + @jpathc }
     end
   end
 
@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
     current_user.movies.delete params[:movie_id]
     respond_to do |format|
       format.html { redirect_to movie_path(params[:movie_id]) }
-      format.js  { render action: "../shared_javascripts/" + @jpathd }
+      format.js  { render action: '../shared_javascripts/' + @jpathd }
     end
   end
 
@@ -32,10 +32,10 @@ class MoviesController < ApplicationController
   end
 
   def define_paths
-    @jpathc = "create_and_count"
-    @jpathd = "destroy_and_count"
+    @jpathc = 'create_and_count'
+    @jpathd = 'destroy_and_count'
   end
-  
+
   private
 
   def connector_params

@@ -2,8 +2,8 @@ MyMovieTracker::Application.routes.draw do
   devise_for :users
 
   devise_scope :user do
-    get 'sign_in', :to => 'users/sessions#new'
-    get 'sign_up', :to => 'users/registrations#new', as: 'signup'
+    get 'sign_in', to: 'users/sessions#new'
+    get 'sign_up', to: 'users/registrations#new', as: 'signup'
   end
 
   authenticated :user do

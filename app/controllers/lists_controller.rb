@@ -7,18 +7,18 @@ class ListsController < ApplicationController
     @listp = Kaminari.paginate_array(@list['items']).page(params[:page]).per(50)
     if user_signed_in?
       @listpart = '/shared_partials/list_of_movies'
-      @ourmovies =  Tmdb::MovieStats.compare_movies(user_movies,@list['items'])[0]
+      @ourmovies =  Tmdb::MovieStats.compare_movies(user_movies, @list['items'])[0]
     else
       @listpart = '/shared_partials/list_of_movies_not_signed_in'
-    end  
+    end 
   end
 
-  def index  
+  def index
   end
 
   def define_paths
     @path = movies_path
-    @jpathc = "create_and_count"
-    @jpathd = "destroy_and_count"
+    @jpathc = 'create_and_count'
+    @jpathd = 'destroy_and_count'
   end
 end

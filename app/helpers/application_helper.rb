@@ -3,16 +3,16 @@ module ApplicationHelper
     date.nil? || date.empty? ? '1900' : Date.parse(date).strftime('%Y')
   end
 
-  def ive_seen_it(movie_id, ourmovies) #Return true or false if you've seen the movie
+  def ive_seen_it(movie_id, ourmovies)
     if ourmovies.include?(movie_id)
-		  method = "delete"
+      method = 'delete'
       submit = true
-      trclass="movie_watched"
+      trclass= 'movie_watched'
       path = movie_path(movie_id)
     else
-		  method = "post"
+      method = 'post'
       submit = false
-      trclass="movie_unwatched"
+      trclass= 'movie_unwatched'
       path   = movies_path
     end
     return method, submit, trclass, path
