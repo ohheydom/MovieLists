@@ -21,4 +21,8 @@ module ApplicationHelper
   def user_movies
     current_user ? @_allmovies ||= current_user.movies.to_a : []
   end
+
+  def admin_username
+    ENV['ADMIN_USERNAME']
+  end
 end

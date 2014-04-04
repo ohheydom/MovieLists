@@ -30,6 +30,22 @@ class MoviesController < ApplicationController
   def update
     super
   end
+  
+  def update
+    @oldmovie = Movie.find(params[:movie_id])
+    if @oldmovie.present?
+      @oldmovie.update(movie_params)
+      respond_to do |format|
+        if @oldmovie.update(movie_params)
+          format.html { redirect_to root_path }
+          format.js { render nothing: true }
+        else
+          format.html { redirect_to root_path }
+          format.js { render nothing: true }
+        end
+      end
+    end
+  end
 
   def define_paths
     @jpathc = 'create_and_count'

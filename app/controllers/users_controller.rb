@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :define_paths
-  helper_method :add_most_recent_movies_and_ids_to_array
 
   def show
     get_user_and_render
@@ -29,12 +28,5 @@ class UsersController < ApplicationController
   def define_paths
     @jpathc = 'create'
     @jpathd = 'destroy'
-  end
-
-  def add_most_recent_movies_and_ids_to_array(user)
-    idandmovie = []
-    x = user.connectors.order('created_at').last(5).map(&:movie_id)
-    Movie.find(x).index_by(&:id).slice(*x).each { |movid, movinfo| idandmovie << [movinfo['title'], movid] }
-    return idandmovie
   end
 end

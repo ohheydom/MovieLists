@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   require 'the_movie_db'
   include ApplicationHelper
-  helper_method :get_admin_username
   before_filter :configure_permitted_parameters, if: :devise_controller?
   after_filter :store_location
   protect_from_forgery with: :exception
@@ -27,22 +26,6 @@ class ApplicationController < ActionController::Base
     Rails.cache.clear
   end
 
-  def update(path)
-    @oldmovie = Movie.find(params[:movie_id])
-    if @oldmovie.present?
-      @oldmovie.update(movie_params)
-      respond_to do |format|
-        if @oldmovie.update(movie_params)
-          format.html { redirect_to path }
-          format.js
-        else
-          format.html { redirect_to path }
-          format.js
-        end
-      end
-    end
-  end
-
   def get_actors(movie_id) # Get all the actors for a movie by id
     ary = Rails.cache.fetch([:movie_cache, movie_id]) { Tmdb::TheMovieDb.get_movie_credits_by_movie_id(movie_id) }
     ary['cast'].each_with_object({}) { |f, obj| obj[f['name']] = f['id'] }
@@ -50,10 +33,6 @@ class ApplicationController < ActionController::Base
 
   def get_actors_name(actor_id) # Get actors name by id
     Rails.cache.fetch([:actor_name, actor_id]) { Tmdb::TheMovieDb.get_actor_by_id(actor_id)['name'] }
-  end
-
-  def get_admin_username
-    ENV['ADMIN_USERNAME']
   end
 
   protected
