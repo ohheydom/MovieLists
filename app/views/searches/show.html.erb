@@ -1,7 +1,7 @@
 <%= provide :title, 'Search Results' %>
 <table>
-<% unless @querystring.blank? %>
-  <%= render @render %>
+<% unless params[:query].blank? %>
+  <%= render @search.partial %>
 <% else %>
   <% flash.now[:notice] = "Please enter a valid search word" %>
 <% end %>

@@ -2,15 +2,11 @@ class SearchesController < ApplicationController
   before_filter :define_paths
 
   def show
-    @querystring = params[:query]
-    @type = params[:type]
-    if @type == 'actor'
-      @render = 'actor'
-    else
-      @render = 'movie'
-      @search_movies_list = Tmdb::TheMovieDb.search_by_movie_title(@querystring)
+    @search = Search.new(query: params[:query], type: params[:type])
+    if @search.partial == 'movie'
       if user_signed_in?
-        @ourmovies =  Tmdb::MovieStats.compare_movies(user_movies,@search_movies_list['results'])[0]
+        my_movies = MyMovies.new(user_movies)
+        @ourmovies =  my_movies.compare_to(@search.list)
         @listpart = '/shared_partials/list_of_movies'
       else
         @listpart = '/shared_partials/list_of_movies_not_signed_in'
