@@ -1,10 +1,10 @@
-<% unless @list['status_code'] == 6 %>
-  <%= provide :title, @list['name'] %>
+<% unless @list.status_code == 6 %>
+  <%= provide :title, @list.name %>
   <h2 id='watchedmoviecount'>
-  <%= check_movie_counter(user_movies, @list).html_safe %>
+  <%= check_movie_counter(@list).html_safe %>
   </h2>
 
-  <h1><%= @list['name'] %></h1>
+  <h1><%= @list.name %></h1>
   <table class='movie_list'>
     <tr class='movie_status_table_header'>
       <th></th>
@@ -12,10 +12,10 @@
       <th></th>
     </tr>
     <tbody class = 'endless_movie'>
-      <%= render :partial => @listpart, :collection => @listp, :as => :movie %>
+      <%= render :partial => @listpart, :collection => @paginated_list, :as => :movie %>
     </tbody>
   </table>
-  <%= paginate @listp, remote: true %>
+  <%= paginate @paginated_list, remote: true %>
 <% else %>
   <title>List not found</title>
   <h2>List not found!</h2>

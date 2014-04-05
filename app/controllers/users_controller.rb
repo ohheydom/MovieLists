@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def get_user_and_render
+    my_movies = MyMovies.new(user_movies)
     if (current_user.username == params[:id]) || (User.where(username: params[:id]).blank?)
       @user = current_user
       get_user_movies
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
       @user =  User.find(params[:id])
       get_user_movies
       @render = 'users/partials/profile'
-      @ourmovies =  Tmdb::MovieStats.compare_movies(user_movies, @usermovies)[0]
+      @ourmovies =  my_movies.compare_to(@usermovies)
     end
 
     @usermoviesp = Kaminari.paginate_array(@usermovies).page(params[:page]).per(50)

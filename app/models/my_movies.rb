@@ -1,6 +1,12 @@
 class MyMovies
+  attr_reader :movies
+
   def initialize(movies)
     @movies = movies
+  end
+
+  def count
+    @movies.count
   end
 
   def compare_to(list)
