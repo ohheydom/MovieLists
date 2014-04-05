@@ -4,17 +4,10 @@ class ActorsController < ApplicationController
   before_filter :define_paths
 
   def show
-    @actor = Tmdb::TheMovieDb.get_movie_credits_by_id(params[:id])['cast']
+    @actor = Actor.new(params[:id])
+    @my_movies = MyMovies.new(user_movies)
     if @actor
-      @actor.sort_by! { |v| v['release_date'].nil? ? '1900-01-01' : v['release_date'] }.reverse!
-      @actor_name =  get_actors_name(params[:id])
-      if user_signed_in?
-        @ourmovies =  Tmdb::MovieStats.compare_movies(user_movies, @actor)[0]
-        @watchedmoviescount = @ourmovies.count
-        @listpart = 'list_of_movies'
-      else
-        @listpart = 'list_of_movies_not_signed_in'
-      end
+      @listpart = user_signed_in? ? 'list_of_movies' : 'list_of_movies_not_signed_in'
     end
   end
 

@@ -1,11 +1,11 @@
-<% if @actor_name %>
-  <%= provide :title, @actor_name + ' movies' %>
-  <h1><%= @actor_name %></h1>
+<% if @actor.name %>
+  <%= provide :title, @actor.name + ' movies' %>
+  <h1><%= @actor.name %></h1>
   <h2 id="watchedmoviecount">
     <% if user_signed_in? %>
-      I've seen <span id="moviecount"><%= @watchedmoviescount %></span> out of
+      I've seen <span id="moviecount"><%= @my_movies.compare_to(@actor.films).count %></span> out of
     <% end %>
-    <%= @actor.count %> movies
+    <%= @actor.films.count %> movies
   </h2>
 
   <table>
@@ -16,7 +16,7 @@
 		  <th></th>
 		  <th></th>
 	  </tr>
-    <%= render :partial => @listpart, :collection => @actor, :as => :movie %>
+    <%= render partial: @listpart, collection: @actor.films(sort_by: 'release_date'), as: :movie %>
   </table>
 <% else %>
   <h2>Actor not found!</h2>

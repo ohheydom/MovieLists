@@ -1,4 +1,4 @@
-<% (method, submit, trclass, path = ive_seen_it(movie['id'], @ourmovies))  %>
+<% (method, submit, trclass, path = ive_seen_it(movie['id'], @my_movies.compare_to(@actor.films)))  %>
 <tr class="<%= trclass %>" id = "<%= movie['id'] %>_tr">
   <td><%= image_tag (Tmdb::TheMovieDb::PICTURE_URL + movie['poster_path']) unless movie['poster_path'].nil? %></td>
   <td><%= link_to (movie['title'] + " (#{parse_date(movie['release_date'])})"), movie_path(movie['id']) %></td>

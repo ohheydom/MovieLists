@@ -31,10 +31,6 @@ class ApplicationController < ActionController::Base
     ary['cast'].each_with_object({}) { |f, obj| obj[f['name']] = f['id'] }
 	end
 
-  def get_actors_name(actor_id) # Get actors name by id
-    Rails.cache.fetch([:actor_name, actor_id]) { Tmdb::TheMovieDb.get_actor_by_id(actor_id)['name'] }
-  end
-
   protected
 
   def configure_permitted_parameters
