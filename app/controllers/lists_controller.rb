@@ -11,7 +11,7 @@ class ListsController < ApplicationController
       @ourmovies =  @my_movies.compare_to(@list.list)
     else
       @listpart = '/shared_partials/list_of_movies_not_signed_in'
-    end 
+    end
   end
 
   def index

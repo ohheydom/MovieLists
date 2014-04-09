@@ -9,7 +9,6 @@ describe 'Movie Page', :js => true do
     sign_in user
   end
 
-
   describe "Unclicking and clicking a checkbox for a movie I've seen, Finding Nemo" do
     before do
       VCR.use_cassette 'movies_spec/watched_film_finding_nemo' do
@@ -62,7 +61,7 @@ describe 'Movie Page', :js => true do
         expect(page).to have_css "th.header_table_movie_picture img[src='http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92/zjqInUwldOBa0q07fOyohYCWxWX.jpg']"
       end
     end
-    
+
     context 'invalid information' do
       before do
         VCR.use_cassette 'movies_spec/film_with_nil_poster_path_rock_a_bye_gator' do

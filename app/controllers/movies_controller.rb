@@ -30,7 +30,7 @@ class MoviesController < ApplicationController
   def update
     super
   end
-  
+
   def update
     @oldmovie = Movie.find(params[:movie_id])
     if @oldmovie.present?
