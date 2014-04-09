@@ -2,8 +2,8 @@ class MoviesController < ApplicationController
   before_filter :define_paths
 
   def show
-    @movie = Tmdb::TheMovieDb.get_movie_by_id(params[:id])
-    unless @movie['status_code'] == 6
+    @movie = Tmdb::Movie.new(Tmdb::TheMovieDb.get_movie_by_id(params[:id]))
+    unless @movie.status_code == 6
       @moviecredits = Rails.cache.fetch([:movie_cache, params[:id]]) { Tmdb::TheMovieDb.get_movie_credits_by_movie_id(params[:id])  }
     end
   end

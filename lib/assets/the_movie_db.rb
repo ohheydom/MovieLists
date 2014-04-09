@@ -2,11 +2,45 @@ require 'faraday'
 require 'json'
 
 module Tmdb
+  PICTURE_URL = 'http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92'
+
+  class Movie
+    attr_reader :id
+
+    def initialize(movie)
+      @movie ||= movie # TheMovieDb.get_movie_by_id(id)
+      @id = @movie['id']
+    end
+
+    def tagline
+      @movie['tagline']
+    end
+
+    def overview
+      @movie['overview']
+    end
+
+    def title
+      @movie['title']
+    end
+
+    def poster_path
+      @movie['poster_path'] ? PICTURE_URL + @movie['poster_path'] : NullObjects::NoPosterPath.new.poster_path
+    end
+
+    def release_date
+      @movie['release_date'].empty? || @movie['release_date'].nil? ? NullObjects::NoReleaseDate.new.release_date : @movie['release_date']
+    end
+
+    def status_code
+      @movie['status_code']
+    end
+  end
+
   class TheMovieDb
     # Constants
     API_KEY = ENV["THE_MOVIE_DB_API_KEY"]
     BASE_URI = 'http://api.themoviedb.org/3'
-    PICTURE_URL = 'http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92'
 
     @conn = Faraday.new(url: BASE_URI) do |faraday|
       faraday.request  :url_encoded
