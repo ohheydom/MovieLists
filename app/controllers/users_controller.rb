@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, :define_paths
+  before_filter :authenticate_user!
 
   def show
     get_user_and_render
@@ -24,10 +24,5 @@ class UsersController < ApplicationController
   def get_user_movies
     @usermoviestotal = @user.movies.order(title: :asc)
     @usermovies = @usermoviestotal.by_year_or_all(params[:by_year]).order(title: :asc)
-  end
-
-  def define_paths
-    @jpathc = 'create'
-    @jpathd = 'destroy'
   end
 end

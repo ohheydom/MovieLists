@@ -1,6 +1,4 @@
 class MoviesController < ApplicationController
-  before_filter :define_paths
-
   def show
     @movie = Tmdb::Movie.new(Tmdb::TheMovieDb.get_movie_by_id(params[:id]))
     unless @movie.status_code == 6
@@ -15,7 +13,7 @@ class MoviesController < ApplicationController
     @connector.save
     respond_to do |format|
       format.html { redirect_to movie_path(@movie.id) }
-      format.js { render action: '../shared_javascripts/' + @jpathc }
+      format.js { render action: '../shared_javascripts/create' }
     end
   end
 
@@ -23,7 +21,7 @@ class MoviesController < ApplicationController
     current_user.movies.delete params[:movie_id]
     respond_to do |format|
       format.html { redirect_to movie_path(params[:movie_id]) }
-      format.js  { render action: '../shared_javascripts/' + @jpathd }
+      format.js  { render action: '../shared_javascripts/destroy' }
     end
   end
 
@@ -45,11 +43,6 @@ class MoviesController < ApplicationController
         end
       end
     end
-  end
-
-  def define_paths
-    @jpathc = 'create_and_count'
-    @jpathd = 'destroy_and_count'
   end
 
   private

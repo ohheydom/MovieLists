@@ -1,6 +1,4 @@
 class ListsController < ApplicationController
-  before_filter :define_paths
-
   def show
     Rails.cache.delete(:moviecredits)
     @list = List.new(params[:id])
@@ -15,10 +13,5 @@ class ListsController < ApplicationController
   end
 
   def index
-  end
-
-  def define_paths
-    @jpathc = 'create_and_count'
-    @jpathd = 'destroy_and_count'
   end
 end
