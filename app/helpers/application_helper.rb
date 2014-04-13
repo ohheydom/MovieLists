@@ -8,6 +8,10 @@ module ApplicationHelper
     date.nil? || date.empty? ? '1900' : Date.parse(date).strftime('%Y')
   end
 
+  def admin?(movie)
+    render('shared_partials/admin', movie: movie) if current_user.username == admin_username
+  end
+
   def ive_seen_it(movie_id, ourmovies)
     if ourmovies.include?(movie_id)
       method  = 'delete'
