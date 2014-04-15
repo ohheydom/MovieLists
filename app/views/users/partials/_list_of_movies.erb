@@ -1,11 +1,11 @@
-<% ((params.has_key?(:id)) && (params[:id] != current_user.username)) ?  (method, submit, trclass, path = ive_seen_it(movie.id, @ourmovies)) : trclass="noclass" %>
-<tr class= "<%= trclass %>" id = "<%= movie.id %>_tr">
+<% ((params.has_key?(:id)) && (params[:id] != current_user.username)) ? form_data = ive_seen_it(movie.id, @ourmovies) : trclass = "noclass" %>
+<tr class= "<%= form_data ? form_data.trclass : trclass %>" id = "<%= movie.id %>_tr">
   <td>
     <%= link_to ("#{movie.title} (#{movie.year})"), movie_path(movie.id) %>
   </td>
   <% if params.has_key?(:id) && (current_user.username != params[:id])  %>
     <td>
-      <%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, path: path, movie: Tmdb::Movie.new(movie) %>
+      <%= render 'shared_partials/iveseenitbutton', form_data: form_data, movie: Tmdb::Movie.new(movie) %>
     </td>
   <% end %>
 </tr>

@@ -1,4 +1,6 @@
 module ApplicationHelper
+  FormData = Struct.new(:method, :submit, :trclass, :path)
+
   def full_title(page_title)
     base_title = 'My Movie Tracker'
     page_title.empty? ? base_title : "#{base_title} | #{page_title}".html_safe
@@ -24,7 +26,7 @@ module ApplicationHelper
       trclass = 'movie_unwatched'
       path    = movies_path
     end
-    return method, submit, trclass, path
+    FormData.new(method, submit, trclass, path)
   end
 
   def user_movies
