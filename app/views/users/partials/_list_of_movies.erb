@@ -1,4 +1,4 @@
-<% ((params.has_key?(:id)) && (params[:id] != current_user.username)) ? form_data = ive_seen_it(movie.id, @ourmovies) : trclass = "noclass" %>
+<% ((params.has_key?(:id)) && (params[:id] != current_user.username)) ? form_data = ive_seen_it(movie.id, @profile.our_movies) : trclass = "noclass" %>
 <tr class= "<%= form_data ? form_data.trclass : trclass %>" id = "<%= movie.id %>_tr">
   <td>
     <%= link_to ("#{movie.title} (#{movie.release_date})"), movie_path(movie.id) %>

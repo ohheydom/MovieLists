@@ -1,26 +1,22 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
+  before_action :redirect_if_invalid_username
 
   def show
-    get_user_and_render
-  end
-
-  def get_user_and_render
-    my_movies = MyMovies.new(user_movies)
-    if (current_user.username == params[:id]) || (User.where(username: params[:id]).blank?)
-      @user = current_user
-      get_user_movies
+    if params[:id] == current_user.username
+      @profile = ProfilePage.new(current_user)
     else
-      @user =  User.find(params[:id])
-      get_user_movies
-      @ourmovies =  my_movies.compare_to(@usermovies)
+      @profile = ProfilePage.new(user, current_user)
     end
-
-    @usermoviesp = Kaminari.paginate_array(@usermovies).page(params[:page]).per(50)
   end
 
-  def get_user_movies
-    @usermoviestotal = @user.movies.order(title: :asc)
-    @usermovies = @usermoviestotal.by_year_or_all(params[:by_year]).order(title: :asc)
+  def user
+    User.find(params[:id])
+  end
+
+  private
+
+  def redirect_if_invalid_username
+    redirect_to profile_path(current_user) if User.where(username: params[:id]).blank?
   end
 end

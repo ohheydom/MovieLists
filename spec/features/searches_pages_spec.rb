@@ -11,7 +11,7 @@ describe 'Search Pages' do
         let!(:user_movie) { FactoryGirl.create(:connector, user: user, movie_id: 4248) } #Scary Movie 2
 
         before do
-          VCR.use_cassette 'search_spec/movie/scary_movie' do
+          VCR.use_cassette 'search_spec/movie/scary_movie_logged_in' do
             sign_in user
             fill_in 'query', with: 'Scary Movie'
             click_button 'Search'
@@ -23,30 +23,22 @@ describe 'Search Pages' do
 
         describe "Clicking and Unclicking checkbox for move I haven't seen, Scary Movie" do
           it 'changes the user.movies count by 1 and reclicking changes by -1' do
-            VCR.use_cassette 'movies_spec/scary_movie' do
               expect { wait; check('4247_button'); wait }.to change(user.movies, :count).by(1)
-            end
-            VCR.use_cassette 'movies_spec/scary_movie' do
               expect { wait; uncheck('4247_button'); wait }.to change(user.movies, :count).by(-1)
-            end
           end
         end
 
         describe "Unclicking and clicking checkbox for movie I've seen, Scary Movie 2" do
           it 'changes the user.movies count by -1 and reclicking changes by 1' do
-            VCR.use_cassette 'movies_spec/scary_movie_2' do
               expect { wait; uncheck('4248_button'); wait }.to change(user.movies, :count).by(-1)
-            end
-            VCR.use_cassette 'movies_spec/scary_movie_2' do
               expect { wait; check('4248_button'); wait }.to change(user.movies, :count).by(1)
-            end
           end
         end
       end
 
       context 'Not Logged In' do
         before do
-          VCR.use_cassette 'search_spec/scary_movie' do
+          VCR.use_cassette 'search_spec/movie/scary_movie_not_logged_in' do
             visit root_path
             fill_in 'query', with: 'Scary Movie'
             click_button 'Search'
