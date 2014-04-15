@@ -1,5 +1,6 @@
 class Search
   SEARCH_TYPES = %w(movie actor)
+
   def initialize(args = {})
     @query = args[:query]
     @type = args[:type]

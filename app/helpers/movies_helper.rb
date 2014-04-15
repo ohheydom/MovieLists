@@ -1,6 +1,6 @@
 module MoviesHelper
   def ive_seen_it_single(movie_id)
-    if user_movies.map { |mov| mov['id'] }.include?(movie_id)
+    if current_user.movie_ids.include?(movie_id)
       method  = 'delete'
       submit  = true
       trclass = 'movie_watched'

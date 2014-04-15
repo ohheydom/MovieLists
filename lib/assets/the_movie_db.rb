@@ -42,7 +42,6 @@ module Tmdb
   end
 
   class TheMovieDb
-    # Constants
     API_KEY = ENV["THE_MOVIE_DB_API_KEY"]
     BASE_URI = 'http://api.themoviedb.org/3'
 
