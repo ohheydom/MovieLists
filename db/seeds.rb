@@ -9,5 +9,5 @@ id2 = [284, 238, 346, 593, 152532, 10023]
 year = [2003, 1957, 2013, 1950, 1994, 2001]
 year2 = [1960, 1972, 1954, 1972, 2013, 1987]
 
-movies.each_with_index { |x, ind| Movie.create(id: id[ind], title: x, actors: actors, year: year[ind]) }
-movies2.each_with_index { |x, ind| Movie.create(id: id2[ind], title: x, actors: actors2, year: year2[ind]) }
+movies.each_with_index { |x, ind| Movie.create(id: id[ind], title: x, actors: actors, release_date: year[ind]) }
+movies2.each_with_index { |x, ind| Movie.create(id: id2[ind], title: x, actors: actors2, release_date: year2[ind]) }

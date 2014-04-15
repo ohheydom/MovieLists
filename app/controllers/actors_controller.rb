@@ -1,5 +1,3 @@
-require 'date'
-
 class ActorsController < ApplicationController
   def show
     @actor = Actor.new(params[:id])

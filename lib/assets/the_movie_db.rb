@@ -114,7 +114,7 @@ module Tmdb
     end
 
     def self.add_years_to_hash(user) #Top 5
-      Hash[Array.duplicate_hashes(user.map(&:year)).sort_by { |k, v| -v } [0..4]]
+      Hash[Array.duplicate_hashes(user.map(&:release_date)).sort_by { |k, v| -v } [0..4]]
     end
 
     def self.compare_list_and_my_movies(my_movies, list)

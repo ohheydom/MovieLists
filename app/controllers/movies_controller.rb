@@ -48,6 +48,9 @@ class MoviesController < ApplicationController
   end
 
   def movie_params
-    params.permit(:id, :title, :actors, :year).merge(:id => params[:movie_id], :actors => get_actors(params[:movie_id]), :year => params[:year])
+    params.permit(:id, :title, :actors, :release_date)
+    .merge(:id => params[:movie_id],
+           :actors => get_actors(params[:movie_id]),
+           :release_date => params[:release_date])
   end
 end
