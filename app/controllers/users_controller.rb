@@ -10,11 +10,9 @@ class UsersController < ApplicationController
     if (current_user.username == params[:id]) || (User.where(username: params[:id]).blank?)
       @user = current_user
       get_user_movies
-      @render = 'users/partials/my_profile'
     else
       @user =  User.find(params[:id])
       get_user_movies
-      @render = 'users/partials/profile'
       @ourmovies =  my_movies.compare_to(@usermovies)
     end
 
