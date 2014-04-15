@@ -8,6 +8,6 @@ class Movie < ActiveRecord::Base
 
   def self.by_year_or_all(release_date = nil)
     valid_years = (1900..2040).to_a
-    release_date && valid_years.include?(year.to_i) ? where(release_date: release_date) : all
+    release_date && valid_years.include?(release_date.to_i) ? where(release_date: release_date) : all
   end
 end

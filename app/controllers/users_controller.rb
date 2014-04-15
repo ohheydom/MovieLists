@@ -4,9 +4,9 @@ class UsersController < ApplicationController
 
   def show
     if params[:id] == current_user.username
-      @profile = ProfilePage.new(current_user)
+      @profile = ProfilePage.new(current_user, nil, by_year: params[:by_year])
     else
-      @profile = ProfilePage.new(user, current_user)
+      @profile = ProfilePage.new(user, current_user, by_year: params[:by_year])
     end
   end
 
