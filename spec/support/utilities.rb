@@ -6,6 +6,6 @@ def sign_in(user)
   click_button 'Sign in'
 end
 
-def wait
-  sleep(inspection_time = WAIT_TIME)
+def wait(time = WAIT_TIME)
+  sleep(inspection_time = time)
 end
