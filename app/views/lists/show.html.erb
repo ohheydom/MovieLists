@@ -12,7 +12,7 @@
       <th></th>
     </tr>
     <tbody class = 'endless_movie'>
-      <%= render :partial => @listpart, :collection => @paginated_list, :as => :movie %>
+    <%= render :partial => @listpart, :collection => @paginated_list.map { |movie| Tmdb::Movie.new(movie) }, :as => :movie %>
     </tbody>
   </table>
   <%= paginate @paginated_list, remote: true %>

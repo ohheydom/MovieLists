@@ -12,7 +12,7 @@
 		    <th>Movie Titles</th>
 	    </tr>
       <tbody class = "endless_movie">
-        <%= render :partial => 'users/partials/list_of_movies', :collection => @usermoviesp, :as => :movie  %>
+    <%= render :partial => 'users/partials/list_of_movies', :collection => @usermoviesp, :as => :movie  %>
       </tbody>
     </table>
     <%= paginate @usermoviesp, remote: true%>

@@ -24,6 +24,10 @@ module Tmdb
       @movie['title']
     end
 
+    def character
+      @movie['character']
+    end
+
     def poster_path
       @movie['poster_path'] ? PICTURE_URL + @movie['poster_path'] : NullObjects::NoPosterPath.new.poster_path
     end

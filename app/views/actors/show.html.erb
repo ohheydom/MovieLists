@@ -16,7 +16,7 @@
 		  <th></th>
 		  <th></th>
 	  </tr>
-    <%= render partial: @listpart, collection: @actor.films(sort_by: 'release_date'), as: :movie %>
+    <%= render partial: @listpart, collection: @actor.films(sort_by: 'release_date').map { |movie| Tmdb::Movie.new(movie) }, as: :movie %>
   </table>
 <% else %>
   <h2>Actor not found!</h2>
