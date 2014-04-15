@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
     @connector.save
     respond_to do |format|
       format.html { redirect_to movie_path(@movie.id) }
-      format.js { render action: '../shared_javascripts/create' }
+      format.js { render 'shared_javascripts/create' }
     end
   end
 
@@ -21,7 +21,7 @@ class MoviesController < ApplicationController
     current_user.movies.delete params[:movie_id]
     respond_to do |format|
       format.html { redirect_to movie_path(params[:movie_id]) }
-      format.js  { render action: '../shared_javascripts/destroy' }
+      format.js  { render 'shared_javascripts/destroy' }
     end
   end
 

@@ -24,3 +24,4 @@ doc/
 .project
 .secret
 diagnostic.txt
+rails_best_practices_output.html
