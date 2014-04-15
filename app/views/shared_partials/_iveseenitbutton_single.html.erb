@@ -1,6 +1,0 @@
-<%= form_tag( path, id: ((movie.id).to_s + "_form"), remote: true, method: method ) do %>
-  <%= hidden_field_tag :movie_id, movie.id %>
-	<%= hidden_field_tag :title, movie.title %>
-  <%= hidden_field_tag :year, movie.release_date%>
-  <%= check_box_tag ((movie.id).to_s + "_button"), '', submit %>
-<% end %>

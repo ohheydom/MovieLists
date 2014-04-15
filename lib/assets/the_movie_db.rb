@@ -8,7 +8,7 @@ module Tmdb
     attr_reader :id
 
     def initialize(movie)
-      @movie ||= movie # TheMovieDb.get_movie_by_id(id)
+      @movie ||= movie
       @id = @movie['id']
     end
 
@@ -29,7 +29,7 @@ module Tmdb
     end
 
     def release_date
-      @movie['release_date'].empty? || @movie['release_date'].nil? ? NullObjects::NoReleaseDate.new.release_date : @movie['release_date']
+      @movie['release_date'].blank? ? NullObjects::NoReleaseDate.new.release_date : @movie['release_date']
     end
 
     def status_code

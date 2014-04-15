@@ -5,7 +5,7 @@
   </td>
   <% if params.has_key?(:id) && (current_user.username != params[:id])  %>
     <td>
-      <%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, path: path, movie: movie %>
+      <%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, path: path, movie: Tmdb::Movie.new(movie) %>
     </td>
   <% end %>
 </tr>

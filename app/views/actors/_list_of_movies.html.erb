@@ -3,7 +3,7 @@
   <td><%= image_tag (Tmdb::PICTURE_URL + movie['poster_path']) unless movie['poster_path'].nil? %></td>
   <td><%= link_to (movie['title'] + " (#{parse_date(movie['release_date'])})"), movie_path(movie['id']) %></td>
   <td><%= movie['character'] %></td>
-  <td><%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, path: path, movie: movie %></td>
+  <td><%= render 'shared_partials/iveseenitbutton', submit: submit, method: method, path: path, movie: Tmdb::Movie.new(movie) %></td>
   
   <%= admin?(movie) %>
 </tr>

@@ -43,7 +43,7 @@ function pageHeight() {
 }
 
 $(document).ready(function(){
-  $('.pagination').hide();
+  $(".pagination").hide();
   if ($('nav.pagination span.last a').length) {
     lastPage = $('nav.pagination span.last a').attr('href').split("=").pop();
     intervalID = setInterval(checkScroll, 800);
