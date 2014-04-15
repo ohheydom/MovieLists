@@ -4,7 +4,7 @@
   <table class="header_table">
     <tr class="<%= form_data ? form_data.trclass : trclass %>" id= "<%= @movie.id %>_tr" >
 			<th class="header_table_movie_picture"><%= image_tag (@movie.poster_path) %></th>
-      <th><h2><%= @movie.title + " (#{Date.parse(@movie.release_date).strftime('%Y')})" %></h2></th>
+      <th><h2><%= @movie.title + " (#{@movie.release_date})" %></h2></th>
 			<% if user_signed_in? %>
 			  <th>
           <%= render 'shared_partials/iveseenitbutton', form_data: form_data, movie: @movie %>

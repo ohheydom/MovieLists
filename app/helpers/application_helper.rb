@@ -6,10 +6,6 @@ module ApplicationHelper
     page_title.empty? ? base_title : "#{base_title} | #{page_title}".html_safe
   end
 
-  def parse_date(date)
-    date.nil? || date.empty? ? '1900' : Date.parse(date).strftime('%Y')
-  end
-
   def admin?(movie)
     render('shared_partials/admin', movie: movie) if current_user.username == admin_username
   end

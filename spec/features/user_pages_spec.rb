@@ -42,8 +42,6 @@ describe 'User Pages' do
       it 'changes the user.movies count by 1 and reclicking changes by -1' do
         VCR.use_cassette 'movies_spec/finding_nemo' do
           expect { wait; uncheck('12_button'); wait }.to change(user.movies, :count).by(-1)
-        end
-        VCR.use_cassette 'movies_spec/finding_nemo' do
           expect { wait; check('12_button'); wait }.to change(user.movies, :count).by(1)
         end
       end
@@ -53,8 +51,6 @@ describe 'User Pages' do
       it 'changes the user.movies count by -1 and reclicking changes by 1' do
         VCR.use_cassette 'movies_spec/the_godfather' do
           expect { wait; check('238_button'); wait }.to change(user.movies, :count).by(1)
-        end
-        VCR.use_cassette 'movies_spec/the_godfather' do
           expect { wait; uncheck('238_button'); wait }.to change(user.movies, :count).by(-1)
         end
       end

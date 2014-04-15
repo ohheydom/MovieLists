@@ -20,8 +20,6 @@ describe 'Actor Page', :js => true do
     it 'changes the user.movies count by 1 and reclicking changes by -1' do
       VCR.use_cassette 'movies_spec/the_money_pit' do
         expect { wait; check('10466_button'); wait }.to change(user.movies, :count).by(1)
-      end
-      VCR.use_cassette 'movies_spec/the_money_pit' do
         expect { wait; uncheck('10466_button'); wait }.to change(user.movies, :count).by(-1)
       end
     end
@@ -31,8 +29,6 @@ describe 'Actor Page', :js => true do
     it 'changes the user.movies count by -1 and reclicking changes by 1' do
       VCR.use_cassette 'movies_spec/dragnet' do
         expect { wait; uncheck('10023_button'); wait }.to change(user.movies, :count).by(-1)
-      end
-      VCR.use_cassette 'movies_spec/dragnet' do
         expect { wait; check('10023_button'); wait }.to change(user.movies, :count).by(1)
       end
     end

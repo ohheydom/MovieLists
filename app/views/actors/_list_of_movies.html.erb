@@ -1,7 +1,7 @@
 <% (form_data = ive_seen_it(movie.id, @my_movies.compare_to(@actor.films)))  %>
 <tr class="<%= form_data.trclass %>" id = "<%= movie.id %>_tr">
   <td><%= image_tag (movie.poster_path) %></td>
-  <td><%= link_to (movie.title + " (#{parse_date(movie.release_date)})"), movie_path(movie.id) %></td>
+  <td><%= link_to (movie.title + " (#{movie.release_date})"), movie_path(movie.id) %></td>
   <td><%= movie.character %></td>
   <td><%= render 'shared_partials/iveseenitbutton', form_data: form_data, movie: movie %></td>
   
