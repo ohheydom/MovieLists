@@ -2,9 +2,7 @@ module MoviesHelper
   FormData = Struct.new(:method, :submit, :trclass, :path)
 
   def ive_seen_it_button(form_data, movie)
-    if user_signed_in?
-      render 'shared_partials/iveseenitbutton', form_data: form_data, movie: @movie
-    end
+      render 'shared_partials/iveseenitbutton', form_data: form_data, movie: movie
   end
 
   def ive_seen_it_single(movie_id)

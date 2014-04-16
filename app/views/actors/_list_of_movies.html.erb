@@ -3,7 +3,7 @@
   <td><%= image_tag (movie.poster_path) %></td>
   <td><%= link_to (movie.title + " (#{movie.release_date})"), movie_path(movie.id) %></td>
   <td><%= movie.character %></td>
-  <td><%= render 'shared_partials/iveseenitbutton', form_data: form_data, movie: movie %></td>
+  <td><%= ive_seen_it_button(form_data, movie) %></td>
   
   <%= admin?(movie) %>
 </tr>

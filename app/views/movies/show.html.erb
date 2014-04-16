@@ -6,7 +6,7 @@
 			<th class="header_table_movie_picture"><%= image_tag (@movie.poster_path) %></th>
       <th><h2><%= @movie.title + " (#{@movie.release_date})" %></h2></th>
 			  <th>
-          <%= ive_seen_it_button(form_data, @movie) %>
+          <%= ive_seen_it_button(form_data, @movie) if user_signed_in? %>
 			  </th>
 		</tr>
   </table>
