@@ -1,7 +1,7 @@
 class Actor
-  def initialize(actor_id, current_user)
+  def initialize(actor_id, current_user_movies)
     @actor = actor_id
-    @current_user = current_user
+    @current_user_movies = current_user_movies
   end
 
   def films(args = {})
@@ -14,15 +14,15 @@ class Actor
   end
 
   def compare_films_to_user
-    @current_user.compare_to(films)
+    @current_user_movies.compare_to(films)
   end
 
   def name
     Rails.cache.fetch([:actor_name, @actor]) { Tmdb::TheMovieDb.get_actor_by_id(@actor)['name'] }
   end
 
-  def view_partition
-    @current_user.nil? ? 'list_of_movies_not_signed_in' : 'list_of_movies'
+  def view_partial
+    @current_user_movies.nil? ? 'list_of_movies_not_signed_in' : 'list_of_movies'
   end
 
   private

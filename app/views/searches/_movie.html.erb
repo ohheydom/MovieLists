@@ -5,6 +5,6 @@ Number of results: <%= @search.list_count %>
     <th>Film</th>
   </tr>
 	<tr>
-    <%= render partial: @listpart, collection: @search.list.map { |movie| Tmdb::Movie.new(movie) }, as: :movie %>
+    <%= render partial: @search.view_partial, collection: @search.list_renderable, as: :movie %>
 	</tr>
 </table>

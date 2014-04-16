@@ -16,7 +16,7 @@
 		  <th></th>
 		  <th></th>
 	  </tr>
-    <%= render partial: @actor.view_partition, collection: @actor.films_renderable, as: :movie %>
+    <%= render partial: @actor.view_partial, collection: @actor.films_renderable, as: :movie %>
   </table>
 <% else %>
   <h2>Actor not found!</h2>
