@@ -12,10 +12,10 @@
       <th></th>
     </tr>
     <tbody class = 'endless_movie'>
-    <%= render :partial => @listpart, :collection => @paginated_list.map { |movie| Tmdb::Movie.new(movie) }, :as => :movie %>
+    <%= render :partial => @list.view_partial, :collection => @list.list_renderable(params[:page]), :as => :movie %>
     </tbody>
   </table>
-  <%= paginate @paginated_list, remote: true %>
+  <%= paginate @list.paginated_list(params[:page]), remote: true %>
 <% else %>
   <title>List not found</title>
   <h2>List not found!</h2>

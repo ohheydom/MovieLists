@@ -1,6 +1,7 @@
 class List
-  def initialize(id)
+  def initialize(id, current_user_movies)
     @list ||= Tmdb::TheMovieDb.get_list_by_id(id)
+    @current_user_movies = current_user_movies
   end
 
   def name
@@ -19,7 +20,19 @@ class List
     list.count
   end
 
-  def paginated_list(args = {})
-    Kaminari.paginate_array(list).page(args[:page]).per(args[:per])
+  def compare_films_to_user
+    @current_user_movies.compare_to(list)
+  end
+
+  def view_partial
+    @current_user_movies.nil? ? 'list_of_movies_not_signed_in' : 'list_of_movies'
+  end
+
+  def list_renderable(page)
+    paginated_list(page).map { |movie| Tmdb::Movie.new(movie) }
+  end
+
+  def paginated_list(page)
+    Kaminari.paginate_array(list).page(page).per(50)
   end
 end
