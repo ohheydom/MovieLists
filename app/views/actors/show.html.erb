@@ -3,7 +3,7 @@
   <h1><%= @actor.name %></h1>
   <h2 id="watchedmoviecount">
     <% if user_signed_in? %>
-      I've seen <span id="moviecount"><%= @my_movies.compare_to(@actor.films).count %></span> out of
+      I've seen <span id="moviecount"><%= @actor.compare_films_to_user.count %></span> out of
     <% end %>
     <%= @actor.films.count %> movies
   </h2>
@@ -16,7 +16,7 @@
 		  <th></th>
 		  <th></th>
 	  </tr>
-    <%= render partial: @listpart, collection: @actor.films(sort_by: 'release_date').map { |movie| Tmdb::Movie.new(movie) }, as: :movie %>
+    <%= render partial: @actor.view_partition, collection: @actor.films_renderable, as: :movie %>
   </table>
 <% else %>
   <h2>Actor not found!</h2>

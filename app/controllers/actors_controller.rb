@@ -1,9 +1,11 @@
 class ActorsController < ApplicationController
   def show
-    @actor = Actor.new(params[:id])
-    @my_movies = MyMovies.new(user_movies)
-    if @actor
-      @listpart = user_signed_in? ? 'list_of_movies' : 'list_of_movies_not_signed_in'
-    end
+    @actor = Actor.new(params[:id], current_user_movies)
+  end
+
+  private
+
+  def current_user_movies
+    user_signed_in? ? MyMovies.new(current_user.movies) : nil
   end
 end
