@@ -2,7 +2,9 @@ class MoviesController < ApplicationController
   def show
     @movie = Tmdb::Movie.new(Tmdb::TheMovieDb.get_movie_by_id(params[:id]))
     unless @movie.status_code == 6
-      @moviecredits = Rails.cache.fetch([:movie_cache, params[:id]]) { Tmdb::TheMovieDb.get_movie_credits_by_movie_id(params[:id])  }
+      @moviecredits = Rails.cache.fetch([:movie_cache, params[:id]]) do
+        Tmdb::TheMovieDb.get_movie_credits_by_movie_id(params[:id])
+      end
     end
   end
 
@@ -44,13 +46,13 @@ class MoviesController < ApplicationController
   private
 
   def connector_params
-    params.permit(:user_id, :movie_id).merge(:user_id => current_user.id)
+    params.permit(:user_id, :movie_id).merge(user_id: current_user.id)
   end
 
   def movie_params
     params.permit(:id, :title, :actors, :release_date)
-    .merge(:id => params[:movie_id],
-           :actors => get_actors(params[:movie_id]),
-           :release_date => params[:release_date])
+    .merge(id: params[:movie_id],
+           actors: get_actors(params[:movie_id]),
+           release_date: params[:release_date])
   end
 end
