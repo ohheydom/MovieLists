@@ -1,6 +1,12 @@
 module MoviesHelper
   FormData = Struct.new(:method, :submit, :trclass, :path)
 
+  def ive_seen_it_button(form_data, movie)
+    if user_signed_in?
+      render 'shared_partials/iveseenitbutton', form_data: form_data, movie: @movie
+    end
+  end
+
   def ive_seen_it_single(movie_id)
     if current_user.movie_ids.include?(movie_id)
       method  = 'delete'
