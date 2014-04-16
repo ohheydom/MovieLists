@@ -24,6 +24,14 @@ module Tmdb
       @movie['title']
     end
 
+    def credits
+      unless status_code == 6
+        Rails.cache.fetch([:movie_cache, @id]) do
+          Tmdb::TheMovieDb.get_movie_credits_by_movie_id(@id)
+        end
+      end
+    end
+
     def character
       @movie['character']
     end

@@ -23,7 +23,7 @@
   <br>
   <h2>Cast</h2>
   <table>
-	  <% @moviecredits['cast'].each do |credit| %>
+	  <% @movie.credits['cast'].each do |credit| %>
 	  <tr>
 		  <td><%= image_tag (Tmdb::PICTURE_URL + credit['profile_path']) unless credit['profile_path'].nil? %></td>
 		  <td><%= link_to credit['name'], actor_path(credit['id']) %></td>

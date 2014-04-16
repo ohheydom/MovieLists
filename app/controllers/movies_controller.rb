@@ -1,11 +1,6 @@
 class MoviesController < ApplicationController
   def show
     @movie = Tmdb::Movie.new(Tmdb::TheMovieDb.get_movie_by_id(params[:id]))
-    unless @movie.status_code == 6
-      @moviecredits = Rails.cache.fetch([:movie_cache, params[:id]]) do
-        Tmdb::TheMovieDb.get_movie_credits_by_movie_id(params[:id])
-      end
-    end
   end
 
   def create
