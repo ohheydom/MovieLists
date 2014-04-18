@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     @movie.save
-    @connector = Connector.new(connector_params)
+    @connector = current_user.connectors.new(connector_params)
     @connector.save
     respond_to do |format|
       format.html { redirect_to movie_path(@movie.id) }
@@ -41,7 +41,7 @@ class MoviesController < ApplicationController
   private
 
   def connector_params
-    params.permit(:user_id, :movie_id).merge(user_id: current_user.id)
+    params.permit(:user_id, :movie_id)
   end
 
   def movie_params
