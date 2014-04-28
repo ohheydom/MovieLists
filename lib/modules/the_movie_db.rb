@@ -107,10 +107,6 @@ module Tmdb
   end
 
   class MovieStats
-    def self.number_of_movies(user)
-      @number = user.count
-    end
-
     def self.add_actors_to_hash(user)  #Top 5
       actor_array = []
       user.each { |a| a[:actors].each { |act, id| actor_array << [act, id] } }
@@ -126,12 +122,6 @@ module Tmdb
 
     def self.add_years_to_hash(user) #Top 5
       Hash[Array.duplicate_hashes(user.map(&:release_date)).sort_by { |k, v| -v } [0..4]]
-    end
-
-    def self.compare_list_and_my_movies(my_movies, list)
-      my_movie_ids =  my_movies.map { |movie| movie['id'] }
-      list_movie_ids = list['items'].map { |movie| movie['id'] }
-      (my_movie_ids & list_movie_ids).count
     end
   end
 end
