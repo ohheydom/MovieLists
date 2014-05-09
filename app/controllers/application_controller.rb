@@ -26,11 +26,6 @@ class ApplicationController < ActionController::Base
     Rails.cache.clear
   end
 
-  def get_actors(movie_id) # Get all the actors for a movie by id
-    ary = Rails.cache.fetch([:movie_cache, movie_id]) { Tmdb::TheMovieDb.get_movie_credits_by_movie_id(movie_id) }
-    ary['cast'].each_with_object({}) { |f, obj| obj[f['name']] = f['id'] }
-  end
-
   protected
 
   def configure_permitted_parameters
