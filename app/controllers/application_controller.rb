@@ -26,6 +26,12 @@ class ApplicationController < ActionController::Base
     Rails.cache.clear
   end
 
+  private
+
+  def current_user_movies
+    user_signed_in? ? MyMovies.new(current_user.movies) : nil
+  end
+
   protected
 
   def configure_permitted_parameters
