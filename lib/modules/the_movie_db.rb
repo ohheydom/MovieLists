@@ -110,7 +110,7 @@ module Tmdb
     def self.add_actors_to_hash(user)  #Top 5
       actor_array = []
       user.each { |a| a[:actors].each { |act, id| actor_array << [act, id] } }
-      return Hash[Array.duplicate_hashes(actor_array).sort_by { |k, v| -v } [0..4]]
+      Hash[Array.duplicate_hashes(actor_array).sort_by { |k, v| -v } [0..4]]
     end
 
     def self.compare_movies(my_profile, other_profile)

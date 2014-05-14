@@ -33,7 +33,7 @@ class ProfilePage
 
   def most_recent_movies(number)
     last_movies = @user.connectors.order('created_at').last(number).map(&:movie_id)
-    Movie.find(last_movies).index_by(&:id).slice(*last_movies).map do |movid, movinfo| 
+    Movie.find(last_movies).index_by(&:id).slice(*last_movies).map do |movid, movinfo|
       [movinfo['title'], movid]
     end.reverse
   end

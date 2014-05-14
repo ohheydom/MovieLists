@@ -1,5 +1,5 @@
-actors = {'Clint Eastwood' => 190, 'Gene Hackman' => 193, 'Morgan Freeman' => 192, 'Milla Jovavich' => 63, 'Johnny Depp' => 85 }
-actors2 = {'Lucy Liu' => 140, 'Hank Azaria' => 5587, 'Albert Brooks' => 13, 'Bruce Willis' => 62, 'Johnny Depp' => 85 }
+actors = { 'Clint Eastwood' => 190, 'Gene Hackman' => 193, 'Morgan Freeman' => 192, 'Milla Jovavich' => 63, 'Johnny Depp' => 85 }
+actors2 = { 'Lucy Liu' => 140, 'Hank Azaria' => 5587, 'Albert Brooks' => 13, 'Bruce Willis' => 62, 'Johnny Depp' => 85 }
 
 movies = ['Finding Nemo', 'Paths Of Glory', 'Gravity', 'Rashomon', 'The Shawshank Redemption', 'Scary Movie 2']
 movies2 = ['The Apartment', 'The Godfather', 'Seven Samurai', 'Solaris', 'Dallas Buyers Club', 'Dragnet']
