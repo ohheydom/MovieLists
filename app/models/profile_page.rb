@@ -27,6 +27,10 @@ class ProfilePage
     @_compared_films ||= my_movies.map { |movid| movid['id'] } & movies.map { |movid| movid['id'] }
   end
 
+  def our_movie_percentage
+    (our_movies.count.to_f / (my_movies.count + movies.count - our_movies.count.to_f)) * 100
+  end
+
   def paginated_movies(page)
     Kaminari.paginate_array(movies_by_year).page(page).per(50)
   end

@@ -113,13 +113,6 @@ module Tmdb
       Hash[Array.duplicate_hashes(actor_array).sort_by { |k, v| -v } [0..4]]
     end
 
-    def self.compare_movies(my_profile, other_profile)
-      myary = my_profile.map { |movid| movid['id'] }
-      otherary = other_profile.map { |movid| movid['id'] }
-      mov_together = (myary & otherary)
-      return mov_together, ((mov_together.count.to_f / (otherary.count + myary.count - mov_together.count.to_f)) * 100)
-    end
-
     def self.add_years_to_hash(user) #Top 5
       Hash[Array.duplicate_hashes(user.map(&:release_date)).sort_by { |k, v| -v } [0..4]]
     end

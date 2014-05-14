@@ -31,7 +31,7 @@
         <tr>
           <td>We've seen</td>
         <tr>
-          <td><h1><%= number_to_percentage(Tmdb::MovieStats.compare_movies(profile.my_movies, profile.movies)[1], precision: 0) %></h1>
+          <td><h1><%= number_to_percentage(@profile.our_movie_percentage, precision: 0) %></h1>
           </td>
         </tr>
         <tr>
