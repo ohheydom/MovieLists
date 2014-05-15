@@ -19,10 +19,8 @@ MyMovieTracker::Application.routes.draw do
   resources :lists, only: [:show, :index]
   resource :search, only: [:show]
 
-  # Users
   get 'profile/:id', to: 'users#show', as: 'profile'
 
-  # Errors
   get '/404', to: 'errors#not_found'
   get '/500', to: 'errors#internal_server_error'
   get '/422', to: 'errors#unprocessable_entity'

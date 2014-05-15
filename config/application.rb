@@ -16,7 +16,7 @@ end
 module MyMovieTracker
   class Application < Rails::Application
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
-    Dir[File.join(Rails.root, "lib", "core_ext", "*.rb")].each { |l| require l }
+    Dir[File.join(Rails.root, 'lib', 'core_ext', '*.rb')].each { |l| require l }
     config.exceptions_app = self.routes
   end
 end
