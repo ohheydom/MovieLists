@@ -1,33 +1,31 @@
 <% unless @movie.status_code == 6 %>
   <%= provide :title, @movie.title %>
-  <% (user_signed_in?) ? (form_data = ive_seen_it(@movie.id, current_user.movie_ids)) : trclass = "noclass" %>
-  <table class="header_table">
-    <tr class="<%= form_data ? form_data.trclass : trclass %>" id= "<%= @movie.id %>_tr" >
-			<th class="header_table_movie_picture"><%= image_tag (@movie.poster_path) %></th>
-      <th><h2><%= @movie.title + " (#{@movie.release_date})" %></h2></th>
-			  <th>
-          <%= ive_seen_it_button(form_data, @movie) if user_signed_in? %>
-			  </th>
-		</tr>
-  </table>
-  <table>
-		<tr>
-			<td><h2>Tagline: <%= @movie.tagline %></h2></td>
-		</tr>
-		<tr>
-			<td>Overview: <%= @movie.overview %></td>
-		</tr>
-  </table>
-  <br>
-  <h2>Cast</h2>
-  <table>
-	  <% @movie.credits['cast'].each do |credit| %>
-	  <tr>
-		  <td><%= image_tag (Tmdb::PICTURE_URL + credit['profile_path']) unless credit['profile_path'].nil? %></td>
-		  <td><%= link_to credit['name'], actor_path(credit['id']) %></td>
-		  <td><%= credit['character'] %></td>
-	  <% end %>
+<% (user_signed_in?) ? (form_data = ive_seen_it(@movie.id, current_user.movie_ids)) : trclass = "noclass" %>
+<table class="header_table">
+  <tr class="<%= form_data ? form_data.trclass : trclass %>" id= "<%= @movie.id %>_tr" >
+    <td class="header_table_movie_picture"><%= image_tag (@movie.poster_path) %></td>
+    <td><h2><%= @movie.title_and_release_date %></h2></td>
+    <td><%= ive_seen_it_button(form_data, @movie) if user_signed_in? %></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td><h2>Tagline: <%= @movie.tagline %></h2></td>
+  </tr>
+  <tr>
+    <td>Overview: <%= @movie.overview %></td>
+  </tr>
+</table>
+<br>
+<h2>Cast</h2>
+<table>
+  <% @movie.credits['cast'].each do |credit| %>
+    <tr>
+    <td><%= image_tag (Tmdb::PICTURE_URL + credit['profile_path']) unless credit['profile_path'].nil? %></td>
+    <td><%= link_to credit['name'], actor_path(credit['id']) %></td>
+    <td><%= credit['character'] %></td>
+  <% end %>
   </table>
 <% else %>
-  <h2>Movie not found!</h2>
+    <h2>Movie not found!</h2>
 <% end %>

@@ -54,7 +54,7 @@ describe 'Movie Page', :js => true do
       end
 
       it 'displays an image if a poster_path is valid' do
-        expect(page).to have_css "th.header_table_movie_picture img[src='http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92/zjqInUwldOBa0q07fOyohYCWxWX.jpg']"
+        expect(page).to have_css "td.header_table_movie_picture img[src='http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92/zjqInUwldOBa0q07fOyohYCWxWX.jpg']"
       end
     end
 
@@ -66,7 +66,7 @@ describe 'Movie Page', :js => true do
       end
 
       it 'displays nothing if a poster_path is missing' do
-        expect(page).to have_css "th.header_table_movie_picture img[src='']"
+        expect(page).to have_css "td.header_table_movie_picture img[src='']"
       end
     end
   end

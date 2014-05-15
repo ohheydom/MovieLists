@@ -12,16 +12,8 @@ module Tmdb
       @id = @movie['id']
     end
 
-    def tagline
-      @movie['tagline']
-    end
-
-    def overview
-      @movie['overview']
-    end
-
-    def title
-      @movie['title']
+    def character
+      @movie['character']
     end
 
     def credits
@@ -32,8 +24,8 @@ module Tmdb
       end
     end
 
-    def character
-      @movie['character']
+    def overview
+      @movie['overview']
     end
 
     def poster_path
@@ -49,6 +41,18 @@ module Tmdb
 
     def status_code
       @movie['status_code']
+    end
+
+    def tagline
+      @movie['tagline']
+    end
+
+    def title
+      @movie['title']
+    end
+
+    def title_and_release_date
+      "#{title} (#{release_date})"
     end
   end
 
