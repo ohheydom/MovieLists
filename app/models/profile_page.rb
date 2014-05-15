@@ -45,10 +45,10 @@ class ProfilePage
   def top_five_actors
     actor_array = []
     movies.each { |a| a[:actors].each { |act, id| actor_array << [act, id] } }
-    Hash[Array.duplicate_hashes(actor_array).sort_by { |k, v| -v } [0..4]]
+    actor_array.hash_of_duplicates.sort_by { |k, v| -v } [0..4]
   end
 
   def top_five_years
-    Hash[Array.duplicate_hashes(movies.map(&:release_date)).sort_by { |k, v| -v } [0..4]]
+    movies.map(&:release_date).hash_of_duplicates.sort_by { |k, v| -v } [0..4]
   end
 end
