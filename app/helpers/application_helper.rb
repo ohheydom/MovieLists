@@ -25,6 +25,10 @@ module ApplicationHelper
     FormData.new(method, submit, trclass, path)
   end
 
+  def ive_seen_it_button(form_data, movie)
+    render 'shared_partials/iveseenitbutton', form_data: form_data, movie: movie
+  end
+
   def user_movies
     current_user ? @_allmovies ||= current_user.movies.to_a : []
   end

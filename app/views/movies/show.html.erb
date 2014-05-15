@@ -1,6 +1,6 @@
 <% unless @movie.status_code == 6 %>
   <%= provide :title, @movie.title %>
-  <% (user_signed_in?) ? (form_data = ive_seen_it_single(@movie.id)) : trclass = "noclass" %>
+  <% (user_signed_in?) ? (form_data = ive_seen_it(@movie.id, current_user.movie_ids)) : trclass = "noclass" %>
   <table class="header_table">
     <tr class="<%= form_data ? form_data.trclass : trclass %>" id= "<%= @movie.id %>_tr" >
 			<th class="header_table_movie_picture"><%= image_tag (@movie.poster_path) %></th>
