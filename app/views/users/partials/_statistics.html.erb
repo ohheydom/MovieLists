@@ -12,13 +12,13 @@
       </tr>
       <tr>
         <td><h4>Top Five actors/actresses:</h4></td>
-        <% Tmdb::MovieStats.add_actors_to_hash(profile.movies).each do |key, val| %>
+        <% profile.top_five_actors.each do |key, val| %>
           <td><h4><%= link_to key[0] + " (#{val})", actor_path(key[1]) %></h4></td>
         <% end %>
       </tr>
       <tr>
         <td><h4><%= user %>watched the most movies made in:</h4> </td>
-        <% Tmdb::MovieStats.add_years_to_hash(profile.movies).each do |key, val| %>
+        <% profile.top_five_years.each do |key, val| %>
           <td><h4><%= link_to "#{key} (#{val})", {by_year: key} %></h4></td>
         <% end %>
         <td><h4><%= link_to 'All', profile_path(profile.user) %></h4></td>
@@ -31,7 +31,7 @@
         <tr>
           <td>We've seen</td>
         <tr>
-          <td><h1><%= number_to_percentage(@profile.our_movie_percentage, precision: 0) %></h1>
+          <td><h1><%= number_to_percentage(profile.our_movie_percentage, precision: 0) %></h1>
           </td>
         </tr>
         <tr>

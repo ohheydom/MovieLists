@@ -105,16 +105,4 @@ module Tmdb
       JSON.parse(x.body)
     end
   end
-
-  class MovieStats
-    def self.add_actors_to_hash(user)  #Top 5
-      actor_array = []
-      user.each { |a| a[:actors].each { |act, id| actor_array << [act, id] } }
-      Hash[Array.duplicate_hashes(actor_array).sort_by { |k, v| -v } [0..4]]
-    end
-
-    def self.add_years_to_hash(user) #Top 5
-      Hash[Array.duplicate_hashes(user.map(&:release_date)).sort_by { |k, v| -v } [0..4]]
-    end
-  end
 end

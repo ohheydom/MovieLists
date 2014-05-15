@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  require 'the_movie_db'
   include ApplicationHelper
   before_filter :configure_permitted_parameters, if: :devise_controller?
   after_filter :store_location
