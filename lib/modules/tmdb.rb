@@ -43,8 +43,6 @@ module Tmdb
     def release_date
       release_date = @movie['release_date'].blank? ? NullObjects::NoReleaseDate.new.release_date : @movie['release_date']
       Date.parse(release_date).strftime('%Y')
-    rescue
-      release_date
     end
 
     def status_code
