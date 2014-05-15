@@ -36,19 +36,27 @@ class ProfilePage
   end
 
   def most_recent_movies(number)
-    last_movies = @user.connectors.order('created_at').last(number).map(&:movie_id)
+    last_movies = @user.recently_added(number).map(&:movie_id)
     Movie.find(last_movies).index_by(&:id).slice(*last_movies).map do |movid, movinfo|
       [movinfo['title'], movid]
     end.reverse
   end
 
   def top_five_actors
-    actor_array = []
-    movies.each { |a| a[:actors].each { |act, id| actor_array << [act, id] } }
-    actor_array.hash_of_duplicates.sort_by { |k, v| -v } [0..4]
+    actors.hash_of_duplicates.sort_by { |k, v| -v } [0..4]
   end
 
   def top_five_years
-    movies.map(&:release_date).hash_of_duplicates.sort_by { |k, v| -v } [0..4]
+    release_date_years.hash_of_duplicates.sort_by { |k, v| -v } [0..4]
+  end
+
+  private
+
+  def actors
+    movies.each_with_object([]) { |a, obj| a[:actors].each { |act, id| obj << [act, id] } }
+  end
+
+  def release_date_years
+    movies.map(&:release_date)
   end
 end

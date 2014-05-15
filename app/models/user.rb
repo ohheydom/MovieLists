@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true, format: { without: /\A\d/ }, length:
             { maximum: 12, too_long: "%{count} characters is the maximum allowed" }
+
+  def recently_added(number)
+    connectors.order('created_at').last(number)
+  end
 end
