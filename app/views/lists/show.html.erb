@@ -5,17 +5,17 @@
   </h2>
 
   <h1><%= @list.name %></h1>
-  <table class='movie_list'>
+  <table id='movies' class='movie_list'>
     <tr class='movie_status_table_header'>
       <th></th>
       <th>Film</th>
       <th></th>
     </tr>
-    <tbody class = 'endless_movie'>
+    <tbody class = 'page'>
     <%= render :partial => @list.view_partial, :collection => @list.list_renderable(params[:page]), :as => :movie %>
     </tbody>
   </table>
-  <%= paginate @list.paginated_list(params[:page]), remote: true %>
+  <%= paginate @list.paginated_list(params[:page]) %>
 <% else %>
   <title>List not found</title>
   <h2>List not found!</h2>

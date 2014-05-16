@@ -6,12 +6,12 @@
     <%= render 'users/partials/left_side_statistics', profile: @profile %>
   </div>
   <div class="col-md-9">
-    <table class="table">
+    <table id="movies" class="movie_list">
       <tr><th>Movie Titles</th></tr>
-      <tbody class = "endless_movie">
+      <tbody class = "page">
         <%= render :partial => 'users/partials/list_of_movies', :collection => @profile.paginated_movies(params[:page]), :as => :movie %>
       </tbody>
     </table>
-    <%= paginate @profile.paginated_movies(params[:page]), remote: true %>
+    <%= paginate @profile.paginated_movies(params[:page]) %>
   </div>
 </div>

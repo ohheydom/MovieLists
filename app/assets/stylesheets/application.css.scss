@@ -11,8 +11,6 @@
  *= require_self
  *= require_tree .
  */
- 
-
 
 @import "bootstrap";
 
@@ -83,7 +81,15 @@
 
 .movie_list {
   width: 60%;
+  tr {
+    td {
+      border-top: 1px solid grey;
+      border-bottom: 1px solid grey;
+      padding-top: 5px;
+      padding-bottom: 5px;
     }
+  }
+}
 
 .movie_unwatched {
   background-color: #ffe2e2;

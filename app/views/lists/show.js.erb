@@ -1,3 +1,1 @@
-$('nav.pagination').html("<%= escape_javascript (paginate @list.paginated_list(params[:page]), remote: true)%>");
-$('.endless_movie').append("<%= escape_javascript (render partial: @list.view_partial, collection: @list.list_renderable(params[:page]), as: :movie) %>");
-$('#tempload').remove();
+$('#movies').append("<tbody class='page'><%= escape_javascript(render :partial => @list.view_partial, :collection => @list.list_renderable(params[:page]), :as => :movie) %></tbody>");
