@@ -11,15 +11,15 @@
   <% end %>
 </table>
 
-<table class="table">	
-	<tr>
-		<th>Other Users!</th>
-	</tr>
-	<% User.take(10).each do |user|  %>
+<table class="table">
+  <tr>
+    <th>Other Users!</th>
+  </tr>
+  <% User.take(10).each do |user|  %>
 	  <tr>
-		  <td>	
-			  <%= link_to(user[:username], profile_path(user[:username])) unless user[:username] == current_user.username %>
-		  </td>
-	  </tr>
-	<% end %>
+      <td>
+        <%= link_to(user[:username], profile_path(user[:username])) unless user[:username] == current_user.username %>
+      </td>
+    </tr>
+  <% end %>
 </table>

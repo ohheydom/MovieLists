@@ -5,17 +5,17 @@
     <% if user_signed_in? %>
       I've seen <span id="moviecount"><%= @actor.compare_films_to_user.count %></span> out of
     <% end %>
-    <%= @actor.films.count %> movies
+  <%= @actor.films.count %> movies
   </h2>
 
   <table>
-	  <tr class="movie_status_table_header">
-		  <th></th>
-		  <th>Film</th>
-		  <th>Character</th>
-		  <th></th>
-		  <th></th>
-	  </tr>
+    <tr class="movie_status_table_header">
+      <th></th>
+      <th>Film</th>
+      <th>Character</th>
+      <th></th>
+      <th></th>
+    </tr>
     <%= render partial: @actor.view_partial, collection: @actor.films_renderable, as: :movie %>
   </table>
 <% else %>

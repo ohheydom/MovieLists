@@ -4,7 +4,7 @@ Number of results: <%= @search.list_count %>
     <th></th>
     <th>Film</th>
   </tr>
-	<tr>
+  <tr>
     <%= render partial: @search.view_partial, collection: @search.list_renderable, as: :movie %>
 	</tr>
 </table>
