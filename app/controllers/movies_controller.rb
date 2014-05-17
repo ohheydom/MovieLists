@@ -23,18 +23,15 @@ class MoviesController < ApplicationController
   end
 
   def update
-    @oldmovie = Movie.find(params[:movie_id])
-    if @oldmovie.present?
+    @oldmovie = Movie.find_by(id: params[:movie_id])
+    if @oldmovie
       @oldmovie.update(movie_params)
       respond_to do |format|
-        if @oldmovie.update(movie_params)
-          format.html { redirect_to root_path }
-          format.js { render nothing: true }
-        else
-          format.html { redirect_to root_path }
-          format.js { render nothing: true }
-        end
+        format.html { redirect_to root_path }
+        format.js { render nothing: true }
       end
+    else
+      render nothing: true
     end
   end
 
@@ -51,6 +48,6 @@ class MoviesController < ApplicationController
 
   def get_actors(movie_id) # Get all the actors for a movie by id
     ary = Rails.cache.fetch([:movie_cache, movie_id]) { Tmdb::TheMovieDb.get_movie_credits_by_movie_id(movie_id) }
-    ary['cast'].each_with_object({}) { |f, obj| obj[f['name']] = f['id'] }
+    ary['cast'].each_with_object({}) { |actor, obj| obj[actor['name']] = actor['id'] }
   end
 end
