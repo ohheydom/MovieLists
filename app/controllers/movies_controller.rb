@@ -8,13 +8,9 @@ class MoviesController < ApplicationController
     @movie.save
     @connector = current_user.connectors.new(connector_params)
     @connector.save
-    if @movie.save
-      respond_to do |format|
-        format.html { redirect_to movie_path(@movie.id) }
-        format.js { render 'shared_javascripts/create' }
-      end
-    else
-      render :nothing
+    respond_to do |format|
+      format.html { redirect_to movie_path(@movie.id) }
+      format.js { render 'shared_javascripts/create' }
     end
   end
 
