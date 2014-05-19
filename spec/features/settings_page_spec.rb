@@ -14,5 +14,9 @@ describe 'Settings Page' do
       visit user_settings_path(user2)
       expect(page).to have_content user.username
     end
+
+    it 'has a button to save a users movie list' do
+      expect(page).to have_button 'Save'
+    end
   end
 end

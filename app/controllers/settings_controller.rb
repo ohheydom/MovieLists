@@ -5,6 +5,10 @@ class SettingsController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
+  def save_movie_list
+
+  end
+
   private
 
   def redirect_if_not_current_user

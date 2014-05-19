@@ -15,7 +15,11 @@ MyMovieTracker::Application.routes.draw do
   end
 
   resources :users, only: [:show] do
-    resource :settings, only: [:show]
+    resource :settings, only: [:show] do
+      member do
+        post 'save_movie_list'
+      end
+    end
   end
 
   resources :actors, only: [:show]
