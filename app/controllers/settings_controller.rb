@@ -6,7 +6,7 @@ class SettingsController < ApplicationController
   end
 
   def save_movie_list
-
+    send_data current_user.movies.to_csv, filename: 'my_movies.csv'
   end
 
   private

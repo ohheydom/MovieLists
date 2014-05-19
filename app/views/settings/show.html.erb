@@ -1,3 +1,12 @@
 <%= provide :title, 'Settings' %>
 <h2><%= @user.username %></h2>
-<%= button_to 'Save', action: 'save_movie_list' %>
+<div class= 'row'>
+  <div class= 'col-md-6'>
+    <table class='table'>
+      <tr>
+        <td>Save your movies to a csv file:</td>
+        <td><%= button_to 'Save',  { action: 'save_movie_list' }, { class: 'btn btn-default' } %></td>
+      </tr>
+    </table>
+  </div>
+</div>

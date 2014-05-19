@@ -18,5 +18,9 @@ describe 'Settings Page' do
     it 'has a button to save a users movie list' do
       expect(page).to have_button 'Save'
     end
+
+    it 'has the text Save your movies to a csv file' do
+      expect(page).to have_content 'Save your movies to a csv file'
+    end
   end
 end
