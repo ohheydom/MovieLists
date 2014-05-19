@@ -17,6 +17,7 @@ describe 'User Pages' do
     before { visit root_path }
 
     it { should have_title(user.username) }
+    it { should have_link 'Settings', href: user_settings_path(user) }
 
     describe 'Statistics' do
       it { should have_content('Number of movies') }

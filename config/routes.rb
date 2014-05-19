@@ -14,6 +14,10 @@ MyMovieTracker::Application.routes.draw do
     root to: 'homes#show', via: :get
   end
 
+  resources :users, only: [:show] do
+    resource :settings, only: [:show]
+  end
+
   resources :actors, only: [:show]
   resources :movies, only: [:show, :create, :destroy, :update]
   resources :lists, only: [:show, :index]
