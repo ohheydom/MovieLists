@@ -2,7 +2,7 @@ require 'csv'
 class Movie < ActiveRecord::Base
   serialize :actors
 
-  has_many :connectors
+  has_many :connectors, dependent: :destroy
   has_many :users, through: :connectors
 
   validates :id, uniqueness: true

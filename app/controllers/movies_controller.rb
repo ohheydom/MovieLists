@@ -8,9 +8,13 @@ class MoviesController < ApplicationController
     @movie.save
     @connector = current_user.connectors.new(connector_params)
     @connector.save
-    respond_to do |format|
-      format.html { redirect_to movie_path(@movie.id) }
-      format.js { render 'shared_javascripts/create' }
+    if @movie.save
+      respond_to do |format|
+        format.html { redirect_to movie_path(@movie.id) }
+        format.js { render 'shared_javascripts/create' }
+      end
+    else
+      render :nothing
     end
   end
 
@@ -37,13 +41,13 @@ class MoviesController < ApplicationController
 
   private
 
-  def connector_params
-    params.permit(:user_id, :movie_id)
-  end
-
   def movie_params
     params.permit(:id, :title, :actors, :release_date)
     .merge(id: params[:movie_id], actors: get_actors(params[:movie_id]))
+  end
+
+  def connector_params
+    params.permit(:user_id, :movie_id)
   end
 
   def get_actors(movie_id) # Get all the actors for a movie by id
