@@ -13,6 +13,7 @@ ActiveRecord::ConnectionAdapters::ConnectionPool.class_eval do
   end
 end
 
+Capybara.javascript_driver = :webkit
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true

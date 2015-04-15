@@ -2,7 +2,7 @@ require 'faraday'
 require 'json'
 
 module Tmdb
-  PICTURE_URL = 'http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92'
+  PICTURE_URL = 'http://image.tmdb.org/t/p/w92'
 
   class Movie
     attr_reader :id

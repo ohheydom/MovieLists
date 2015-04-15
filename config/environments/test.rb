@@ -11,6 +11,6 @@ MyMovieTracker::Application.configure do
   config.action_dispatch.show_exceptions = false
   config.action_controller.allow_forgery_protection = false
   config.action_mailer.delivery_method = :test
-  config.cache_store = :redis_store, { :expires_in => 20.minutes }
+  config.cache_store = :memory_store #:redis_store, { :expires_in => 20.minutes }
   config.active_support.deprecation = :stderr
 end

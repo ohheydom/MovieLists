@@ -9,7 +9,7 @@ MyMovieTracker::Application.configure do
   config.active_record.migration_error = :page_load
 
   config.assets.debug = true
-  config.cache_store = :redis_store, { :expires_in => 20.minutes }
+  config.cache_store = :memory_store #:redis_store, { :expires_in => 20.minutes }
   config.after_initialize do
     Bullet.enable = true
     Bullet.alert = true
