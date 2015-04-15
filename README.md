@@ -7,7 +7,7 @@ This was the first real application I created. It's not the cleanest but I've ke
 
 Clone the repository to your local machine
 
-Setup an application.yml file with the following contents, of course replacing 'YOUR API KEY GOES HERE' with your api key. You can get an api key from  http://www.themoviedb.org/documentation/api :
+Setup a config/application.yml file with the following contents, of course replacing 'YOUR API KEY GOES HERE' with your api key. You can get an api key from  http://www.themoviedb.org/documentation/api :
 
 
 ```
