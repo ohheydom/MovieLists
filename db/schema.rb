@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140415182710) do
 
-  create_table "connectors", force: true do |t|
+  create_table "connectors", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "movie_id"
     t.datetime "created_at"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140415182710) do
   add_index "connectors", ["movie_id"], name: "index_connectors_on_movie_id"
   add_index "connectors", ["user_id"], name: "index_connectors_on_user_id"
 
-  create_table "movies", force: true do |t|
+  create_table "movies", force: :cascade do |t|
     t.string   "title"
     t.text     "actors"
     t.datetime "created_at"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140415182710) do
 
   add_index "movies", ["id"], name: "index_movies_on_id"
 
-  create_table "profiles", force: true do |t|
+  create_table "profiles", force: :cascade do |t|
     t.string   "username"
     t.string   "favorite_movie"
     t.string   "favorite_genre"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140415182710) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
