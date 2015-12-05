@@ -1,17 +1,17 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.3'
+gem 'rails', '4.2.1'
 
 group :development do
   gem 'sqlite3'
   gem 'quiet_assets'
-  gem 'bullet'
+  gem 'bullet', '~> 4.14.6'
 end
 
 gem 'sass-rails', '~> 4.0.0'
-gem 'faraday', '~> 0.8.9'
+gem 'faraday', '~> 0.9.1'
 gem 'json'
-gem 'devise'
+gem 'devise', '~> 3.4.1'
 gem 'kaminari'
 gem 'redis-store'
 gem 'redis'
@@ -22,8 +22,8 @@ gem 'httparty'
 gem 'rename'
 gem 'bootstrap-sass', '~> 3.0.2.0'
 gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jquery-turbolinks'
+gem 'turbolinks', '~> 2.5.3'
+gem 'jquery-turbolinks', '~> 2.1.0'
 gem 'jbuilder', '~> 1.2'
 gem 'test-unit'
 
@@ -43,7 +43,7 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'rspec-rails'
   gem 'faker'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '~> 4.5.0'
   gem "rails_best_practices"
   gem 'vcr'
 end
