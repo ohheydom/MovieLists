@@ -1,5 +1,5 @@
-$("#<%= params[:movie_id] %>_tr").removeClass("movie_unwatched").addClass("movie_watched");
-$("#<%= params[:movie_id] %>_form").attr({'method':"delete", 'action':"<%= escape_javascript(movie_path(params[:movie_id])) %>"});
+$("#<%= params[:movie_id] %>-tr").removeClass("movie-unwatched").addClass("movie-watched");
+$("#<%= params[:movie_id] %>-form").attr({'method':"delete", 'action':"<%= escape_javascript(movie_path(params[:movie_id])) %>"});
 
 if ($('#moviecount').length) {
   var count = $("#moviecount").html();

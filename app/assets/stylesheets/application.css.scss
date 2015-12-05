@@ -14,72 +14,72 @@
 
 @import "bootstrap";
 
-.smaller_form {
+.smaller-form {
   width: 80%;
   text-align: right;
-        }
-				
-.profile_header_right {
+}
+
+.profile-header-right {
   text-align: right;
-          }
-					
+}
+
 .container-fluid {
   padding: 10px;
-  background-color: #FFFFFF;
-          }
-		
-.header_login {
-  text-align: right;
-        }
-					
-.header_logged_in {
-  text-align: right;
-        }
+  background-color: #fff8dc;
+}
 
-.header_search_bar {
+.header-login {
+  text-align: right;
+}
+
+.header-logged-in {
+  text-align: right;
+}
+
+.header-search-bar {
   text-align: center;
-	valign: center;
-        }
-							
-.header_table {
-  width: 100%;
-        }
+  vertical-align: center;
+}
 
-.header_table_movie_picture {
-	text-align: left;
-            }
-			
-.main_search {
+.header-table {
+  width: 100%;
+}
+
+.header-table-movie-picture {
+  text-align: left;
+}
+
+#main-search {
   margin-left: auto ;
   margin-right: auto ;
-	width: 30%;
-	text-align: center;
-	margin-top: 200px;
-					}
-					
-.main_create_profile {
+  width: 30%;
   text-align: center;
-	margin-top: 100px;
-          }
-					
+  margin-top: 200px;
+}
+
+#main-create-profile {
+  text-align: center;
+  margin-top: 100px;
+}
+
 .notice {
-	text-align: left;
-		}
+  text-align: left;
+}
 
 .alert {
   text-align: left;
-		}
+}
 
-.movie_status_table_header {
-	font-size: large;
-	background-color: #acd4e9;
-            }
-		
-.movie_watched {
+.movie-status-table-header {
+  font-size: large;
+  background-color: #acd4e9;
+}
+
+.movie-watched {
   background-color: #ace9b1;
-			}
+}
 
-.movie_list {
+.movie-list {
   width: 60%;
   tr {
     td {
@@ -91,20 +91,20 @@
   }
 }
 
-.movie_unwatched {
+.movie-unwatched {
   background-color: #ffe2e2;
-        }
+}
 
-.percentage_of_movies  {
+.percentage-of-movies  {
   border: 3px solid;
   float: none; 
   margin-left: auto; 
   margin-right: auto;
   height: 150px;
   width: 150px;
-	td {
-	  font-size: large;
-	  vertical-align: middle;
-	  text-align: center;
-	  }
-        }
+  td {
+    font-size: large;
+    vertical-align: middle;
+    text-align: center;
+  }
+}

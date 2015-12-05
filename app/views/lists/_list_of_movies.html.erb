@@ -1,5 +1,5 @@
 <% form_data = ive_seen_it(movie.id, @list.compare_films_to_user) %>
-<tr class="<%= form_data.trclass %>" id = "<%= movie.id %>_tr">
+<tr class="<%= form_data.trclass %>" id = "<%= movie.id %>-tr">
   <td><%= image_tag (movie.poster_path) %></td>
   <td><%= link_to (movie.title + " (#{movie.release_date})"), movie_path(movie.id) %></td>
   <td><%= ive_seen_it_button(form_data, movie) %></td>

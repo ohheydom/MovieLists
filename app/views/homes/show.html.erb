@@ -1,7 +1,7 @@
 <%= provide :title, 'Welcome' %>
 <div class="row">
   <div class="col-md-12">
-    <div class="main_search">
+    <div id="main-search">
       <div class="form-group">
         <%= form_tag(:search, url: search_path, method: "get") do %>
           <%= text_field_tag (:query), nil, class: "form-control" %>
@@ -13,7 +13,7 @@
         <% end %>
       </div>
     </div>
-    <div class="main_create_profile">
+    <div id="main-create-profile">
       <h3>Create a profile to login and keep track of the movies you've seen! <%= link_to "Sign up now!", signup_path %></h3>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<tr class="noclass" id= "<%= movie.id %>_tr">
+<tr class="noclass" id= "<%= movie.id %>-tr">
   <td><%= image_tag (movie.poster_path) %></td>
   <td><%= link_to (movie.title + " (#{movie.release_date})"), movie_path(movie.id) %></td>
 </tr>

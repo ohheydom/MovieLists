@@ -6,7 +6,7 @@
 
   <% if user_signed_in? %>
     <div class="col-md-4">
-      <div class="smaller_form">
+      <div class="smaller-form">
         <div class="form-group">
           <%= form_tag(:search, url: search_path, method: "get") do %>
             <%= text_field_tag (:query), nil, class: "form-control" %>
@@ -20,7 +20,7 @@
       </div>
     </div>	
     <div class="col-md-3">
-      <div class="profile_header_right">
+      <div class="profile-header-right">
         <%= current_user.username %>
         <%= link_to "Lists", lists_path %>
         <%= link_to "Settings", user_settings_path(current_user) %>
@@ -31,7 +31,7 @@
 	<% else %>
     <div class="col-md-3"></div>
     <div class="col-md-5">
-      <div class="smaller_form">
+      <div class="smaller-form">
         <%= form_for('user', :url => user_session_path, :html => {class: "form-inline"}) do |f| %>
           <div class="form-group">
 					  <%= f.label :username, class:"sr-only" %><%= f.text_field :username, :autofocus => true, class: "form-control", placeholder: "Username or E-mail" %>

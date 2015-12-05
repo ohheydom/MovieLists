@@ -1,9 +1,9 @@
 <% unless @movie.status_code == 6 %>
   <%= provide :title, @movie.title %>
   <% form_data = user_signed_in? ? ive_seen_it(@movie.id, current_user.movie_ids) : NullObjects::NotSignedIn.new.form_data %>
-  <table class="header_table">
-    <tr class="<%= form_data.trclass %>" id= "<%= @movie.id %>_tr" >
-      <td class="header_table_movie_picture"><%= image_tag (@movie.poster_path) %></td>
+  <table class="header-table">
+    <tr class="<%= form_data.trclass %>" id= "<%= @movie.id %>-tr" >
+      <td class="header-table-movie-picture"><%= image_tag (@movie.poster_path) %></td>
       <td><h2><%= @movie.title_and_release_date %></h2></td>
       <td><%= ive_seen_it_button(form_data, @movie) if user_signed_in? %></td>
     </tr>

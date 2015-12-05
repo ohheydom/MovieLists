@@ -14,12 +14,12 @@ module ApplicationHelper
     if ourmovies.include?(movie_id)
       method  = 'delete'
       submit  = true
-      trclass = 'movie_watched'
+      trclass = 'movie-watched'
       path    = movie_path(movie_id)
     else
       method  = 'post'
       submit  = false
-      trclass = 'movie_unwatched'
+      trclass = 'movie-unwatched'
       path    = movies_path
     end
     FormData.new(method, submit, trclass, path)

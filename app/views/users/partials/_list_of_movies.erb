@@ -1,5 +1,5 @@
 <% ((params.has_key?(:id)) && (params[:id] != current_user.username)) ? form_data = ive_seen_it(movie.id, @profile.our_movies) : trclass = "noclass" %>
-<tr class= "<%= form_data ? form_data.trclass : trclass %>" id = "<%= movie.id %>_tr">
+<tr class= "<%= form_data ? form_data.trclass : trclass %>" id = "<%= movie.id %>-tr">
   <td><%= link_to ("#{movie.title} (#{movie.release_date})"), movie_path(movie.id) %></td>
   <% if params.has_key?(:id) && (current_user.username != params[:id]) %>
     <td><%= ive_seen_it_button(form_data, Tmdb::Movie.new(movie)) %></td>
