@@ -29,10 +29,6 @@ module ApplicationHelper
     render 'shared_partials/iveseenitbutton', form_data: form_data, movie: movie
   end
 
-  def user_movies
-    current_user ? @_allmovies ||= current_user.movies.to_a : []
-  end
-
   def admin_username
     ENV['ADMIN_USERNAME']
   end
