@@ -19,8 +19,8 @@ describe 'Actor Page', :js => true do
   describe "Clicking and Unclicking checkbox for Movie I haven't seen, The Money Pit" do
     it 'changes the user.movies count by 1 and reclicking changes by -1' do
       VCR.use_cassette 'movies_spec/the_money_pit' do
-        expect { check_and_wait('10466_button') }.to change(user.movies, :count).by(1)
-        expect { uncheck_and_wait('10466_button') }.to change(user.movies, :count).by(-1)
+        expect { check_and_wait('10466-button') }.to change(user.movies, :count).by(1)
+        expect { uncheck_and_wait('10466-button') }.to change(user.movies, :count).by(-1)
       end
     end
   end
@@ -28,8 +28,8 @@ describe 'Actor Page', :js => true do
   describe "Unclicking and clicking checkbox for movie I've seen, Dragnet" do
     it 'changes the user.movies count by -1 and reclicking changes by 1' do
       VCR.use_cassette 'movies_spec/dragnet' do
-        expect { uncheck_and_wait('10023_button') }.to change(user.movies, :count).by(-1)
-        expect { check_and_wait('10023_button') }.to change(user.movies, :count).by(1)
+        expect { uncheck_and_wait('10023-button') }.to change(user.movies, :count).by(-1)
+        expect { check_and_wait('10023-button') }.to change(user.movies, :count).by(1)
       end
     end
   end

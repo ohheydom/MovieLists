@@ -35,15 +35,15 @@ describe 'User Pages' do
     it { should have_title(other_user.username) }
     it { should have_content(Movie.find(other_connector.movie_id).title) }
     it { should have_content(Movie.find(another_connector.movie_id).title) }
-    it { should have_css('.movie_watched') }
-    it { should have_css('.movie_unwatched') }
-    it { should have_css('table.percentage_of_movies') }
+    it { should have_css('.movie-watched') }
+    it { should have_css('.movie-unwatched') }
+    it { should have_css('table.percentage-of-movies') }
 
     describe "Unclicking and Clicking checkbox for movie I've seen, Finding Nemo" do
       it 'changes the user.movies count by 1 and reclicking changes by -1' do
         VCR.use_cassette 'movies_spec/finding_nemo' do
-          expect { uncheck_and_wait('12_button') }.to change(user.movies, :count).by(-1)
-          expect { check_and_wait('12_button') }.to change(user.movies, :count).by(1)
+          expect { uncheck_and_wait('12-button') }.to change(user.movies, :count).by(-1)
+          expect { check_and_wait('12-button') }.to change(user.movies, :count).by(1)
         end
       end
     end
@@ -51,8 +51,8 @@ describe 'User Pages' do
     describe "Clicking and Unclicking checkbox for movie I haven't seen, The Godfather" do
       it 'changes the user.movies count by -1 and reclicking changes by 1' do
         VCR.use_cassette 'movies_spec/the_godfather' do
-          expect { check_and_wait('238_button') }.to change(user.movies, :count).by(1)
-          expect { uncheck_and_wait('238_button') }.to change(user.movies, :count).by(-1)
+          expect { check_and_wait('238-button') }.to change(user.movies, :count).by(1)
+          expect { uncheck_and_wait('238-button') }.to change(user.movies, :count).by(-1)
         end
       end
     end

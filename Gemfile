@@ -9,7 +9,8 @@ group :development do
 end
 
 gem 'sass-rails', '~> 4.0.0'
-gem 'faraday', '~> 0.9.1'
+gem 'faraday'
+gem 'typhoeus'
 gem 'json'
 gem 'devise', '~> 3.4.1'
 gem 'kaminari'

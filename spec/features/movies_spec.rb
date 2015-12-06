@@ -17,12 +17,12 @@ describe 'Movie Page', :js => true do
     end
 
     it { should have_title(Movie.find(user_movie.movie_id).title) }
-    it { should have_css('tr.movie_watched') }
+    it { should have_css('tr.movie-watched') }
 
     it "changes the user's movies by -1 and reclicking by 1" do
       VCR.use_cassette 'movies_spec/watched_film_finding_nemo' do
-        expect { uncheck_and_wait('12_button') }.to change(user.movies, :count).by(-1)
-        expect { check_and_wait('12_button') }.to change(user.movies, :count).by(1)
+        expect { uncheck_and_wait('12-button') }.to change(user.movies, :count).by(-1)
+        expect { check_and_wait('12-button') }.to change(user.movies, :count).by(1)
       end
     end
   end
@@ -34,13 +34,13 @@ describe 'Movie Page', :js => true do
       end
     end
 
-    it { should have_css('tr.movie_unwatched') }
+    it { should have_css('tr.movie-unwatched') }
     it { should have_title('Forrest Gump') }
 
     it "changes the user's movies by 1 and reclicking by -1" do
       VCR.use_cassette 'movies_spec/unwatched_film_forrest_gump' do
-        expect { check_and_wait('13_button') }.to change(user.movies, :count).by(1)
-        expect { uncheck_and_wait('13_button') }.to change(user.movies, :count).by(-1)
+        expect { check_and_wait('13-button') }.to change(user.movies, :count).by(1)
+        expect { uncheck_and_wait('13-button') }.to change(user.movies, :count).by(-1)
       end
     end
   end
@@ -54,7 +54,7 @@ describe 'Movie Page', :js => true do
       end
 
       it 'displays an image if a poster_path is valid' do
-        expect(page).to have_css "td.header_table_movie_picture img[src='http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92/zjqInUwldOBa0q07fOyohYCWxWX.jpg']"
+        expect(page).to have_css "td.header-table-movie-picture img[src='http://image.tmdb.org/t/p/w92/zjqInUwldOBa0q07fOyohYCWxWX.jpg']"
       end
     end
 
@@ -66,7 +66,7 @@ describe 'Movie Page', :js => true do
       end
 
       it 'displays nothing if a poster_path is missing' do
-        expect(page).to have_css "td.header_table_movie_picture img[src='']"
+        expect(page).to have_css "td.header-table-movie-picture img[src='']"
       end
     end
   end

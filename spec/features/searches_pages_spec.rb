@@ -19,13 +19,13 @@ describe 'Search Pages' do
         end
 
         it { should have_content('Scary Movie') }
-        it { should have_css('.movie_unwatched') }
+        it { should have_css('.movie-unwatched') }
 
         describe "Clicking and Unclicking checkbox for move I haven't seen, Scary Movie" do
           it 'changes the user.movies count by 1 and reclicking changes by -1' do
             VCR.use_cassette 'search_spec/movie/scary_movie_credits' do
-              expect { check_and_wait('4247_button') }.to change(user.movies, :count).by(1)
-              expect { uncheck_and_wait('4247_button') }.to change(user.movies, :count).by(-1)
+              expect { check_and_wait('4247-button') }.to change(user.movies, :count).by(1)
+              expect { uncheck_and_wait('4247-button') }.to change(user.movies, :count).by(-1)
             end
           end
         end
@@ -33,8 +33,8 @@ describe 'Search Pages' do
         describe "Unclicking and clicking checkbox for movie I've seen, Scary Movie 2" do
           it 'changes the user.movies count by -1 and reclicking changes by 1' do
             VCR.use_cassette 'search_spec/movie/scary_movie_2_credits' do
-              expect { uncheck_and_wait('4248_button') }.to change(user.movies, :count).by(-1)
-              expect { check_and_wait('4248_button') }.to change(user.movies, :count).by(1)
+              expect { uncheck_and_wait('4248-button') }.to change(user.movies, :count).by(-1)
+              expect { check_and_wait('4248-button') }.to change(user.movies, :count).by(1)
             end
           end
         end

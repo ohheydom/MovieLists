@@ -21,13 +21,13 @@ describe 'List Pages' do
       end
 
       it { should have_title('IMDb Top 250') }
-      it { should have_css('.movie_unwatched') }
+      it { should have_css('.movie-unwatched') }
 
       describe "Clicking and Unclicking checkbox for movie I haven't seen, The Godfather" do
         it 'changes the user.movies count by -1 and reclicking changes by 1' do
           VCR.use_cassette 'movies_spec/the_godfather' do
-            expect { uncheck_and_wait('238_button') }.to change(user.movies, :count).by(-1)
-            expect { check_and_wait('238_button') }.to change(user.movies, :count).by(1)
+            expect { uncheck_and_wait('238-button') }.to change(user.movies, :count).by(-1)
+            expect { check_and_wait('238-button') }.to change(user.movies, :count).by(1)
           end
         end
       end
@@ -35,8 +35,8 @@ describe 'List Pages' do
       describe "Unclicking and clicking checkbox for movie I've seen, Pulp Fiction" do
         it 'changes the user.movies count by 1 and reclicking changes by -1' do
           VCR.use_cassette 'movies_spec/pulp_fiction' do
-            expect { check_and_wait('680_button') }.to change(user.movies, :count).by(1)
-            expect { uncheck_and_wait('680_button') }.to change(user.movies, :count).by(-1)
+            expect { check_and_wait('680-button') }.to change(user.movies, :count).by(1)
+            expect { uncheck_and_wait('680-button') }.to change(user.movies, :count).by(-1)
           end
         end
       end
