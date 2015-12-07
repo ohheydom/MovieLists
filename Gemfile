@@ -10,7 +10,6 @@ end
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'faraday'
-gem 'typhoeus'
 gem 'json'
 gem 'devise', '~> 3.4.1'
 gem 'kaminari'
@@ -38,11 +37,11 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'capybara'
+  gem 'capybara', '~> 2.5.0'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
   gem 'capybara-webkit'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.4.0'
   gem 'faker'
   gem 'factory_girl_rails', '~> 4.5.0'
   gem "rails_best_practices"

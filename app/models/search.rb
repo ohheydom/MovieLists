@@ -34,7 +34,7 @@ class Search
   private
 
   def response
-    @_response ||= @type == 'movie' ? search_by_movie_title(@query) : search_by_actor(@query)
+    @_response = @type == 'movie' ? search_by_movie_title(@query) : search_by_actor(@query)
   end
 
   def search_by_movie_title(title)

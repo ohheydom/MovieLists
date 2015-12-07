@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe ProfilePage do
   describe '#most_recent_movies' do

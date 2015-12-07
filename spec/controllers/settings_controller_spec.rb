@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe SettingsController do
   describe '#save_movie_list' do
