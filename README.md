@@ -1,13 +1,16 @@
-#My Movie Tracker
-My Movie Tracker is an application created in Ruby on Rails. My Movie Tracker allows you to create a list of movies you have seen. It'll keep track of which actors you've seen the most movies in and how many movies you've seen as part of lists (Top 250, AFI Top 100). You can even compare your list with friends! This is just a sample application I created to learn about working with apis. 
+# My Movie Tracker
+
+My Movie Tracker is a Ruby on Rails application that allows you to create a list of movies you have seen. It'll keep track of which actors you've seen the most movies in and how many movies you've seen as part of lists (Top 250, AFI Top 100). You can even compare your list with friends! This is just a sample application I created to learn about working with apis. 
+
+## Background
 
 This was the first real application I created. It's not the cleanest but I've kept it on github just as a reminder of my growth as a programmer. Every once in a while I'll come back to it to try cleaning it up a bit.
 
-##Deploying
+## Installation
 
 Clone the repository to your local machine
 
-Setup a config/application.yml file with the following contents, of course replacing 'YOUR API KEY GOES HERE' with your api key. You can get an api key from  http://www.themoviedb.org/documentation/api :
+Setup a config/application.yml file with the following contents, of course replacing 'YOUR API KEY GOES HERE' with your api key. You can get an api key from [The Movie DB](http://www.themoviedb.org/documentation/api):
 
 
 ```
